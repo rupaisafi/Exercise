@@ -1,0 +1,89 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DataGrid</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/lib/kendo/styles/kendo.bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">exercise.web</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-12">
+                Hello
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; 2019 - exercise.web</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/kendo/js/jquery.min.js"></script>
+    <script src="~/lib/kendo/js/kendo.all.min.js"></script>
+    <script src="~/lib/angular/kendo.angular.min.js"></script>
+
+
+    <script>
+        var oEditCell = kendo.ui.Grid.fn.editCell;
+        var oInit = kendo.ui.Grid.fn.init;
+        kendo.ui.Grid = kendo.ui.Grid.extend({
+            init: function () {
+                oInit.apply(this, arguments);
+                if (typeof this.options.beforeEdit === "function") {
+                    this.bind("beforeEdit", this.options.beforeEdit.bind(this));
+                }
+            },
+            editCell: function (cell) {
+                var that = this,
+                    cell = $(cell),
+                    column = that.columns[that.cellIndex(cell)],
+                    model = that._modelForContainer(cell),
+                    event = {
+                        container: cell,
+                        model: model
+                    };
+
+                if (model && this.trigger("beforeEdit", event)) {
+                    // don't edit if prevented in beforeEdit
+                    if (event.isDefaultPrevented()) return;
+                }
+                oEditCell.call(this, cell);
+            }
+        });
+        kendo.ui.plugin(kendo.ui.Grid);
+
+        
+
+    </script>
+</body>
+</html>

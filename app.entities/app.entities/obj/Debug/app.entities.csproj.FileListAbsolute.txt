@@ -1,0 +1,6 @@
+D:\Exercise\app.entities\app.entities\bin\Debug\app.entities.dll
+D:\Exercise\app.entities\app.entities\bin\Debug\app.entities.pdb
+D:\Exercise\app.entities\app.entities\obj\Debug\app.entities.csprojAssemblyReference.cache
+D:\Exercise\app.entities\app.entities\obj\Debug\app.entities.csproj.CoreCompileInputs.cache
+D:\Exercise\app.entities\app.entities\obj\Debug\app.entities.dll
+D:\Exercise\app.entities\app.entities\obj\Debug\app.entities.pdb
