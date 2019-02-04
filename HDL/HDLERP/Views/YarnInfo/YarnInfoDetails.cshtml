@@ -1,0 +1,87 @@
+﻿
+@Scripts.Render("~/Scripts/HDL/YarnInfo/YarnInfoDetails.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="well well-sm">Yarn Details</div>
+            <div class="form-horizontal">
+                <input type="hidden" id="hdnYarnId" value="0"/>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="cmbItem">Item Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbItem" id="cmbItem" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtYarnName">Yarn Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtYarnName" id="txtYarnName" required validationmessage="Required"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtYarnCode">Yarn Code:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtYarnCode" id="txtYarnCode" required validationmessage="Required"/>
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtYarnSpec">Yarn Specification:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtYarnSpec" id="txtYarnSpec"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtSlubLgthCm">Slub Length CM:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtSlubLgthCm" id="txtSlubLgthCm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtPauseCm">Pause CM:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPauseCm" id="txtPauseCm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtThicknessTime">Thickness Time:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtThicknessTime" id="txtThicknessTime"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtSlubPerMtr">Slub Per Mtr:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtSlubPerMtr" id="txtSlubPerMtr" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="cmbSupplier">Supplier:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text"  placeholder="" style="width: 100%; height: 28px;" name="cmbSupplier" id="cmbSupplier" />
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+

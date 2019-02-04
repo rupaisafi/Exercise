@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/HRM/EmployeeBasic/EmployeeInfo.js")
+
+
+<div id="divEmployeeSummary">
+    @Html.Partial("../HRM/EmployeeBasic/_EmployeeList")
+</div>
+<div id="divEmpDetails" class="displayNone">
+    @Html.Partial("../HRM/EmployeeBasic/_EmployeeDetails")
+</div>

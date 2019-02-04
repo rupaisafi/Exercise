@@ -1,0 +1,87 @@
+﻿@Scripts.Render("~/Scripts/HDL/MIssueInfo/MIssueDetails.js")
+@Scripts.Render("~/Scripts/HDL/MIssueInfo/MIssueDetailsSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm">Material Issue Details</div>
+        <div class="bs-example" id="divMIssueDetails">
+
+            <div class="col-md-6">
+                <div class="form-horizontal">
+                    <input type="hidden" id="hdnMIssueId" value="0" />
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbCompany">Company:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbCompany" id="cmbCompany" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtMIssueDate">Issue Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtMIssueDate" id="txtMIssueDate" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtSRNo">S.R.No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtSRNo" id="txtSRNo" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="cmbDepartment">Department:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 28px;" name="cmbDepartment" id="cmbDepartment"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="cmbUnit">Unit:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 28px;" name="cmbUnit" id="cmbUnit"/>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" style="width: 100%; height: 28px;" name="cmbIssueType" id="cmbIssueType"/>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="panel-body">
+                        <button id="btnAddMIssueDetails" class="btn btn-primary" type="button">Add Details</button>
+                        <div id="grdMIssueDetailsSummary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+

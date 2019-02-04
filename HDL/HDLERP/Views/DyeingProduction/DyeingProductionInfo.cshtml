@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Dyeing Production";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .k-list {
+        white-space: nowrap !important;
+    }
+</style>
+@Scripts.Render("~/Scripts/HDL/DyeingProduction/DyeingProductionInfo.js")
+
+<div class="row">
+    <div id="divDyeingProdSummary" class="col-md-12">
+        @Html.Partial("DyeingProdSummary")
+    </div>
+    <div id="divDyeingProdDetails" class="col-md-12 displayNone">
+        @Html.Partial("DyeingProdDetails")
+    </div>
+</div>

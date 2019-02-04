@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Supplier Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/SupplierInfo/SupplierInfo.js")
+
+<div class="row">
+    <div id="divSupplierDetails" class="col-lg-6">
+        @Html.Partial("SupplierDetails")
+    </div>
+    <div id="divSupplierSummary" class="col-lg-6">
+        @Html.Partial("SupplierSummary")
+    </div>
+</div>
+
+

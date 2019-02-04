@@ -1,0 +1,202 @@
+﻿
+@{
+    ViewBag.Title = "Finishing Rubber Belt Utilizes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .k-list-scroller {
+        position: relative;
+        overflow: auto;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .k-grid td {
+        line-height: 1em !important;
+        padding: 0.1em !important;
+    }
+
+</style>
+
+<div class="col-md-12 col-xs-12" ng-app="myApp" ng-controller="FinishingRubberBeltCtrl" id="mainController">
+    <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;" ng-show="finishingMaster">Finishing Floor Stock </div>
+
+    <div class="bs-example" style="background-color: #99ccff;margin-bottom:5px !important;" ng-show="finishingMaster" id="finishingMaster">
+        @*<pre>{{masterObj|json}}</pre>*@
+        <div class="row collapse in">
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="RID">RID</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="RID"style="width: 100%; height: 22px;" ng-model="masterObj.RID" disabled/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="SettingDate">Setting Date</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="SettingDate" style="width: 100%; height: 22px;" ng-model="masterObj.SettingDate" ng-keypress="masterMoveDown($event,'mcType','combo')" name="date" placeholder="DD/MM/YYYY" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />   
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="MCNo">MC No</label>
+                        <div class="col-md-7 col-xs-7">
+                              <input class="mcType" id="mcType" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.MCNo" ng-keypress="masterMoveDown($event,'BeltName','')" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="BeltName">Belt Name</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="BeltName"  style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.BName" ng-keypress="masterMoveDown($event,'Country','')" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Country">Country</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="Country" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.OCountry" ng-keypress="masterMoveDown($event,'SerialNo','')" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Remarks">Remarks</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="Remarks" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.Remarks" ng-keypress="saveMaster($event,masterObj)" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Stock">Serial No </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="SerialNo"  style="width: 100%; height: 22px;" ng-model="masterObj.SerialNo"  ng-keypress="masterMoveDown($event,'ThicknessMM','')"  min="0"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="ThicknessMM">Thickness MM </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="ThicknessMM" style="width: 100%; height: 22px;" ng-model="masterObj.ThicknessMM"  ng-keypress="masterMoveDown($event,'Hardness','')"min="0"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Hardness">Hardness</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="Hardness" style="width: 100%; height: 22px;" ng-model="masterObj.Hardness"  ng-keypress="masterMoveDown($event,'Width','')"min="0"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Width">Width</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="Width" style="width: 100%; height: 22px;" ng-model="masterObj.Width"  ng-keypress="masterMoveDown($event,'Type','combo')" min="0" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Type">Type</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="Type" kendo-combo-box k-options="optBeltType"style="width: 100%; height: 22px;" ng-model="masterObj.Type"  ng-keypress="masterMoveDown($event,'Remarks','')" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bs-example" style="height:auto; width: 100%; overflow: scroll;" ng-show="finishingDetail" id="finishingDetail">
+        <form class="form-horizontal" novalidate>
+            @*<pre>{{data|json}}</pre>*@
+            <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th style="border:1px solid">Sl</th>
+                        <th style="border:1px solid">GDate</th>
+                        <th style="border:1px solid">BeforeThikness</th>
+                        <th style="border:1px solid">AfterThikness</th>
+                        <th style="border:1px solid">AfterHardness</th>
+                        <th style="border:1px solid">ProdQnty</th>
+                        <th style="border:1px solid">Remarks</th>
+                        <th style="border:1px solid">FIID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border:1px solid" ng-repeat="value in data">
+                        <td style="border:1px solid">{{$index+1 }}</td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input type="text"  class="r1{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" ng-model="sub.GDate"name="date" placeholder="DD/MM/YYYY" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />   
+                       
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r2{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" type="number" ng-model="sub.BeforeThickness"min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r3{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)"   type="number" ng-model="sub.AfterThickness"min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r4{{$parent.$index}}" type="number" ng-keypress="recDetailMove($event,'text',$parent.$index)" ng-model="sub.AfterHardness" min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r5{{$parent.$index}}" type="number" ng-keypress="recDetailMove($event,'text',$parent.$index,'row')" ng-model="sub.ProdQnty" min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r6{{$parent.$index}}" type="text" ng-keypress="recDetailMoveAndSave($event,$parent.$index,sub)" ng-model="sub.Remarks" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input class="r7{{$parent.$index}}" type="text" ng-model="sub.RIID" disabled /></td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </form>
+
+        <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRowRec()"><i class="fa fa-plus"></i> Add more</button>
+    </div>
+    <div class="row" ng-show="btnClose">
+        <div class="spacer5"></div>
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+
+                    <button id="btnClose" class="btn btn-danger" type="button" ng-click="close(masterObj)"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" ng-show="finishingGrid" id="finishingGrid">
+        <div class="col-md-12 col-xs-12">
+            <div class="bs-example">
+
+                <div class="well well-sm">
+                    Finishing Rubber Belt Utilizes
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <button id="btnAddNew" class="btn btn-primary" type="button" ng-click="newData()">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                Add New
+                            </button>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <label class="col-md-4  control-label" for="txtSearchDateFrom">From Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="From Date" name="txtSearchDateFrom" style="width: 100%; height: 28px;" id="txtSearchDateFrom">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label class="col-md-4  control-label" for="txtSearchDateTo">To Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="To Date" name="txtSearchDateTo" style="width: 100%; height: 28px;" id="txtSearchDateTo">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button id="btnSearchWarping" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer4"></div>
+
+                    <div id="grdFinishingRubberBeltSummary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Scripts/HDL/FinishingRubberBelt/FinishingRubberBelt.controller.js")
+@Scripts.Render("~/Scripts/HDL/FinishingRubberBelt/FinishingRubberBeltInfo.js")

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Set Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/SetInfo/SetInfo.js")
+
+<div class="row">
+    <div id="divSetInfoDetails" class="col-lg-6">
+        @Html.Partial("SetInfoDetails")
+    </div>
+    <div id="divSetSummary" class="col-lg-6 ">
+        @Html.Partial("SetInfoSummary")
+    </div>
+</div>

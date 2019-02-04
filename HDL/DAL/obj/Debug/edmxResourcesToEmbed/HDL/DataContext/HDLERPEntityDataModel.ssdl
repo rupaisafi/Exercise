@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HDLERPDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblBeamFinish">
+    <Key>
+      <PropertyRef Name="BID" />
+    </Key>
+    <Property Name="BID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BDate" Type="datetime" />
+    <Property Name="UCode" Type="int" />
+    <Property Name="UName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblBeamFinishDetails">
+    <Key>
+      <PropertyRef Name="BIID" />
+    </Key>
+    <Property Name="BIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BID" Type="int" />
+    <Property Name="Loom" Type="nvarchar" MaxLength="50" />
+    <Property Name="SetNo" Type="int" />
+    <Property Name="SS" Type="int" />
+    <Property Name="BeamNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TblStock11">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TracDate" Type="smalldatetime" />
+    <Property Name="SDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Ref" Type="nvarchar" MaxLength="10" />
+    <Property Name="DID" Type="int" />
+    <Property Name="DCode" Type="int" />
+    <Property Name="DName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UCode" Type="int" />
+    <Property Name="UName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalProd" Type="int" />
+    <Property Name="CProd" Type="int" />
+    <Property Name="Gramending" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDate" Type="smalldatetime" />
+    <Property Name="InsFloorCode" Type="int" />
+    <Property Name="InsFloorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblStock21">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="StyleCode" Type="int" />
+    <Property Name="StyleNo" Type="nvarchar" MaxLength="30" />
+    <Property Name="Weight" Type="money" />
+    <Property Name="Constraction" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weave" Type="nvarchar" MaxLength="50" />
+    <Property Name="Colour" Type="nvarchar" MaxLength="50" />
+    <Property Name="Width" Type="nvarchar" MaxLength="50" />
+    <Property Name="QCode" Type="int" />
+    <Property Name="FabQuality" Type="nvarchar" MaxLength="30" />
+    <Property Name="Prod" Type="int" />
+    <Property Name="FabReturn" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="40" />
+    <Property Name="CCode" Type="int" />
+    <Property Name="CName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalRoll" Type="int" />
+    <Property Name="TotalPoint" Type="int" />
+    <Property Name="SetNo" Type="int" Nullable="false" />
+    <Property Name="SS" Type="int" />
+    <Property Name="Loom" Type="nvarchar" MaxLength="10" />
+    <Property Name="Beam" Type="nvarchar" MaxLength="10" />
+    <Property Name="ProdB" Type="int" />
+    <Property Name="ProdC" Type="int" />
+    <Property Name="CutPieece" Type="int" />
+    <Property Name="Wastage" Type="int" />
+    <Property Name="ProdG" Type="int" />
+    <Property Name="TotalProd" Type="int" />
+    <Property Name="FCode" Type="int" />
+    <Property Name="FType" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDate" Type="smalldatetime" />
+    <Property Name="PType" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCode" Type="int" />
+    <Property Name="UCode" Type="int" />
+    <Property Name="UName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinishMCName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinishMCCode" Type="int" />
+  </EntityType>
+  <EntityType Name="TblStock22">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="OCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="OName" Type="nvarchar" MaxLength="30" />
+    <Property Name="CapName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CapCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Desig" Type="nvarchar" MaxLength="50" />
+    <Property Name="AcProd" Type="int" />
+    <Property Name="ReFinish" Type="int" />
+    <Property Name="ReInspection" Type="int" />
+    <Property Name="Sample" Type="int" />
+    <Property Name="QCCheque" Type="int" />
+    <Property Name="Hold" Type="int" />
+    <Property Name="CP" Type="int" />
+    <Property Name="CutPeace" Type="int" />
+    <Property Name="GreyMending" Type="int" />
+    <Property Name="ShiftCode" Type="int" />
+    <Property Name="Shift" Type="nchar" MaxLength="10" />
+    <Property Name="STimeHr" Type="money" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="UName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EDate" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TblType">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TCode" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dept" Type="nvarchar" MaxLength="50" />
+    <Property Name="GCode" Type="int" />
+    <Property Name="GName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupCode" Type="int" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="WvGCode" Type="int" />
+    <Property Name="WvGName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="spGetKnotting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="call_name" Type="nchar" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UCode" Type="int" Mode="In" />
+    <Parameter Name="UName" Type="nvarchar" Mode="In" />
+    <Parameter Name="KDate" Type="datetime" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="TCode" Type="int" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="TrackDate" Type="smalldatetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="HDLERPDBModelStoreContainer">
+    <EntitySet Name="TblBeamFinish" EntityType="Self.TblBeamFinish" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblBeamFinishDetails" EntityType="Self.TblBeamFinishDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblStock11" EntityType="Self.TblStock11" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblStock21" EntityType="Self.TblStock21" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblStock22" EntityType="Self.TblStock22" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblType" EntityType="Self.TblType" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

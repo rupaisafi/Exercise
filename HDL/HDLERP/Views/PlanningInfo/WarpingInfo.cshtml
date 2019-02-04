@@ -1,0 +1,107 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/WarpingInfo.js")
+
+<div class="row">
+    
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example" id="divWrpDetails">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbIName">IName:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbIName" id="cmbIName" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbYarnLotWp">Yarn Lot:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbYarnLotWp" id="cmbYarnLotWp" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbSName">SName:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbSName" id="cmbSName" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbYarn">Yarn Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbYarn" id="cmbYarn" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtBeemLength">Beem Length:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" name="txtBeemLength" style="width: 100%; height: 28px;" id="txtBeemLength" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtBeemNo">No Of Beem:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" class="form-control" name="txtBeemNo" style="width: 100%; height: 28px;" id="txtBeemNo" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtBeemNo">No Of Creel:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" class="form-control" name="txtCreel" style="width: 100%; height: 28px;" id="txtCreel" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtEndBeem">End-Beem/Ball:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" class="form-control" name="txtEndBeem" style="width: 100%; height: 28px;" id="txtEndBeem">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtTEnds">T End:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" class="form-control" name="txtTEnds" style="width: 100%; height: 28px;" id="txtTEnds">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtQtyWp">Qty (Kg):</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtQtyWp" id="txtQtyWp" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtRateWp">Rate:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" name="txtYarnRate" style="width: 100%; height: 28px;" id="txtRateWp" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtValueWp">Value:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtValueWp" style="width: 100%; height: 28px;" id="txtValueWp" readonly="readonly">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+           
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnAddToList" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> AddToList</button>
+                            <button id="btnUpdateWarp" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> Update List</button>
+                            <button id="btnClearWarp" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnCloseWarp" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-off"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+

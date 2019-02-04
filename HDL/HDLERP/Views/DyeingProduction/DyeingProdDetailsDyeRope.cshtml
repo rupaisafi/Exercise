@@ -1,0 +1,137 @@
+﻿@Scripts.Render("~/Scripts/HDL/DyeingProduction/DyeingProdDetailsDyeRope.js")
+@Scripts.Render("~/Scripts/HDL/DyeingProduction/DyeingProdDetailsDyeRopeSummary.js")
+
+<div id="divDyeingProdDetailsDyeRopePartial" class="row">
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <input type="hidden" id="duid" value="" />
+            <input type="hidden" id="DIID" value="0" />
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtDyeDate">Dyeing Date:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="txtDyeDate" id="txtDyeDate" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="cmbShift">Shift Name:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="cmbShift" id="cmbShift" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="numBallNo">Ball No:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="numBallNo" id="numBallNo" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="numCanNo">Can No:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="numCanNo" id="numCanNo" required validationmessage="required" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="numWarpLength">Warp Length:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="numWarpLength" id="numWarpLength" required validationmessage="required"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="numDyeLength">Dyeing Length:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="numDyeLength" id="numDyeLength" required validationmessage="required"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="numSpeed">Speed:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="numSpeed" id="numSpeed" required validationmessage="required"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="cmbPO">P.O:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" name="cmbPO" style="width: 100%; height: 24px;" id="cmbPO" required validationmessage="required">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="cmbOperator">Operator:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" name="cmbOperator" style="width: 100%; height: 24px;" id="cmbOperator" required validationmessage="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="cmbColorMan">ColorMan:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" name="cmbColorMan" style="width: 100%; height: 24px;" id="cmbColorMan" required validationmessage="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="cmbCaptain">Captain:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" name="cmbCaptain" style="width: 100%; height: 24px;" id="cmbCaptain" required validationmessage="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtStopMark">Stop Mark:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" name="txtStopMark" style="width: 100%; height: 24px;" id="txtStopMark">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtBathLapper">Bath Lapper:</label>
+                <div class="col-md-7 col-xs-7">                    
+                    <input class="k-input k-textbox" name="txtBathLapper" style="width: 100%; height: 24px;" id="txtBathLapper">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtCreelLapper">Creel Lapper:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" name="txtCreelLapper" style="width: 100%; height: 24px;" id="txtCreelLapper">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtCutEndWr">CutEnd Warp:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" name="txtCutEndWr" style="width: 100%; height: 24px;" id="txtCutEndWr">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="RopeCutDye">RopeCutDye:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" name="RopeCutDye" style="width: 100%; height: 24px;" id="RopeCutDye">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtRemark">Remarks:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" name="txtRemark" style="width: 100%; height: 24px;" id="txtRemark">
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="col-md-12 col-xs-12 rightAlign" style="margin-top: 5px">
+        <button type="button" class="btn btn-sm btn-info" name="dAddNew" id="dAddNew">New</button>
+        <button type="button" class="btn btn-sm btn-info" name="AddToList" id="btnAddToListRopeDye">AddToList</button>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="spacer5"></div>
+    <div id="grdDyeingProdDetailsDyeRopeSummary">
+    </div>
+</div>

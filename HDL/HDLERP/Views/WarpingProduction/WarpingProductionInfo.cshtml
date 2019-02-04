@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Warping Prodcution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+     .k-list {
+        white-space: nowrap !important;
+    }
+</style>
+@Scripts.Render("~/Scripts/HDL/WarpingProduction/WarpingProductionInfo.js")
+
+<div class="row">
+    <div id="divWarpProdSummary" class="col-md-12">
+        @Html.Partial("WarpingProdSummary")
+    </div>
+    <div id="divWarpProdDetails" class="col-md-12 displayNone">
+        @Html.Partial("WarpingProdDetails")
+    </div>
+</div>

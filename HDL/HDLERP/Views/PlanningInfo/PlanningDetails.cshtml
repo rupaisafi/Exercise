@@ -1,0 +1,290 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/PlanningDetails.js")
+@Scripts.Render("~/Scripts/HDL/PlanningInfo/PlanningInfoSave.js")
+
+<style type="text/css">
+    .form-group {
+        margin-bottom: 3px !important;
+    }
+    input{
+        width: 100% !important;
+        height: 24px!important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        @*<div class="well well-sm">GENERAL INFORMATION</div>*@
+        <h4 class="panel-title well well-sm">
+            <a data-toggle="collapse" href="#divPlanningDetails">GENERAL INFORMATION</a>
+        </h4>
+        <div class="bs-example panel-collapse collapse in" id="divPlanningDetails">
+            <div class="row">
+                <div class="col-md-3 col-xs-3">
+                    <div class="form-horizontal">
+                        <input type="hidden" id="hdnPlanId" value="0" />
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbUnit">Unit:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbUnit" id="cmbUnit" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="txtPlanDate">Date:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="txtPlanDate" id="txtPlanDate" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbSetNo">Set No:</label>
+                            <div class="col-md-8">
+                                <input type="text" style="width: 100%; height: 24px;" name="cmbSetNo" id="cmbSetNo" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="txtSetLength">Set Length:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="txtSetLength" id="txtSetLength" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbOrderNo">Order Ref.:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbOrderNo" id="cmbOrderNo" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbProdType">Prod Type:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbProdType" id="cmbProdType" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbCustomer">Cust. Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbCustomer" id="cmbCustomer" disabled="disabled" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbMktPerson">Mkt. Person:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbMktPerson" id="cmbMktPerson" disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbBuyer">Buyer Name:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbBuyer" id="cmbBuyer" disabled="disabled" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="txtEndBuyer">End Byer:</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 24px;" name="txtEndBuyer" id="txtEndBuyer" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbStyleNo">Style No:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbStyleNo" id="cmbStyleNo" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="cmbOrderType">Order Type:</label>
+                            <div class="col-md-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="cmbOrderType" id="cmbOrderType" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="txtOrderQty">Order Qty:</label>
+                            <div class="col-md-6" style="padding-right: 1px;">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="txtOrderQty" id="txtOrderQty" />
+                            </div>
+                            <div class="col-md-2" style="padding-left: 1px;">
+                                <input type="text" class="form-control" placeholder="" style="color: red;width: 100%; height: 24px;" name="txtRate" id="txtRate" readonly="readonly" />
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="txtLklyDelDate">Deli Date(Apx):</label>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="txtLklyDelDate" id="txtLklyDelDate" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtSetPlaned">Set Planed:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 24px;" name="txtSetPlaned" id="txtSetPlaned" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtPlWidth">PL Width:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtPlWidth" id="txtPlWidth" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtPlShrink">PL Shrink:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtPlShrink" id="txtPlShrink" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtReqOrderProd">Req Order Prod:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtReqOrderProd" id="txtReqOrderProd" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtPrevDyeProd">Prev Dye Prod:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtPrevDyeProd" id="txtPrevDyeProd" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtTakenProd">Taken Prod:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtTakenProd" id="txtTakenProd" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtRemainingProd">Remaining Prod:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtRemainingProd" id="txtRemainingProd" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="txtDyeLgt">Dye Lgt (Mtr) Elong-2%:</label>
+                            <div class="col-md-5">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtDyeLgt" id="txtDyeLgt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="txtWevLgt">Wev Lgt (Yds) Cream-12.5%:</label>
+                            <div class="col-md-5">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtWevLgt" id="txtWevLgt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="txtFinLgt">Fin Lgt (Yds) Shrink-13%:</label>
+                            <div class="col-md-5">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtFinLgt" id="txtFinLgt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="txtInspLgt">Insp Lgt (Yds):</label>
+                            <div class="col-md-5">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtInspLgt" id="txtInspLgt" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="txtRejLgt">Rej Lgt Yds (1.60%):</label>
+                            <div class="col-md-5">
+                                <input type="text" style="width: 100%; height: 24px;" name="txtRejLgt" id="txtRejLgt" />
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-md-4 col-xs-4 control-label" for="cmbOrderStatus">Order Status:</label>
+                                <div class="col-md-8">
+                                    <input type="text" style="width: 100%; height: 24px;" name="cmbOrderStatus" id="cmbOrderStatus" />
+                                </div>
+                            </div>*@
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-horizontal">
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label class="col-md-2 col-xs-2 control-label" for="txtRemarks">Remarks:</label>
+                            <div class="col-md-10">
+                                <input type="text" placeholder="" class="form-control" style="width: 100%; height: 24px;" name="txtRemarks" id="txtRemarks" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="txtCSV">CSV:</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="" class="form-control" style="width: 100%; height: 24px;" name="txtCSV" id="txtCSV" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div id="divPlanningTab">
+            <ul id="warp">
+                <li class="k-state-active" id="pnlQuality">
+                    QUALITY INFORMATION
+                </li>
+                <li id="pnlWarping">
+                    WARPING INFORMATION
+                </li>
+                <li id="pnlDeying">
+                    DYEING INFORMATION
+                </li>
+                <li id="pnlWeaving">
+                    WEAVING INFORMATION
+
+                </li>
+                @*<li id="pnlFinishing">
+                        FINISHING INFORMATION
+                    </li>*@
+            </ul>
+            <div>
+                @Html.Partial("QualityInfo")
+            </div>
+            <div>
+                @Html.Partial("WarpingSummary")
+            </div>
+            <div>
+                @Html.Partial("DeyingSummary")
+            </div>
+            <div>
+                @Html.Partial("WeavingSummary")
+            </div>
+            @*<div>
+                    @Html.Partial("FinishingSummary")
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="spacer5"></div>
+    <div class="col-md-12 col-xs-12">
+        <ul class="list-group ">
+            <li class="list-group-item centerAlign">
+                <button id="btnSavePlan" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                <button id="btnClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                <button id="btnClosePlan" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-off"></span> Close</button>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@Scripts.Render("~/Scripts/HRM/EmployeeBasic/EmployeeInfoDetails.js")
+<div class="row">
+    <div class="col-md-12">
+        <div class="bs-example" id="divEmployeeDetails">
+            <div id="tabstrip">
+                <ul>
+                    <li id="tabBasic" class="k-state-active">
+                        Basic Information
+                    </li>
+                    <li>
+                        Personal Information
+                    </li>
+                    <li>
+                        Contact Information
+                    </li>
+                    <li>
+                        Educational Information
+                    </li>
+                    <li>
+                        Passport & Driving License
+                    </li>
+                    <li>
+                        Photo
+                    </li>
+                </ul>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_EmployeeBasic")
+                </div>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_EmployeePersonal")
+                </div>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_EmployeeContact")
+                </div>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_EmployeeEducation")
+                </div>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_PassportAndDrivingLicense")
+                </div>
+                <div class="row">
+                    @Html.Partial("../HRM/EmployeeBasic/_EmployeePhoto")
+                </div>
+            </div>
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-primary" type="button">Save</button>
+                            <button id="btnClear" class="btn btn-primary" type="button">Clear</button>
+                            <button id="btnPartialClear" class="btn btn-primary" type="button">New</button>
+                            <button id="btnClose" class="btn btn-danger" type="button">Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

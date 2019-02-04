@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Wing Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Wing/WingSettings.js")
+
+<div class="row">
+    <div id="divWingSummary" class="col-md-6">
+        @Html.Partial("../HRM/Wing/WingInfo")
+    </div>
+    <div id="divWingDetails" class="col-md-6">
+        @Html.Partial("../HRM/Wing/WingPermission")
+    </div>
+
+</div>
+
+

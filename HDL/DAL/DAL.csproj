@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E93B401-4322-4B01-A73D-3082C5E24C98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonDataServiceHRM.cs" />
+    <Compile Include="HDL\DataService\BeamStockDataService.cs" />
+    <Compile Include="HDL\DataService\CausticRecoveryDataService.cs" />
+    <Compile Include="HDL\DataService\ColorInfoDataService.cs" />
+    <Compile Include="HDL\DataService\CommonInfoDataService.cs" />
+    <Compile Include="HDL\DataService\DyeingUtilityDataService.cs" />
+    <Compile Include="HDL\DataService\DyeingConsumptionDataService.cs" />
+    <Compile Include="HDL\DataService\FabRejRefinDataService.cs" />
+    <Compile Include="HDL\DataService\FinishingFloorStockDataService.cs" />
+    <Compile Include="HDL\DataService\FinishingProductionDataService.cs" />
+    <Compile Include="HDL\DataService\FinishingRubberBeltDataService.cs" />
+    <Compile Include="HDL\DataService\InspectionCheckDataService.cs" />
+    <Compile Include="HDL\DataService\InspectionFlagginDataService.cs" />
+    <Compile Include="HDL\DataService\InspectionFloorStockDataService.cs" />
+    <Compile Include="HDL\DataService\InspectionNonDispatchDataService.cs" />
+    <Compile Include="HDL\DataService\InventoryGroupDataService.cs" />
+    <Compile Include="HDL\DataService\KonttingDataService.cs" />
+    <Compile Include="HDL\DataService\BeamFinishDataService.cs" />
+    <Compile Include="HDL\DataService\InspectionProductionDataService.cs" />
+    <Compile Include="HDL\DataService\RejectionControlDataService.cs" />
+    <Compile Include="HDL\DataService\StickyEndDataService.cs" />
+    <Compile Include="HDL\DataService\LoomDownTimeDataService.cs" />
+    <Compile Include="HDL\DataService\MachineDataService.cs" />
+    <Compile Include="HDL\DataService\MaterialConDataService.cs" />
+    <Compile Include="HDL\DataService\MIssueDataService.cs" />
+    <Compile Include="HDL\DataService\ProdQualityDataService.cs" />
+    <Compile Include="HDL\DataService\ShiftDataService.cs" />
+    <Compile Include="HDL\DataService\FabricTypeDataService.cs" />
+    <Compile Include="HDL\DataService\ItemInfoDataService.cs" />
+    <Compile Include="HDL\DataService\LcInfoDataService.cs" />
+    <Compile Include="HDL\DataService\MrrInfoDataService.cs" />
+    <Compile Include="HDL\DataService\OrderInfoDataService.cs" />
+    <Compile Include="HDL\DataService\PlanningInfoDataService.cs" />
+    <Compile Include="HDL\DataService\SetInfoDataService.cs" />
+    <Compile Include="HDL\DataService\StyleInfoDataService.cs" />
+    <Compile Include="HDL\DataService\StyleRecipeDataService.cs" />
+    <Compile Include="HDL\DataService\SupplierDataService.cs" />
+    <Compile Include="HDL\DataService\BuyerInfoDataService.cs" />
+    <Compile Include="HDL\DataService\ReportDataService.cs" />
+    <Compile Include="Common\CommonDataService.cs" />
+    <Compile Include="Core\MenuDataService.cs" />
+    <Compile Include="Core\ModuleDataService.cs" />
+    <Compile Include="Core\NoticeSettingDataService.cs" />
+    <Compile Include="Core\UserDataService.cs" />
+    <Compile Include="HDL\DataService\DyeingProductionDataService.cs" />
+    <Compile Include="HDL\DataService\WeavingProductionDataService.cs" />
+    <Compile Include="HDL\DataService\WarpingProductionDataService.cs" />
+    <Compile Include="HDL\DataService\YarnDyeingDataService.cs" />
+    <Compile Include="HDL\DataService\WarpLapperDataService.cs" />
+    <Compile Include="HDL\DataService\YarnInfoDataService.cs" />
+    <Compile Include="HRM\AllowanceByDesGroupDataService.cs" />
+    <Compile Include="HRM\AttendanceProcessDataService.cs" />
+    <Compile Include="HRM\BloodGroupDataService.cs" />
+    <Compile Include="HRM\CompanyDataService.cs" />
+    <Compile Include="HRM\CountryDataService.cs" />
+    <Compile Include="HRM\DepartmentDataService.cs" />
+    <Compile Include="HRM\DesignationDataService.cs" />
+    <Compile Include="HRM\DesignationGroupDataService.cs" />
+    <Compile Include="HRM\EducationDataService.cs" />
+    <Compile Include="HRM\EmployeeBasicDataService.cs" />
+    <Compile Include="HRM\EmployeeSeparetionDataService.cs" />
+    <Compile Include="HRM\EmployeeShiftDataService.cs" />
+    <Compile Include="HRM\EmployeeWeekOffDataService.cs" />
+    <Compile Include="HRM\EmploymentCategoryDataService.cs" />
+    <Compile Include="HRM\EmploymentStatusDataService.cs" />
+    <Compile Include="HRM\EmploymentTypeDataService.cs" />
+    <Compile Include="HRM\GenderDataService.cs" />
+    <Compile Include="HRM\MaritalStatusDataService.cs" />
+    <Compile Include="HRM\PositionDataService.cs" />
+    <Compile Include="HRM\ReligionDataService.cs" />
+    <Compile Include="HRM\SectionDataService.cs" />
+    <Compile Include="HRM\ShiftDataService.cs" />
+    <Compile Include="HRM\TeamDataService.cs" />
+    <Compile Include="HRM\UnitDataService.cs" />
+    <Compile Include="HRM\WingDataService.cs" />
+    <Compile Include="Login\LoginDataService.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBManager\DM.csproj">
+      <Project>{565a7aac-f7da-458c-9046-a7d7133e176a}</Project>
+      <Name>DM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{43EC51F4-69BA-4533-918C-6F39415B5D75}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\AUtilities.csproj">
+      <Project>{07242BCB-0768-4348-927D-1D8D6DF41E84}</Project>
+      <Name>AUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\DAL.dll.config" />
+    <None Include="obj\Debug\DAL.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HDL\DataContext\HDLERPEntityDataModel.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HDL\DataContext\HDLERPEntityDataModel.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HDL\DataContext\HDLERPEntityDataModel.ssdl" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\AUtilities.dll" />
+    <Content Include="bin\Debug\AUtilities.pdb" />
+    <Content Include="bin\Debug\DAL.dll" />
+    <Content Include="bin\Debug\DAL.pdb" />
+    <Content Include="bin\Debug\DBManager.dll" />
+    <Content Include="bin\Debug\DBManager.pdb" />
+    <Content Include="bin\Debug\Entities.dll" />
+    <Content Include="bin\Debug\Entities.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="obj\Debug\DAL.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DAL.dll" />
+    <Content Include="obj\Debug\DAL.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

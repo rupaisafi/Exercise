@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ItemInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/ItemInfo/ItemInfo.js")
+
+<div class="row">
+    <div id="divItemDetails" class="col-md-6">
+        @Html.Partial("ItemDetails")
+    </div>
+    <div id="divItemSummary" class="col-md-6">
+        @Html.Partial("ItemSummary")
+    </div>
+</div>
+
+
+

@@ -1,0 +1,88 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/WarpingSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtWarpSetLgth">Warp Set Length(Mtr):</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWarpSetLgth" id="txtWarpSetLgth" readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtWarpRatioW">Warp Ratio:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWarpRatioW" id="txtWarpRatioW" readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtTotalEndsW">Total Ends:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtTotalEndsW" id="txtTotalEndsW" readonly="readonly" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtYarnTesionW">Yarn Tension:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtYarnTesionW" id="txtYarnTesionW"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtMcSpeedW">M/C Speed:</label>
+                            <div class="col-md-6">
+                                <input type="text"  style="width: 100%; height: 28px;" name="txtMcSpeedW" id="txtMcSpeedW"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtPressingForce">Pressing Force:</label>
+                            <div class="col-md-6">
+                                <input type="text"  style="width: 100%; height: 28px;" name="txtPressingForce" id="txtPressingForce" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtConstructionW">Construction:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtConstructionW" id="txtConstructionW" readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtProYarnLot">Pro Yarn Lot:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtProYarnLot" id="txtProYarnLot"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtProYarnSupp">Pro Yarn Supp:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtProYarnSupp" id="txtProYarnSupp" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="panel-body">
+                <button id="btnAddWarping" value="Add New" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+                <div id="grdWarpingSummary">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

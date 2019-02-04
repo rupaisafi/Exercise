@@ -1,0 +1,323 @@
+﻿@Scripts.Render("~/Scripts/HDL/DyeingConsumption/DyeingConsumptionDetails.js")
+<style>
+    .hide {
+        display: none;
+    }
+    .k-widget.k-datepicker,
+    .k-widget.k-combobox,
+    .k-widget.k-numerictextbox {
+        height: 26px !important;
+    }
+
+    .k-input.k-textbox {
+        border-radius: 0px;
+    }
+
+    .k-picker-wrap.k-state-default,
+    .k-numeric-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-default {
+        border-radius: 0;
+    }
+
+    .grid_container .k-picker-wrap.k-state-default,
+    .grid_container .k-numeric-wrap.k-state-default,
+    .grid_container .k-dropdown-wrap.k-state-default {
+        height: 24px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+        .grid_container .k-picker-wrap.k-state-default input,
+        .grid_container .k-numeric-wrap.k-state-default input,
+        .grid_container .k-dropdown-wrap.k-state-default input {
+            height: 22px;
+        }
+
+    input:invalid {
+        border: 1px solid #67afe9;
+        box-shadow: none;
+    }
+
+    .k-widget.k-tooltip.k-tooltip-validation.k-invalid-msg {
+        margin-left: 26px !important;
+        margin-top: 6px !important;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm" data-toggle="collapse" data-target="#demo">Basic Information</div>
+        <div class="bs-example" id="divDyeProdDetailsMaster">
+            <div class="row collapse in" id="demo">
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <input type="hidden" id="DID" value="" />
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdSetNo">Set No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdSetNo" id="dcdSetNo" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdProgramDate">Program Date:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdProgramDate" id="dcdProgramDate" required validationmessage="Required" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdUnit">Unit:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdBuyer" style="width: 100%; height: 24px;" id="dcdUnit" required validationmessage="Required" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdProdType">Production Type:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdProdType" style="width: 100%; height: 24px;" id="dcdProdType" required validationmessage="Required" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdMachineNo">M/C No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdMachineNo" id="dcdMachineNo" required validationmessage="Required" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdSetLengthMtr">Set Length(Mtr):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdSetLengthMtr" id="dcdSetLengthMtr" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdSetLengthKg">Set Weight(Kg):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdSetLengthKg" id="dcdSetLengthKg" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdYarnCount">Yarn Count:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="dcdYarnCount" id="dcdYarnCount" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdWarpRatio">Warp Ratio:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="dcdWarpRatio" id="dcdWarpRatio" readonly />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdNoOfBeam">No Of Beam/Rope:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdNoOfBeam" style="width: 100%; height: 24px;" id="dcdNoOfBeam" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdRopeBeam">Rope Beam:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdRopeBeam" style="width: 100%; height: 24px;" id="dcdRopeBeam" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdNoOfCreal">No Of Creal:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdNoOfCreal" style="width: 100%; height: 24px;" id="dcdNoOfCreal" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdTotalEnds">Total Ends:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdTotalEnds" style="width: 100%; height: 24px;" id="dcdTotalEnds" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdYarnSuppliers">Yarn Suppliers:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdYarnSuppliers" style="width: 100%; height: 24px;" id="dcdYarnSuppliers" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdYarnLot">Yarn Lot:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdYarnLot" style="width: 100%; height: 24px;" id="dcdYarnLot" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdStyleNo">Style No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdStyleNo" style="width: 100%; height: 24px;" id="dcdStyleNo" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdWeight">Weight:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdWeight" style="width: 100%; height: 24px;" id="dcdWeight" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdConstruction">Construction:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdConstruction" style="width: 100%; height: 24px;" id="dcdConstruction" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdWeave">Weave:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdWeave" style="width: 100%; height: 24px;" id="dcdWeave" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdRemarks">Remarks:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdRemarks" style="width: 100%; height: 24px;" id="dcdRemarks" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdWidth">Width:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdWidth" style="width: 100%; height: 24px;" id="dcdWidth" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdColor">Color:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdColor" style="width: 100%; height: 24px;" id="dcdColor" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdBuyer">Buyer:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdBuyer" style="width: 100%; height: 24px;" id="dcdBuyer" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdShadeIndigoPer">Shade Indigo(%):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="dcdShadeIndigoPer" id="dcdShadeIndigoPer" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdShadeBlackPer">Shade Black(%):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="dcdShadeBlackPer" id="dcdShadeBlackPer" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdShadeMatchWith">ShadeMatch With:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" placeholder="" style="width: 100%; height: 24px;" name="dcdShadeMatchWith" id="dcdShadeMatchWith" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdDyMcSpeed">M/C Speed:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdDyMcSpeed" style="width: 100%; height: 24px;" id="dcdDyMcSpeed" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdAvgCount">Avg.Count:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdAvgCount" style="width: 100%; height: 24px;" id="dcdAvgCount" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdAftLengthMtr">AftLgth(Mtr):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdAftLengthMtr" style="width: 100%; height: 24px;" id="dcdAftLengthMtr" readonly />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdAftWeightKg">AftWeight(Kg):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdAftWeightKg" style="width: 100%; height: 24px;" id="dcdAftWeightKg" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdMcStartTime">Machine Start:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdMcStartTime" style="width: 100%; height: 24px;" id="dcdMcStartTime" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdMcStopTime">Machine Stop:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdMcStopTime" style="width: 100%; height: 24px;" id="dcdMcStopTime" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdBathGPL">Bath (gpl):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdBathGPL" style="width: 100%; height: 24px;" id="dcdBathGPL" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdFeedingGPL">Feeding (gpl):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdFeedingGPL" style="width: 100%; height: 24px;" id="dcdFeedingGPL" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdRefraction">Refraction:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdRefraction" style="width: 100%; height: 24px;" id="dcdRefraction" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdViscosity">Viscosity (sec):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdViscosity" style="width: 100%; height: 24px;" id="dcdViscosity" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdMCRunTimehh">Run (hh):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdMCRunTimehh" style="width: 100%; height: 24px;" id="dcdMCRunTimehh" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group hide">
+                            <label class="col-md-5 col-xs-5 control-label" for="dcdMCRunTimemm">Run (mm):</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="dcdMCRunTimemm" style="width: 100%; height: 24px;" id="dcdMCRunTimemm" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="well well-sm">Consumption Detail</div>
+        <div class="bs-example" style="margin-bottom:5px;">
+            @Html.Partial("DyeingConsumptionDetailsPopup")
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-xs-12 text-center" style="">
+        <button type="button" class="btn btn-sm btn-primary" name="asdf" id="dcdSave" style="min-width:80px;">Save</button>
+        <button type="button" class="btn btn-sm btn-primary" name="asdf" id="dcdClear" style="min-width:80px;">Clear</button>
+        <button type="button" class="btn btn-sm btn-primary" name="asdf" id="dcdExit" style="min-width:80px;">Exit</button>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Machine Entry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/Machine/MachineInfo.js")
+
+<div class="row">
+    <div id="divMachineDetails" class="col-lg-6">
+        @Html.Partial("MachineDetails")
+    </div>
+    <div id="divMachineSummary" class="col-lg-6">
+        @Html.Partial("MachineSummary")
+    </div>
+</div>

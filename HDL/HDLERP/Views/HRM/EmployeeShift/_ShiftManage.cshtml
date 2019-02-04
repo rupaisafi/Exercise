@@ -1,0 +1,36 @@
+﻿
+@Scripts.Render("~/Scripts/HRM/EmployeeShift/EmployeeShift.js")
+<div class="col-md-12 bs-example">
+    <div class="well well-sm">
+        Employee Shift Asign
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="cmbShift">Shift:</label>
+                    <div class="col-md-9">
+                        <input type="text" style="width: 100%; height: 28px;" name="cmbShift" id="cmbShift" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3  control-label" for="txtStartDate">Start Date:</label>
+                    <div class="col-md-9 ">
+                        <input type="text" name="txtStartDate" style="width: 100%; height: 28px;" id="txtStartDate" required validationmessage="Required">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="spacer5"></div>
+
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+                    <button id="btnSave" class="btn btn-primary" type="button">Save</button>
+                    <button id="btnClear" class="btn btn-primary" type="button">Clear</button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

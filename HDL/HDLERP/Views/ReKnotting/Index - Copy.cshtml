@@ -1,0 +1,321 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/HDL/ReKnotting.css")
+
+<div class="divWraper" id="divWraper" ng-app="ReKnotting" ng-controller="rkCtrl">
+    <div class="divSummaryWraper" ng-show="view.summary">
+        <div class="bs-example">
+            <div class="well well-sm">
+                Re-Knotting Summary
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <button class="btn btn-primary btn-add-summary" type="button" ng-click="summary.addNew()"><span class="glyphicon glyphicon-plus-sign"></span> Add New</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="col-md-4">
+                            <label class="col-md-4  control-label" for="fromDate">From Date:</label>
+                            <div class="col-md-8 input-group">
+                                <input id="fromDate" kendo-date-picker="" k-format="'dd-MMM-yyyy'" k-options="summary.search.formDateOptions" ng-model="summary.search.from" placeholder="From Date" style="width: 100%; height: 24px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <label class="col-md-4  control-label" for="toDate">To Date:</label>
+                            <div class="col-md-8 input-group">
+                                <input id="toDate" kendo-date-picker="" k-format="'dd-MMM-yyyy'" k-options="summary.search.toDateOptions" ng-model="summary.search.to" placeholder="To Date" style="width: 100%; height: 24px;">
+                            </div>
+                        </div>
+                        <div class="col-md-4 ">
+                            <button id="btnSearchWarping" class="btn btn-sm btn-info" style="height: 26px;"><span class="glyphicon glyphicon-search"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer4"></div>
+                <div id="divSummaryGrid" kendo-grid="SummaryGrid" k-options="summary.grid.options"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="divDetailWraper" ng-hide="!view.detail">
+        <div class="bs-example">
+            <div class="well well-sm" style="margin-bottom: 0px !important;">
+                Re-Knotting Entry Form
+            </div>
+            <div style="border-bottom:1px solid #286893;background-color: #99ccff;">
+                <div class="clearfix"></div>
+                <br />
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group" style="margin-bottom:2px;">
+                            <label class="col-md-4 col-xs-4 control-label" for="rkmKDate">KDate:</label>
+                            <div class="col-md-5 col-xs-5" style="padding-right:3px;">
+                                <input id="rkmKDate" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input id="rkmID" class="k-input k-textbox" style="width: 100%; height: 24px;" disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="rkmUName">Unit:</label>
+                            <div class="col-md-5 col-xs-5" style="padding-right:3px;">
+                                <input id="rkmUName" style="width: 100%; height: 22px;" required validationmessage="Required" />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input id="rkmUCode" class="k-input k-textbox" style="width: 100%; height: 24px;" disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="rkmType">Fault Type:</label>
+                            <div class="col-md-6 col-xs-6" style="padding-right:3px;">
+                                <input id="rkmType" style="width: 100%; height: 22px;" required validationmessage="Required" />
+                            </div>
+                            <div class="col-md-2 col-xs-2" style="padding-left:0px;">
+                                <input id="rkmTCode" class="k-input k-textbox" style="width: 100%; height: 24px;" disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="rkmRemarks">Remarks:</label>
+                            <div class="col-md-8 col-xs-8 clearfix">
+                                <input id="rkmRemarks" class="k-input k-textbox" style="width: 100%; height: 22px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="clearfix"></div>
+                <br />
+            </div>
+            <div class="clearfix"></div>
+            <br />
+            <div class="clearfix"></div>
+
+            <div class="rkDetail">
+                <div class="clearfix"></div>
+
+                <table class="table table-bordered" style="">
+                    <thead>
+                        <tr>
+                            <th style="padding:1px 1px 3px;">SL</th>
+                            <th style="padding:1px 1px 3px;">Loom</th>
+                            <th style="padding:1px 1px 3px;">SetNo</th>
+                            <th style="padding:1px 1px 3px;">SSNo</th>
+                            <th style="padding:1px 1px 3px;">BeamNo</th>
+                            <th style="padding:1px 1px 3px;">StyleNo</th>
+                            <th style="padding:1px 1px 3px;">Wastage</th>
+                            <th style="padding:1px 1px 3px;">PO</th>
+                            <th style="padding:1px 1px 3px;">Sizer</th>
+                            <th style="padding:1px 1px 3px;">Captain</th>
+                            <th style="padding:1px 1px 3px;">WarpCount</th>
+                            <th style="padding:1px 1px 3px;">SuppLot/td>
+                            <th style="padding:1px 1px 3px;">UName</th>
+                            <th style="padding:1px 1px 3px;">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        
+                        <tr ng-repeat="item in rkDetail.data" ng-click="rkDetail.editRow($event,item)">
+                            <td style="padding:5px;" class="cls-index">{{$index+1}}</td>
+                            <td style="padding:5px;" class="cls-loom" ng-click="rkDetail.editCell($event,item.Loom)">{{item.Loom}}</td>
+                            <td style="padding:5px;" class="cls-set-no">{{item.SetNo}}</td>
+                            <td style="padding:5px;" class="cls-ss-no">{{item.SSNo}}</td>
+                            <td style="padding:5px;" class="cls-beam-no">{{item.BeamNo}}</td>
+                            <td style="padding:5px;" class="cls-style-no">{{item.StyleNo}}</td>
+                            <td style="padding:5px;" class="cls-wastage">{{item.Wastage}}</td>
+                            <td style="padding:5px;" class="cls-po">{{item.PO}}</td>
+                            <td style="padding:5px;" class="cls-sizer">{{item.Sizer}}</td>
+                            <td style="padding:5px;" class="cls-captain">{{item.Captain}}</td>
+                            <td style="padding:5px;" class="cls-warp-count">{{item.WarpCount}}</td>
+                            <td style="padding:5px;" class="cls-supp-lot">{{item.SuppLot}}</td>
+                            <td style="padding:5px;" class="cls-u-name">{{item.UName}}</td>
+                            <td style="padding:5px;" class="cls-remarks">{{item.Remarks}}</td>
+                        </tr>  
+                        <tr class="tpl">
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" id="rkdgLoomCombo" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" id="rkdgSetNoCombo" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" id="rkdgSSNoCombo" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                            <td style="padding:1px 1px 3px;"><input style="width:120px;height:22px;" /></td>
+                        </tr>                      
+                        @*<tr ng-click="rkDetail.editRow($event,{})">
+                            <td style="padding:1px 1px 3px;">&nbsp;</td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                            <td style="padding:1px 1px 3px;"></td>
+                        </tr>*@
+                    </tbody>
+                </table>
+
+                {{rkDetail.data|json}}
+                <div class="clearfix"></div>
+                <br />
+            </div>
+            <br />
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="divDetailGrid">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <ul class="list-group ">
+                            <li class="list-group-item centerAlign">
+                                <button class="btn btn-success btn-data-entry-save" type="button" ng-click="detail.save()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                                <button class="btn btn-info btn-data-entry-clear" type="button" ng-click="detail.clear()"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                                <button class="btn btn-danger btn-data-entry-close" type="button" ng-click="detail.exit()"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/HDL/ReKnotting/Index.js"></script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+    <div class="col-md-3">
+                   <div class="form-horizontal">
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdLoom">Loom:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdKID" type="hidden" value="" />
+                               <input id="rkdLoom" style="width: 100%; height: 22px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdSetNo">SetNo:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdSetNo" style="width: 100%; height: 22px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdSSNo">SSNo:</label>
+                           <div class="col-md-4 col-xs-4" style="padding-right:3px;">
+                               <input id="rkdSSNo" style="width: 100%; height: 22px;" required validationmessage="Required" />
+                           </div>
+                           <div class="col-md-4 col-xs-4" style="padding-left:0px;">
+                               <input id="rkdBeamNo" style="width: 100%; height: 24px;" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-3">
+                   <div class="form-horizontal">
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdStyleNo">StyleNo:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdStyleNo" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdWastage">Wastage:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdWastage" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdPO">PO:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdPO" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-3">
+                   <div class="form-horizontal">
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdSizer">Sizer:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdSizer" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdCaptain">Captain:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdCaptain" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdWarpCount">WarpCount:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdWarpCount" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-md-3">
+                   <div class="form-horizontal">
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdSuppLot">SuppLot:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdSuppLot" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdUnit">Unit:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdUnit" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                       <div class="form-group">
+                           <label class="col-md-4 col-xs-4 control-label" for="rkdRemarks">Remarks:</label>
+                           <div class="col-md-8 col-xs-8">
+                               <input id="rkdRemarks" style="width: 100%; height: 24px;" required validationmessage="Required" />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+*@

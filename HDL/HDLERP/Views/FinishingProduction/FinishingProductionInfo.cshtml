@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "Finishing Production";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style type="text/css">
+    .k-list-scroller {
+        position: relative;
+        overflow: auto;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .k-grid td {
+        line-height: 1em !important;
+        padding: 0.1em !important;
+    }
+
+    input:focus {
+        border-radius: 0px;
+        border-color: red !important;
+    }
+
+    .k-state-focused {
+        border-radius: 0px;
+        border-color: red !important;
+    }
+</style>
+
+<div class="col-md-12 col-xs-12" ng-app="myApp" ng-controller="finishingProductionCtrl" id="mainController">
+    <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;" ng-show="finishingMaster">Daily Finishing Production Entry Form</div>
+
+    <div class="bs-example" style="background-color: #99ccff;margin-bottom:5px !important;" ng-show="finishingMaster" id="finishingMaster">
+        @*<pre>{{masterObj|json}}</pre>*@
+        <div class="row collapse in">
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmDate">Prod Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 22px;" ng-model="Fdate" ng-keypress="masterMoveDown($event,'mcType','combo')" name="date" placeholder="DD/MM/YYYY" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                            <input type="hidden" ng-model="FID" />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="mcType"> MC Type</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="mcType" id="mcType" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="MCType" ng-keypress="masterMoveDown($event,'remarks','')" required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmFitterCaptain">Remarks</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="remarks" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="remarks" ng-keypress="masterMoveDown($event,'DyeFloor','combo')" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="DyeFloor">Dye Floor</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="DyeFloor" id="DyeFloor" style="width: 100%;  height: 22px;" ng-model="dyeFloor" ng-keypress="masterMoveDown($event,'Shift','combo')" validationmessage="Required" required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmShift">Shift</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="Shift" id="Shift" style="width: 100%; height: 22px;" validationmessage="Required" ng-keypress="masterMoveDown($event,'prodType','combo')" ng-model="masterObj.shift" required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmCaptain">Prod Type</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="prodType" id="prodType" style="width: 100%; height: 22px;" ng-keypress="masterMoveDown($event,'runtime','')" validationmessage="Required" ng-model="masterObj.prodType" required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmPO">M/C Run Time</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="runtime" id="runtime" style="width: 100%; height: 22px;" ng-keypress="masterMoveDown($event,'offTime','')" validationmessage="Required" ng-model="runTime" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmFitterCaptain">M/C OFF Time</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="offTime" id="offTime" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.offTime" ng-keypress="saveMaster($event)" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmFitterCaptain">ID No</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="inputs" id="FID" style="width: 100%;  height: 22px;" readonly="readonly" ng-model="masterObj.FID" validationmessage="Required" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-example" style="height:auto; width: 100%; overflow: scroll;" ng-show="finishingDetail" id="finishingDetail">
+        <form class="form-horizontal" novalidate>
+            @*<pre>{{data|json}}</pre>*@
+            <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th style="border:1px solid">Sl</th>
+                        <th style="border:1px solid">SetNo</th>
+                        <th style="border:1px solid">SS No</th>
+                        <th style="border:1px solid">Beam No</th>
+                        <th style="border:1px solid">Loom No</th>
+                        <th style="border:1px solid">Trolly No</th>
+                        <th style="border:1px solid">Style No</th>
+                        <th style="border:1px solid">Weave</th>
+                        <th style="border:1px solid">Color</th>
+                        <th style="border:1px solid">Width</th>
+                        <th style="border:1px solid">Input Width "</th>
+                        <th style="border:1px solid">Out Width "</th>
+                        <th style="border:1px solid">Input</th>
+                        <th style="border:1px solid">Output</th>
+                        <th style="border:1px solid">Shrinkage</th>
+                        <th style="border:1px solid">Skew %</th>
+                        <th style="border:1px solid">Cap</th>
+                        <th style="border:1px solid">Op Name</th>
+                        <th style="border:1px solid">Process Type</th>
+                        <th style="border:1px solid">RPM</th>
+                        <th style="border:1px solid">Moisture</th>
+                        <th style="border:1px solid">Temparature</th>
+                        <th style="border:1px solid">Finishing Route</th>
+                        <th style="border:1px solid">Remarks</th>
+                        <th style="border:1px solid">FPID</th>
+                        @*<th style="border:1px solid">UName</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border:1px solid" ng-repeat="value in data" ng-init="SSNoDataSource=getSSNoData(value);LoomNoDataSource=getLoomNoData(value)">
+                        <td style="border:1px solid">{{$index+1 }}</td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optSetNo" class="rx{{$parent.$index}}" ng-keypress="aaaa($event,this.className,sub)" ng-model="sub.SetNo" />
+                            @*<input type="text" ng-model="sub.FPID"/>*@
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input ng-model="sub.SizingNo" kendo-combo-box="" k-options="optSSNo" k-data-source="SSNoDataSource" class="r2{{$parent.$index}}">
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input type="text" id="BeamNo" class="r3{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.BeamNo" disabled />
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optLoomNo" k-data-source="LoomNoDataSource" class="r4{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.LoomNo" />
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r5{{$parent.$index}}" ng-keypress="aaaa4($event,this.className,$parent.$index)" ng-model="sub.TrollyNo" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" id="StyleCode"class="r6{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.StyleCode" disabled /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" id="Weave" class="r7{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.Weave " disabled /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" id="Color" class="r8{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.Color" disabled /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r9{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.Width" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r10{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.BeforeWidth" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r11{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.AfterWidth" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r12{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)"ng-change="calculateShrinkage(sub,$parent.$index)" ng-model="sub.BeforeFin" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r13{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)"ng-change="calculateShrinkage(sub,$parent.$index)"  ng-model="sub.AfterFin" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r14{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.AfterFinShrinkag" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r15{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.Skew" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optCapName" class="r16{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.OCode" />
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optOperatorName" class="r17{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.OpCode" />
+                        </td>
+
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optProdType" class="r18{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.ProdCode" />
+
+
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r19{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.RPM" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r20{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.Moisture" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r21{{$parent.$index}}" ng-keypress="aaaa2($event,this.className,$parent.$index)" ng-model="sub.Temparature" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input kendo-combo-box k-options="optFinishingRoute" class="r22{{$parent.$index}}" ng-keypress="aaaa1($event,this.className,$parent.$index)" ng-model="sub.FinishRoute" />
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r23{{$parent.$index}}" ng-keypress="saveMasterDetailAndMoveNext($event,$parent.$index,sub)" ng-model="sub.Remnarks" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r24{{$parent.$index}}" id="r24{{$parent.$index}}" ng-keypress="aaaa2($event,this.className,$parent.$index)" ng-model="sub.FPID" disabled /></td>
+                        @*<td style="border:1px solid" ng-repeat="sub in value"><input type="text"class="r25{{$parent.$index}}" ng-keypress="saveMasterDetailAndMoveNext($event,$parent.$index,sub)"ng-model="sub.UName"  /></td>*@
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </form>
+
+        <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRow()"><i class="fa fa-plus"></i> Add more</button>
+
+    </div>
+    <div class="row" ng-show="btnClose">
+        <div class="spacer5"></div>
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+
+                    <button id="btnClose" class="btn btn-danger" type="button" ng-click="close()"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" ng-show="finishingGrid" id="finishingGrid">
+        <div class="col-md-12 col-xs-12">
+            <div class="bs-example">
+
+                <div class="well well-sm">
+                    Finishing Production
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <button id="btnAddNew" class="btn btn-primary" type="button" ng-click="newData()">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                Add New
+                            </button>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <label class="col-md-4  control-label" for="txtSearchDateFrom">From Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="Warping Date" name="txtSearchDateFrom" style="width: 100%; height: 28px;" id="txtSearchDateFrom">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label class="col-md-4  control-label" for="txtSearchDateTo">To Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="Warping Date" name="txtSearchDateTo" style="width: 100%; height: 28px;" id="txtSearchDateTo">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button id="btnSearchWarping" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer4"></div>
+
+                    <div id="grdFinishingProductionSummary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+</script>
+
+@Scripts.Render("~/Scripts/HDL/FinishingProduction/FinishingProduction.controller.js")
+@Scripts.Render("~/Scripts/HDL/FinishingProduction/FinishingProductionInfo.js")

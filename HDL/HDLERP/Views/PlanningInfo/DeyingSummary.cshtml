@@ -1,0 +1,67 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/DeyingSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtSizeSetLgthDy">Size Length(Mtr):</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 28px;" name="txtSizeSetLgthDy" id="txtSizeSetLgthDy" readonly="readonly" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtBeemLengthDy">Beem Length:</label>
+                            <div class="col-md-6">
+                                <input type="text"  style="width: 100%; height: 28px;" name="txtBeemLengthDy" id="txtBeemLengthDy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtBeemSpaceDy">Beem Space</label>
+                            <div class="col-md-6">
+                                <input type="text"  style="width: 100%; height: 28px;" name="txtBeemSpaceDy" id="txtBeemSpaceDy" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="txtRefStdDy">Ref Std:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 28px;" name="txtRefStdDy" id="txtRefStdDy" />
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 control-label" for="cmbColorDy">Colour:</label>
+                            <div class="col-md-6">
+                                <input type="text" style="width: 100%; height: 28px;" name="cmbColorDy" id="cmbColorDy" disabled="disabled"/>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="panel-body">
+                <button id="btnAddDeying" value="Add New" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus"></span> Add New</button>
+
+                <div id="grdDeyingSummary">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@Scripts.Render("~/Scripts/HDL/DyeingConsumption/DyeingConsumptionDetailsSummary.js")
+
+<div id="divDyeingConsumptionDetailsPopup" class="row">
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <input type="hidden" id="dcdpID" value="" />
+            <input type="hidden" id="dcdpSetNo" value="" />
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpConsumptionDate">Consumption Date:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="dcdpConsumptionDate" id="dcdpConsumptionDate" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpChemicalName">Chemical Name:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="dcdpChemicalName" id="dcdpChemicalName" required validationmessage="required"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpChemicalCode">Chemical Code:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="dcdpChemicalCode" id="dcdpChemicalCode" readonly/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpUnit">Unit:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="dcdpUnit" id="dcdpUnit" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpRate">Rate:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpRate" id="dcdpRate" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpDyeingQuantiy">Dyeing Quantiy:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpDyeingQuantiy" id="dcdpDyeingQuantiy" required validationmessage="required" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpSizingQuantiy">Sizing Quantiy:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpSizingQuantiy" id="dcdpSizingQuantiy" required validationmessage="required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpDyeingValue">Dyeing Value:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpDyeingValue" id="dcdpDyeingValue" required validationmessage="required" readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpSizingValue">Sizing Value:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpSizingValue" id="dcdpSizingValue" required validationmessage="required" readonly/>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpTotalQuantiy">Total Quantiy:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpTotalQuantiy" id="dcdpTotalQuantiy" required validationmessage="required" readonly/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpTotalValue">Total Value:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input value="0" type="text" style="width: 100%; height: 24px;" name="dcdpTotalValue" id="dcdpTotalValue" required validationmessage="required" readonly/>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="dcdpFactoryLot">Factory Lot:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="dcdpFactoryLot" id="dcdpFactoryLot" required validationmessage="required"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-xs-12 rightAlign" style="margin-top: 5px">
+        <button type="button" class="btn btn-sm btn-primary" name="btnAddNewConsumptionDetail" id="dcdpSave" style="min-width:80px;">Save</button>
+        <button type="button" class="btn btn-sm btn-primary" name="btnAddClearConsumptionDetail" id="dcdpClear" style="min-width:80px;">Clear</button>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="spacer5"></div>
+    <div id="dcdpGrid">
+    </div>
+</div>

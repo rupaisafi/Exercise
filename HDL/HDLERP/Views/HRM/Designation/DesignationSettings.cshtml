@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Designation Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Designation/DesignationSettings.js")
+
+<div class="row">
+    <div id="divDesignationSummary" class="col-md-6">
+        @Html.Partial("../HRM/Designation/DesignationInfo")
+    </div>
+    <div id="divDesignationDetails" class="col-md-6">
+        @Html.Partial("../HRM/Designation/DesignationPermission")
+    </div>
+
+</div>
+
+

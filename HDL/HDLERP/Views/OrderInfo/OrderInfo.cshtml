@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Order Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/OrderInfo/OrderInfo.js")
+
+<div class="row">
+    <div id="divOrderSummary" class="col-md-12">
+        @Html.Partial("OrderInfoSummary")
+    </div>
+    <div id="divOrderInfoDetails" class="col-md-12 displayNone">
+        @Html.Partial("OrderInfoDetails")
+    </div>
+</div>
+
+<div id="divOrderDetailsPopup" class="displayNone">
+    @Html.Partial("OrderDetailsPopup")
+</div>

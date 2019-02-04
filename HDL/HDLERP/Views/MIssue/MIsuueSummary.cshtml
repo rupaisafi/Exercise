@@ -1,0 +1,53 @@
+﻿@Scripts.Render("~/Scripts/HDL/MIssueInfo/MIssueSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+
+            <div class="well well-sm">
+                Material Issue Summary
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2 ">
+                        <button id="btnAddNew" class="btn btn-primary" type="button">Add New</button>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-horizontal">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="col-md-4  control-label" for="txtSearchDateFrom">From:</label>
+                                    <div class="col-md-8 input-group">
+                                        <input type="text" placeholder="Plan Date" name="inputDate" style="width: 100%; height: 28px;" id="txtSearchDateFrom">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label class="col-md-4  control-label" for="txtSearchDateTo">To:</label>
+                                    <div class="col-md-8 input-group">
+                                        <input type="text" placeholder="Plan Date" name="inputDate" style="width: 100%; height: 28px;" id="txtSearchDateTo">
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="col-md-4 ">
+                                <div class="form-group">
+                                    <label class="col-md-4  control-label" for="cmbIssueTypeSearch">Yarn/Chemical:</label>
+                                    <div class="col-md-6 input-group">
+                                        <input type="text" style="width: 100%; height: 28px;" name="cmbIssueTypeSearch" id="cmbIssueTypeSearch" />
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer5"></div>
+                <div id="grdMIssueInfoSummary">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

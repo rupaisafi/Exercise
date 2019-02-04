@@ -1,0 +1,154 @@
+﻿@Scripts.Render("~/Scripts/HDL/DyeingProduction/DyeingProdDetailsLCBRope.js")
+@Scripts.Render("~/Scripts/HDL/DyeingProduction/DyeingProdDetailsLCBRopeSummary.js")
+
+<div id="divDyeingProdDetailsLCBPartial" class="row">
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="ldate">LCB Date:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="hidden" id="luid" value="" />
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="ldate" id="ldate" required validationmessage="Required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lshift">Shift:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lshift" id="lshift" required validationmessage="Required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lcanno">Can No:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lcanno" id="lcanno" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="txtlbeamno">Beam No:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" style="width: 100%; height: 24px;" name="lbeamno" id="lbeamno" validationmessage="Required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lmcno">M/C No:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lmcno" id="lmcno" required validationmessage="Required" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lspeed">Speed:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="lspeed" id="lspeed" required validationmessage="Required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="llength">LCB Length:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="llength" id="llength" required validationmessage="Required" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lpo">PO:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lpo" id="lpo" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="loperator">Operator:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="loperator" id="loperator" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lsupervisor">Supervisor:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" placeholder="" style="width: 100%; height: 24px;" name="lsupervisor" id="lsupervisor" required validationmessage="Required" />
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lqc">QC:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lqc" id="lqc">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="ltension">Tension:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="ltension" id="ltension" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lbreakage">Breakage:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lbreakage" id="lbreakage" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lcutendsdye">CutEndsDye:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lcutendsdye" id="lcutendsdye" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="ldyecapcutend">DyeCap CutEnd:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="ldyecapcutend" id="ldyecapcutend">
+                </div>
+            </div>            
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="ldyeopcutend">DyeOp CutEnd:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="ldyeopcutend" id="ldyeopcutend">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="llooseendwarp">LooseEnd Warp:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="llooseendwarp" id="llooseendwarp">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lropecutlcb">RopeCut LCB:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lropecutlcb" id="lropecutlcb">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lreedtime">Reed Time:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input type="text" style="width: 100%; height: 24px;" name="lreedtime" id="lreedtime" required validationmessage="Required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-5 col-xs-5 control-label" for="lremarks">Remarks:</label>
+                <div class="col-md-7 col-xs-7">
+                    <input class="k-input k-textbox" style="width: 100%; height: 24px;" name="txtRemarks" id="lremarks" validationmessage="Required">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-xs-12 rightAlign" style="margin-top: 5px">
+        <button type="button" class="btn btn-sm btn-info" name="lbtnAddNew" id="lbtnAddNew">New</button>
+        <button type="button" class="btn btn-sm btn-info" name="lbtnAddToList" id="lbtnAddToList">AddToList</button>
+    </div>
+</div>
+
+<div class="panel-body">
+    <div class="spacer5"></div>
+    <div id="grdDyeingProdDetailsLCBRopeSummary">
+    </div>
+</div>

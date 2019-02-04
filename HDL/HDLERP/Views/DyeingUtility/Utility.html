@@ -1,0 +1,676 @@
+﻿@{
+    ViewBag.Title = "Dyeing Utility";
+}
+
+<style>
+    .custom-table {
+        width: 100%;
+        min-width: 320px;
+        /*border:1px solid;
+        border-collapse:separate;*/
+    }
+
+        .custom-table td {
+            padding: 2px;
+            border: 0px;
+        }
+
+            .custom-table td.label-text {
+                font-size: 10px;
+                text-align: right;
+                line-height: 100%;
+                font-weight: bold;
+                padding-right: 5px;
+                text-transform: uppercase;
+            }
+
+            .custom-table td > input {
+                width: 100%;
+                min-width: 30px;
+            }
+
+            .custom-table td > select {
+                width: 100%;
+                min-width: 120px;
+                padding: 3px 2px;
+            }
+
+    input {
+        border: 1px solid #b6b6b6;
+        padding: 2px;
+    }
+
+        input:focus {
+            border: 1px solid #66afe9;
+            /*box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);*/
+        }
+
+    .hide {
+        display: none;
+    }
+
+    .k-dropdown-wrap.k-state-default {
+        border-radius: 0px;
+        height: 22px;
+        width: 100%;
+        background-color: white;
+    }
+
+    .k-widget.k-dropdown.k-header {
+        width: 100%;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12">
+        <table class="h-table" border="1">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">Basic Information</p>
+            </caption>
+            <tbody class="h-tbody">
+                <tr>
+                    <td class="label-text">Id No.</td>
+                    <td><input type="text" name="" value="" readonly /></td>
+                    <td class="label-text">No Of Creel</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Shade Black</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Feeding (gpl)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Sulpher Dosing(l/min)</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Set No</td>
+                    <td><select><option>10001</option><option>10002</option><option>10003</option><option>10004</option></select></td>
+                    <td class="label-text">Total Ends</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Shade Match With</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Refraction</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Sulpher Temp(C)</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Program Dye Date.</td>
+                    <td><input type="date" name="" value="" /></td>
+                    <td class="label-text">Yarn Suppliers</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">M/c Speed(m/min)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Viscosity(s)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Dydro Dosing <small>(g/min)</small></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Set Length (m).</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Yarn Lot</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Dye Set Length(m)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Indigo Redox(mv)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Custic Dosing(ml/min)</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Set Length(kg).</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Buyer</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Dye Length(kg)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Indigo PH</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Custic Concen(gpl)</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Yarn Count</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Style No</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">M/c Start</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Indigo Dosing(l/min)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Yarn Count</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">Warp Ratio</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Colour</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">M/c Stop</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Sulpher Redox (mV)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Yarn Suppliers</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td class="label-text">No of Beam</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Shade Indigo</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Bath (gpl)</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">Sulpher PH</td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td class="label-text">SET NO</td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr class="hide" />
+<style>
+    .h-table {
+        width: 100%;
+        max-height: 200px;
+        overflow: hidden;
+        border-spacing: 3px;
+        border-collapse: separate;
+        border: 1px solid #286090;
+    }
+
+        .h-table > .h-caption {
+            color: white;
+            padding: 3px;
+            background-color: #286090;
+            border: 1px solid #286090;
+        }
+
+    .h-thead {
+        border-bottom: 1px solid #286090;
+    }
+
+        .h-thead > tr {
+        }
+
+            .h-thead > tr > td {
+                padding: 4px 5px;
+                border-spacing: 0px;
+                background: #c0c0c0;
+                font-weight: bold;
+            }
+
+    .h-tbody {
+    }
+
+        .h-tbody > tr {
+        }
+
+            .h-tbody > tr > td {
+            }
+
+                .h-tbody > tr > td > input {
+                    width: 100%;
+                    height: 22px;
+                }
+
+                .h-tbody > tr > td > select {
+                    width: 100%;
+                    height: 22px;
+                }
+
+                    .h-tbody > tr > td > select > option {
+                        max-height: 200px;
+                    }
+
+    .list-container {
+        width: 100%;
+        display: none;
+        position: relative;
+        height: 0px;
+        overflow: visible;
+    }
+
+    .list {
+        background: wheat;
+        list-style: none;
+        padding: 5px;
+        width: 100%;
+        position: absolute;
+        max-height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        z-index: 0;
+    }
+</style>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Stop From (hh:mm)</td>
+                    <td class="label-text">Stop To (hh:mm)</td>
+                    <td class="label-text">Duration (hh:mm)</td>
+                    <td class="label-text">Reason</td>
+                    <td class="label-text">Stop</td>
+                    <td class="label-text">Production Loss(M)</td>
+                    <td class="label-text">C Grade Yarn(M)</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td>
+                        <input type="text" name="" value="" />
+                    </td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input class="age" type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input class="count" type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-5">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Time Utilization</td>
+                    <td class="label-text">M/c Run From</td>
+                    <td class="label-text">M/c Run To</td>
+                    <td class="label-text">Total Time(hh)</td>
+                    <td class="label-text">Calc. Run Time</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+    <div class="col-md-3">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Set Wastage Type</td>
+                    <td class="label-text">Quantity(kg)</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+    <div class="col-md-4">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+    <div class="col-md-6">
+        <table class="h-table">
+            <caption class="h-caption">
+                <p style="text-transform:uppercase;font-weight:bold;margin:0px;">DYEING RUN & STOP</p>
+            </caption>
+            <thead class="h-thead">
+                <tr>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                    <td class="label-text">Name</td>
+                </tr>
+            </thead>
+            <tbody class="h-tbody">
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                    <td><input type="text" name="" value="" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12 text-center">
+        <button class="btn btn-sm btn-primary" style="min-width:80px;">Prev</button>
+        <button class="btn btn-sm btn-primary" style="min-width:80px;">Next</button>
+        <button class="btn btn-sm btn-primary" style="min-width:80px;">Save</button>
+        <button class="btn btn-sm btn-primary" style="min-width:80px;">Exit</button>
+    </div>
+</div>
+<br />
+
+
+<script>
+    $("input").focus(function () {
+
+        //$("#SelectInput").data("kendoDropDownList").open();
+        $(this).select();
+    })
+
+    $(".input").keydown(function (e) {
+        if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode == 110 || e.keyCode == 8) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+
+
+    $("input").keydown(function (e) {
+        //$("#SelectInput").data("kendoDropDownList").focus();
+        //$("#SelectInput").data("kendoDropDownList").open();
+
+
+        if (e.keyCode == 13) {
+            var td = this.parentElement;
+            var nextTD = td.nextElementSibling;
+            if (nextTD) {
+                var input = $(nextTD).find("input");
+
+                if (input) {
+                    var select = input.data("kendoDropDownList");
+                    if (select) {
+                        select.focus();
+                        select.open();
+                    } else {
+                        input.focus();
+                    }
+                }
+            } else {
+                if (td.parentElement.nextElementSibling) {
+                    var nextTR = td.parentElement.nextElementSibling;
+                    var nextTRTD = nextTR.children[0];
+                    var nextTRTDInput = nextTRTD.children[0];
+                    nextTRTDInput.select();
+                    nextTRTDInput.focus();
+                } else {
+                    var nextTR = td.parentElement;
+                    var nextTRTD = nextTR.children[0];
+                    var nextTRTDInput = nextTRTD.children[0];
+                    nextTRTDInput.select();
+                    nextTRTDInput.select();
+                    nextTRTDInput.focus();
+                }
+            }
+        }
+        else if (e.keyCode == 37) {
+            var pTD = $(this).closest("td").prev("td");
+            if (pTD) {
+                var pInput = pTD.find("input");
+                if (pInput) {
+                    var pSelect = pInput.data("kendoDropDownList");
+                    if (pSelect) {
+                        pSelect.focus();
+                        pSelect.open();
+                    } else {
+                        pInput.focus();
+                        window.setTimeout(function () {
+                            pInput.select();
+                        });
+
+                    }
+                }
+            }
+        }
+        else if (e.keyCode == 38) {
+
+        }
+        else if (e.keyCode == 39) {
+            var rkeyInput = $(this).closest("td").next("td").find("input");
+            if (rkeyInput) {
+                var rightKeySelect = rkeyInput.data("kendoDropDownList");
+                if (rightKeySelect) {
+                    rightKeySelect.focus();
+                    rightKeySelect.open();
+                } else {
+                    rkeyInput.focus();
+                    window.setTimeout(function () {
+                        rkeyInput.select();
+                    });
+                }
+            }
+        }
+        else if (e.keyCode == 40) {
+
+        }
+    });
+
+
+    var data = [
+        { text: "0", value: "0" },
+        { text: "1", value: "1" },
+        { text: "2", value: "2" },
+        { text: "3", value: "3" },
+        { text: "4", value: "4" },
+        { text: "5", value: "5" },
+        { text: "6", value: "6" },
+        { text: "7", value: "7" },
+        { text: "8", value: "8" },
+        { text: "9", value: "9" },
+        { text: "10", value: "10" },
+        { text: "11", value: "11" },
+        { text: "12", value: "12" },
+        { text: "13", value: "13" },
+        { text: "14", value: "14" },
+        { text: "15", value: "15" },
+        { text: "16", value: "16" },
+        { text: "17", value: "17" },
+        { text: "18", value: "18" },
+        { text: "19", value: "19" },
+        { text: "20", value: "20" },
+        { text: "21", value: "21" },
+        { text: "22", value: "22" },
+        { text: "23", value: "23" },
+        { text: "24", value: "24" },
+        { text: "25", value: "25" },
+        { text: "26", value: "26" },
+        { text: "27", value: "27" },
+        { text: "28", value: "28" },
+        { text: "29", value: "29" },
+        { text: "30", value: "30" },
+        { text: "31", value: "31" },
+        { text: "32", value: "32" },
+        { text: "33", value: "33" },
+        { text: "34", value: "34" },
+        { text: "35", value: "35" },
+        { text: "36", value: "36" },
+        { text: "37", value: "37" },
+        { text: "38", value: "38" },
+        { text: "39", value: "39" },
+    ];
+
+
+    $(function () {
+        $(".age").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+            select: function () {
+                $(".age").closest("td").next("td").find("input").focus();
+            },
+            change: function () {
+
+            }
+        });
+        $(".age").focus(function () {
+            $(".age").data("kendoDropDownList").open();
+        });
+        $(".count").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            index: 0,
+            select: function () {
+                $(".count").closest("td").next("td").find("input").focus();
+            },
+            change: function () {
+
+            }
+        });
+        $(".count").focus(function () {
+            $(".count").data("kendoDropDownList").open();
+        });
+    })
+    // create DropDownList from input HTML element
+
+</script>
+
+
+
+

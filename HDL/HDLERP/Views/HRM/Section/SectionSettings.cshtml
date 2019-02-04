@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Section Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Section/SectionSettings.js")
+
+<div class="row">
+    <div id="divSectionSummary" class="col-md-6">
+        @Html.Partial("../HRM/Section/SectionInfo")
+    </div>
+    <div id="divSectionDetails" class="col-md-6">
+        @Html.Partial("../HRM/Section/SectionPermission")
+    </div>
+
+</div>
+
+

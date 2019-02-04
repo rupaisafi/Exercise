@@ -1,0 +1,5 @@
+D:\SvnProjects\HDL\Entities\bin\Debug\Entities.dll
+D:\SvnProjects\HDL\Entities\bin\Debug\Entities.pdb
+D:\SvnProjects\HDL\Entities\obj\Debug\Entities.dll
+D:\SvnProjects\HDL\Entities\obj\Debug\Entities.pdb
+D:\SvnProjects\HDL\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache

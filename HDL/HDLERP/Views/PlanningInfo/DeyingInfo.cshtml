@@ -1,0 +1,68 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/DeyingInfo.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example" id="divOrderDetails">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="cmbINameDy">IName:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbINameDy" id="cmbINameDy" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="cmbSNameDy">Supplier Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbSNameDy" id="cmbSNameDy" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="txtQtyDy">Qty (Kg):</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtQtyDy" id="txtQtyDy" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="txtRateDy">Rate:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" name="txtRateDy" style="width: 100%; height: 28px;" id="txtRateDy" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="txtValueDy">Value:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtValueDy" style="width: 100%; height: 28px;" id="txtValueDy" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="txtRemarksDy">Remarks:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtRemarksDy" style="width: 100%; height: 28px;" id="txtRemarksDy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnAddToListDeying" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> AddToList</button>
+                            <button id="btnUpdateDeying" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> Update List</button>
+                            <button id="btnClearDeying" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnCloseDeying" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-off"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

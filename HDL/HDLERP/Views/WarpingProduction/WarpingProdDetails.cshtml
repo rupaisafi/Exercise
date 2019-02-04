@@ -1,0 +1,263 @@
+﻿@Scripts.Render("~/Scripts/HDL/WarpingProduction/WarpingProdDetails.js")
+@Scripts.Render("~/Scripts/HDL/WarpingProduction/WarpingProdDetailsSummary.js")
+<style type="text/css">
+    .form-group {
+        margin-bottom: 2px !important;
+    }
+
+    #cmbItem-list {
+        width: 300px !important;
+    }
+
+    #cmbShift-list {
+        width: 300px !important;
+    }
+
+    #cmbOperator-list {
+        width: 300px !important;
+    }
+
+    #cmbCaptain-list {
+        width: 300px !important;
+    }
+
+    #cmbSupplier-list {
+        width: 300px !important;
+    }
+
+    #cmbYarn-list {
+        width: 300px !important;
+    }
+    .k-grid td {
+        line-height: 1em !important;
+        padding: 0.1em !important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm" data-toggle="collapse" data-target="#demo">Daily Warping Production Entry Form</div>
+        <div class="bs-example" id="divWarpProdDetailsMaster" style="background-color: #99ccff">
+            <div class="row collapse in" id="demo">
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <input type="hidden" id="hdnIdNo" value="0" />
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtProgDate">Prog. Date:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 22px;" name="txtProgDate" id="txtProgDate" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="cmbSetNo">Set No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 22px;" name="cmbSetNo" id="cmbSetNo" required validationmessage="Required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtSetLength">Set Lgth:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" style="width: 100%; height: 22px;" name="txtSetLength" id="txtSetLength" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtYarnCode">Yarn Code:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" style="width: 100%; height: 22px;" name="txtYarnCode" id="txtYarnCode" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtWarpRatio">Warp Ratio:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 22px;" name="txtWarpRatio" id="txtWarpRatio" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtEndsPerBeam">EndsPerBeam:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 22px;" name="txtEndsPerBeam" id="txtEndsPerBeam" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="cmbMachineNo">M/C No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 22px;" name="cmbMachineNo" id="cmbMachineNo" required validationmessage="Required"/>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label" for="cmbUnit">Unit:</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input type="text" name="cmbBuyer" style="width: 100%; height: 22px;" id="cmbUnit" required validationmessage="Required">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtNoOfBeam">No Of Beam:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtNoOfBeam" style="width: 100%; height: 22px;" id="txtNoOfBeam">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtNoOfCreal">No Of Creal:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtNoOfCreal" style="width: 100%; height: 22px;" id="txtNoOfCreal">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtTotalEnds">Total Ends:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtTotalEnds" style="width: 100%; height: 22px;" id="txtTotalEnds">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtMcSpeed">M/C Speed:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtMcSpeed" style="width: 100%; height: 22px;" id="txtMcSpeed">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtYarnTension">Yarn Tension:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtYarnTension" style="width: 100%; height: 22px;" id="txtYarnTension">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtProcForce">Proc. Force:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtProcForce" style="width: 100%; height: 22px;" id="txtProcForce">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtTotalBeam">Total Beam:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtTotalBeam" style="width: 100%; height: 22px;" id="txtTotalBeam" required validationmessage="Required">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="txtTotalCreal">Total Creal:</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="form-control" name="txtTotalCreal" style="width: 100%; height: 22px;" id="txtTotalCreal">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtProYarnLot">ProYarnLot:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" name="txtProYarnLot" style="width: 100%; height: 22px;" id="txtProYarnLot">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtProYarnSupp">ProYarnSupp:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" name="txtProYarnSupp" style="width: 100%; height: 22px;" id="txtProYarnSupp">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="cmbStyleNo">Style No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" name="cmbStyleNo" style="width: 100%; height: 22px;" id="cmbStyleNo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtCustName">Cust Name:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="hidden" id="hdnCustCode" value="0" />
+                                <input type="text" class="form-control" name="txtCustName" style="width: 100%; height: 22px;" id="txtCustName">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtConstruction">Construction:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" name="txtConstruction" style="width: 100%; height: 22px;" id="txtConstruction">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtProdType">Prod Type:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="hidden" id="hdnProdTypeId" value="0" />
+                                <input type="text" class="form-control" name="txtProdType" style="width: 100%; height: 22px;" id="txtProdType">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtRemarks">Remarks:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" name="txtRemarks" style="width: 100%; height: 22px;" id="txtRemarks">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bs-example">
+
+            @Html.Partial("WarpingProdDetailsPopup")
+
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="panel-body">
+                        <div class="spacer5"></div>
+                        <div id="grdWarpingProdDetailsSummary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                            <button id="btnClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    //Open on focus logic
+    $(function () {
+        $("[data-role=combobox]").each(function () {
+            var widget = $(this).getKendoComboBox();
+            widget.input.on("keypress", function () {
+                widget.open();
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,37 @@
+﻿
+@Scripts.Render("~/Scripts/HRM/AttendanceProcess/AttendanceProcess.js")
+
+<div class="col-md-12 bs-example">
+    <div class="well well-sm">
+        Attendance Process
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-md-3  control-label" for="txtStartDate">Start Date:</label>
+                    <div class="col-md-9 ">
+                        <input type="text" name="txtStartDate" style="width: 100%; height: 28px;" id="txtStartDate" required validationmessage="Required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3  control-label" for="txtEndDate">End Date:</label>
+                    <div class="col-md-9 ">
+                        <input type="text" name="txtEndDate" style="width: 100%; height: 28px;" id="txtEndDate">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="spacer5"></div>
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+                    <button id="btnProcess" class="btn btn-primary" type="button">Process</button>
+                    @*<button id="btnClear" class="btn btn-primary" type="button">Clear</button>*@
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿
+@Scripts.Render("~/Scripts/HRM/EmployeeSearch/EmployeeTree.js")
+@Scripts.Render("~/Scripts/HRM/EmployeeSearch/EmpSearchParam.js")
+@Scripts.Render("~/Scripts/HRM/EmployeeSearch/EmployeeSummary.js")
+
+<div class="col-md-12 bs-example">
+    <div class="well well-sm">
+        Search Employee Information
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-1 control-label" for="cmbStatus">Status:</label>
+                <div class="col-md-3">
+                    <input type="text" style="width: 100%; height: 28px;" name="cmbStatus" id="cmbStatus" />
+                </div>
+                <label class="col-md-2 control-label" for="txtSearchKey">Search Key:</label>
+                <div class="col-md-4">
+                    <input type="text" style="width: 100%; height: 28px;" id="txtSearchKey" class="k-textbox" />
+                </div>
+                <div class="col-md-2 control-label">
+                    <button type="button" style="width: 100%; height: 28px;" class="k-button" id="btnSearchEmp">Search</button>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div id="trAllEmp"></div>
+            </div>
+            <div class="col-md-8">
+                <div id="grdEmployee"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

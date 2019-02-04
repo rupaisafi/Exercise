@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Color Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/ColorInfo/ColorInfo.js")
+
+<div class="row">
+    <div id="divColorInfoDetails" class="col-lg-6">
+        @Html.Partial("ColorDetails")
+    </div>
+    <div id="divColorSummary" class="col-lg-6">
+        @Html.Partial("ColorSummary")
+    </div>
+</div>
+
+

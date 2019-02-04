@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43EC51F4-69BA-4533-918C-6F39415B5D75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entities</RootNamespace>
+    <AssemblyName>Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HDL\Anonymous.cs" />
+    <Compile Include="HDL\BeamFinish.cs" />
+    <Compile Include="HDL\BeamFinishDetails.cs" />
+    <Compile Include="HDL\CausticRecovery.cs" />
+    <Compile Include="HDL\ComboModel.cs" />
+    <Compile Include="HDL\DyeingProcessCreelLoading.cs" />
+    <Compile Include="HDL\DyeingProcessHeadStock.cs" />
+    <Compile Include="HDL\DyeingProcessRecipe.cs" />
+    <Compile Include="HDL\DyeingProcessCompensator.cs" />
+    <Compile Include="HDL\DyeingProcessSizingParameter.cs" />
+    <Compile Include="HDL\DyeingProcessDyeingParameter.cs" />
+    <Compile Include="HDL\DyeingProcessCreelUnit.cs" />
+    <Compile Include="HDL\BankInfo.cs" />
+    <Compile Include="HDL\BranchInfo.cs" />
+    <Compile Include="HDL\CommonStatus.cs" />
+    <Compile Include="HDL\DTO\PlanningInfoSummaryEntity.cs" />
+    <Compile Include="HDL\DTO\StyleInformation.cs" />
+    <Compile Include="HDL\DyeingConsumptionDetail.cs" />
+    <Compile Include="HDL\DyeingConsumptionInfo.cs" />
+    <Compile Include="HDL\DyeingPlanInfo.cs" />
+    <Compile Include="HDL\DyeingProcess.cs" />
+    <Compile Include="HDL\DyeingProdDetailsDyeRope.cs" />
+    <Compile Include="HDL\DyeingProdDetailsLCBRope.cs" />
+    <Compile Include="HDL\DyeingProdDetailsSizingSlasherRope.cs" />
+    <Compile Include="HDL\DyeingUtilityDrainageDetail.cs" />
+    <Compile Include="HDL\DyeingUtilityRunAndStop.cs" />
+    <Compile Include="HDL\DyeingUtilityTimeUtilization.cs" />
+    <Compile Include="HDL\DyeingUtilityWastageDetail.cs" />
+    <Compile Include="HDL\DyeingYarn.cs" />
+    <Compile Include="HDL\DyeingYarnDetail.cs" />
+    <Compile Include="HDL\EmployeeInfo.cs" />
+    <Compile Include="HDL\FinisgingProductionMaster.cs" />
+    <Compile Include="HDL\FinishingProductionDetail.cs" />
+    <Compile Include="HDL\FinishingStockDispatch.cs" />
+    <Compile Include="HDL\FinishingStockMaster.cs" />
+    <Compile Include="HDL\FinishingStockRec.cs" />
+    <Compile Include="HDL\FinishRoute.cs" />
+    <Compile Include="HDL\FinishType.cs" />
+    <Compile Include="HDL\Grade.cs" />
+    <Compile Include="HDL\ICode.cs" />
+    <Compile Include="HDL\InspectionCheckProductionToFinish.cs" />
+    <Compile Include="HDL\InspectionCheckRejectionToFinish.cs" />
+    <Compile Include="HDL\InspectionFlagginQuality.cs" />
+    <Compile Include="HDL\InspectionFloorStockDetail.cs" />
+    <Compile Include="HDL\InspectionFloorStockMaster.cs" />
+    <Compile Include="HDL\InspFlagginDetail.cs" />
+    <Compile Include="HDL\InspFlagginMaster.cs" />
+    <Compile Include="HDL\InspNonDispatchDetail.cs" />
+    <Compile Include="HDL\InspNonDispatchMaster.cs" />
+    <Compile Include="HDL\InspRefinishDetail.cs" />
+    <Compile Include="HDL\InspRejectionDetail.cs" />
+    <Compile Include="HDL\InspRejectionMaster.cs" />
+    <Compile Include="HDL\InspDyeInfo.cs" />
+    <Compile Include="HDL\InventoryGroupEntity.cs" />
+    <Compile Include="HDL\LoomDownTimeDetail.cs" />
+    <Compile Include="HDL\MachineEntity.cs" />
+    <Compile Include="HDL\MaterialConsumption.cs" />
+    <Compile Include="HDL\MaterialConsumptionDetails.cs" />
+    <Compile Include="HDL\MIssueDetails.cs" />
+    <Compile Include="HDL\MIssueInfo.cs" />
+    <Compile Include="HDL\PlanningInfoDetails.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsDye.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsDye1.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsWp.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsWp1.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsWv.cs" />
+    <Compile Include="HDL\PlanningInfoDetailsWv1.cs" />
+    <Compile Include="HDL\ProdQuality.cs" />
+    <Compile Include="HDL\ProdType.cs" />
+    <Compile Include="HDL\QCFault.cs" />
+    <Compile Include="HDL\RefinishFault.cs" />
+    <Compile Include="HDL\RubberBelt.cs" />
+    <Compile Include="HDL\RubberBeltDetail.cs" />
+    <Compile Include="HDL\SetStatus.cs" />
+    <Compile Include="HDL\SetProductionType.cs" />
+    <Compile Include="HDL\Color.cs" />
+    <Compile Include="HDL\Common\Company.cs" />
+    <Compile Include="HDL\Common\DropDownClass.cs" />
+    <Compile Include="HDL\Common\MachineInfo.cs" />
+    <Compile Include="HDL\Common\ProdStatus.cs" />
+    <Compile Include="HDL\CottonTypeEntity.cs" />
+    <Compile Include="HDL\CurrencyInfo.cs" />
+    <Compile Include="HDL\Customer.cs" />
+    <Compile Include="HDL\Department.cs" />
+    <Compile Include="HDL\DTO\DropDownClass.cs" />
+    <Compile Include="HDL\DTO\MrrBalance.cs" />
+    <Compile Include="HDL\DTO\OrderStyleInfo.cs" />
+    <Compile Include="HDL\DTO\PlanningDetails.cs" />
+    <Compile Include="HDL\DyeingInformation.cs" />
+    <Compile Include="HDL\FabricType.cs" />
+    <Compile Include="HDL\ImpLCDetails.cs" />
+    <Compile Include="HDL\ImportType.cs" />
+    <Compile Include="HDL\ItemGroup.cs" />
+    <Compile Include="HDL\ItemInfoEntity.cs" />
+    <Compile Include="HDL\ItemType.cs" />
+    <Compile Include="HDL\ImpLcInfo.cs" />
+    <Compile Include="HDL\LcStatus.cs" />
+    <Compile Include="HDL\LotInfo.cs" />
+    <Compile Include="HDL\MrrDetails.cs" />
+    <Compile Include="HDL\MrrInformation.cs" />
+    <Compile Include="HDL\Order.cs" />
+    <Compile Include="HDL\OrderDetails.cs" />
+    <Compile Include="HDL\OrderType.cs" />
+    <Compile Include="HDL\Partial.cs" />
+    <Compile Include="HDL\PlanningInformation.cs" />
+    <Compile Include="HDL\SetInfoEntity.cs" />
+    <Compile Include="HDL\ShiftEntity.cs" />
+    <Compile Include="HDL\Speciality.cs" />
+    <Compile Include="HDL\SSNoModel.cs" />
+    <Compile Include="HDL\StickyEndsDetails.cs" />
+    <Compile Include="HDL\Style.cs" />
+    <Compile Include="HDL\StyleDetailsFinishingRecepi.cs" />
+    <Compile Include="HDL\StyleParameterFinishing.cs" />
+    <Compile Include="HDL\StyleParamFabric.cs" />
+    <Compile Include="HDL\StyleParamFinish.cs" />
+    <Compile Include="HDL\StyleParamGrey.cs" />
+    <Compile Include="HDL\Supplier.cs" />
+    <Compile Include="HDL\Buyer.cs" />
+    <Compile Include="HDL\Report\ReportParams.cs" />
+    <Compile Include="Core\Menu\Menu.cs" />
+    <Compile Include="Core\Menu\MenuPermission.cs" />
+    <Compile Include="Core\Module\Module.cs" />
+    <Compile Include="Core\NoticeSetting\NoticeInfo.cs" />
+    <Compile Include="HDL\TblBeamStock.cs" />
+    <Compile Include="HDL\TblBeamStockDetailS.cs" />
+    <Compile Include="HDL\tblDyeingInformation.cs" />
+    <Compile Include="HDL\TblEmployeeCaptain.cs" />
+    <Compile Include="HDL\TblInsFalt.cs" />
+    <Compile Include="HDL\TblInsFaltDetail.cs" />
+    <Compile Include="HDL\TblInsFaltDetail1.cs" />
+    <Compile Include="HDL\TblStock11.cs" />
+    <Compile Include="HDL\TblStock21.cs" />
+    <Compile Include="HDL\TblStock22.cs" />
+    <Compile Include="HDL\TblType.cs" />
+    <Compile Include="HDL\Unit.cs" />
+    <Compile Include="HDL\User.cs" />
+    <Compile Include="HDL\WarpingInforamtion.cs" />
+    <Compile Include="HDL\WarpingPlanInfo.cs" />
+    <Compile Include="HDL\WarpingProdDetails.cs" />
+    <Compile Include="HDL\DyeingProdInfo.cs" />
+    <Compile Include="HDL\WarpingProdInfo.cs" />
+    <Compile Include="HDL\WeavingMaster.cs" />
+    <Compile Include="HDL\WeavingProduction.cs" />
+    <Compile Include="HDL\LoomDownTimeMaster.cs" />
+    <Compile Include="HDL\KnottingDetail.cs" />
+    <Compile Include="HDL\KnottingMaster.cs" />
+    <Compile Include="HDL\Yarn.cs" />
+    <Compile Include="HRM\Common_BloodGroup.cs" />
+    <Compile Include="HRM\Common_Board.cs" />
+    <Compile Include="HRM\Common_Company.cs" />
+    <Compile Include="HRM\Common_Country.cs" />
+    <Compile Include="HRM\Common_Degree.cs" />
+    <Compile Include="HRM\Common_DesignationGroup.cs" />
+    <Compile Include="HRM\Common_District.cs" />
+    <Compile Include="HRM\Common_Division.cs" />
+    <Compile Include="HRM\Common_EmploymentCategory.cs" />
+    <Compile Include="HRM\Common_EmploymentStatus.cs" />
+    <Compile Include="HRM\Common_EmploymentType.cs" />
+    <Compile Include="HRM\Common_Gender.cs" />
+    <Compile Include="HRM\Common_MaritalStatus.cs" />
+    <Compile Include="HRM\Common_Position.cs" />
+    <Compile Include="HRM\Common_Religion.cs" />
+    <Compile Include="HRM\Common_Shift.cs" />
+    <Compile Include="HRM\Common_ShiftType.cs" />
+    <Compile Include="HRM\Common_Team.cs" />
+    <Compile Include="HRM\Common_Designation.cs" />
+    <Compile Include="HRM\Common_Section.cs" />
+    <Compile Include="HRM\Common_Thana.cs" />
+    <Compile Include="HRM\Common_Unit.cs" />
+    <Compile Include="HRM\Common_Department.cs" />
+    <Compile Include="HRM\Common_WeekOff.cs" />
+    <Compile Include="HRM\Common_Wing.cs" />
+    <Compile Include="HRM\EmployeeAllInformation.cs" />
+    <Compile Include="HRM\EmployeeTree.cs" />
+    <Compile Include="HRM\HumanResource_EmployeeBasic.cs" />
+    <Compile Include="HRM\HumanResource_EmployeeContact.cs" />
+    <Compile Include="HRM\HumanResource_EmployeeDrivingLicense.cs" />
+    <Compile Include="HRM\HumanResource_EmployeeEducation.cs" />
+    <Compile Include="HRM\HumanResource_EmployeePassport.cs" />
+    <Compile Include="HRM\HumanResource_EmployeeSeparation.cs" />
+    <Compile Include="HRM\Payroll_AllowanceByDesGroup.cs" />
+    <Compile Include="HRM\ProcessDate.cs" />
+    <Compile Include="HRM\R_DeptDesignation.cs" />
+    <Compile Include="HRM\R_DeptSection.cs" />
+    <Compile Include="HRM\R_SecWing.cs" />
+    <Compile Include="HRM\R_UnitDept.cs" />
+    <Compile Include="HRM\R_WingTeam.cs" />
+    <Compile Include="HDL\ObjectModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HDL\StickyEnds.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

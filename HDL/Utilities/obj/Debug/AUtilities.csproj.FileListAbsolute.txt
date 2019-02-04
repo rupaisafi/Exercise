@@ -1,0 +1,6 @@
+D:\SvnProjects\HDL\Utilities\bin\Debug\AUtilities.dll
+D:\SvnProjects\HDL\Utilities\bin\Debug\AUtilities.pdb
+D:\SvnProjects\HDL\Utilities\bin\Debug\Newtonsoft.Json.dll
+D:\SvnProjects\HDL\Utilities\obj\Debug\AUtilities.dll
+D:\SvnProjects\HDL\Utilities\obj\Debug\AUtilities.pdb
+D:\SvnProjects\HDL\Utilities\obj\Debug\AUtilities.csprojResolveAssemblyReference.cache

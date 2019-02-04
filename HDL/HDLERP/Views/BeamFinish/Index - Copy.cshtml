@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/Content/HDL/BeamFinish.css")
+
+<div class="container-fluid">
+    <div class="bs-example">
+        <div class="row">
+            <div class="col-md-3">
+                <table>
+                    <colgroup>
+                        <col class="m-group-label" />
+                        <col />
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th class="m-label">Date</th>
+                            <td class=""><input /></td>
+                        </tr>
+                        <tr>
+                            <th class="m-label">Unit</th>
+                            <td class=""><input /></td>
+                        </tr>
+                        <tr>
+                            <th class="m-label">Remark</th>
+                            <td class=""><input /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="spacer5"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="data-grid">
+                    <table class="s-table">
+                        <colgroup>
+                            <col style="width:24px;" />
+                            <col style="width:50px;" />
+                            <col style="width:50px;" />
+                            <col style="width:120px;" />
+                            <col style="width:120px;" />
+                            <col style="width:120px;" />
+                            <col style="width:120px;"/>
+                        </colgroup>
+                        <thead class="s-thead">
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>MID</th>
+                                <th>Name1</th>
+                                <th>Name2</th>
+                                <th>Name3</th>
+                                <th>Name4</th>
+                                <th>Name5</th>
+                            </tr>
+                        </thead>
+                        <tbody class="s-tbody">
+                            <tr>
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-arrow-e"></span>    
+                                </td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>Name1</td>
+                                <td>Name2</td>
+                                <td>Name3</td>
+                                <td class="combo">Name4</td>
+                                <td>Name5</td>
+                            </tr>
+                            <tr>
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-arrow-e"></span>
+                                </td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td>Name2</td>
+                                <td>Name2</td>
+                                <td>Name3</td>
+                                <td class="combo">Name4</td>
+                                <td>Name5</td>
+                            </tr>
+                            <tr>
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-arrow-e"></span>
+                                </td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>Name3</td>
+                                <td>Name2</td>
+                                <td>Name3</td>
+                                <td class="combo">Name4</td>
+                                <td>Name5</td>
+                            </tr>
+                            <tr>
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-arrow-e"></span>
+                                </td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>Name4</td>
+                                <td>Name2</td>
+                                <td>Name3</td>
+                                <td class="combo">Name4</td>
+                                <td>Name5</td>
+                            </tr>
+                            <tr>
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-arrow-e"></span>
+                                </td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td>Name5</td>
+                                <td>Name2</td>
+                                <td>Name3</td>
+                                <td class="combo">Name4</td>
+                                <td>Name5</td>
+                            </tr>                            
+                            <tr class="new">
+                                <td class="s-indicator">
+                                    <span class="k-icon k-i-minimize"></span>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="combo"></td>
+                                <td></td>
+                            </tr>                            
+                        </tbody>
+                        <tfoot class="s-foot"></tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="type" name="name" value="" spellcheck="false" />
+
+@section scripts{
+    @Scripts.Render("~/Scripts/HDL/BeamFinish/index.js")
+}

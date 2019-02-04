@@ -1,0 +1,79 @@
+﻿input {
+    font-family: 'Times New Roman' !important;
+}
+
+.btn-edit-summary {
+    text-align: center;
+    cursor: pointer;
+}
+
+input:invalid {
+    box-shadow: none;
+}
+
+.divSummaryWraper .bs-example {
+    padding: 0px !important;
+}
+
+.divSummaryWraper .panel-body {
+    padding: 5px !important;
+}
+
+.divDetailWraper .bs-example {
+    padding: 0px !important;
+}
+
+.divDetailWraper .panel-body {
+    padding: 5px !important;
+}
+
+.btn-edit-summary {
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-edit-detail {
+    cursor: pointer;
+    text-align: center;
+}
+
+.list-group {
+    margin-bottom: 0px;
+}
+
+    .list-group li {
+        border: 0px;
+    }
+
+.k-textbox,
+.k-input.k-textbox {
+    border-radius: 0px !important;
+}
+
+.k-input.k-textbox {
+    border-radius: 0;
+}
+
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-dropdown-wrap {
+    border-radius: 0px !important;
+}
+
+.form-group .k-widget.k-header {
+    margin-bottom: 2px !important;
+}
+
+input[disabled] {
+    background-color: #f0f0f0;
+}
+
+    input[disabled]:hover {
+        cursor: not-allowed;
+        background-color: #f0f0f0;
+    }
+
+/*.rkDetail {
+    margin:10px;
+    overflow-x:scroll;
+}*/

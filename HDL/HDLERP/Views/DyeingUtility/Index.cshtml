@@ -1,0 +1,853 @@
+﻿@{
+    ViewBag.Title = "Dyeing Utility";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        overflow-y: scroll;
+    }
+
+    .ucase {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    @@media (min-width: 768px) {
+        .form-horizontal .control-label {
+            padding-top: 4px;
+            margin-bottom: 0;
+            text-align: right;
+            font-size: 10px;
+        }
+    }
+
+    .k-grid td {
+        padding: 4px 3px 3px !important;
+    }
+
+    .k-grid-edit-row td {
+        padding: 1px !important;
+    }
+
+    .k-input.k-textbox {
+        border-radius: 0px;
+    }
+
+    .k-picker-wrap.k-state-default,
+    .k-numeric-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-default {
+        border-radius: 0;
+    }
+
+    .grid_container .k-picker-wrap.k-state-default,
+    .grid_container .k-numeric-wrap.k-state-default,
+    .grid_container .k-dropdown-wrap.k-state-default {
+        height: 24px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+        .grid_container .k-picker-wrap.k-state-default input,
+        .grid_container .k-numeric-wrap.k-state-default input,
+        .grid_container .k-dropdown-wrap.k-state-default input {
+            height: 22px;
+        }
+
+    .k-button.k-button-icontext.k-grid-delete {
+        height: 24px;
+        /*width: 32px !important;*/
+        padding: 0;
+        text-align: center;
+        /*min-width: 32px;*/
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .k-icon.k-delete {
+        margin: 0;
+    }
+
+    #dyeing_utility .k-widget.k-combobox.k-header {
+        height: 24px !important;
+    }
+
+    .grid_container input {
+        width: calc(100% - 3px);
+    }
+
+    #dyeing_stop_run .t-label {
+        width: 100%;
+        font-weight: normal;
+        display: block;
+        margin-top: 5px;
+        text-align: left;
+        margin-bottom: 0px;
+    }
+
+    #dyeing_stop_run .t-label-hidden {
+        visibility: hidden;
+    }
+
+    #dyeing_stop_run .b-input {
+        padding: 2px 4px;
+        min-width: 80px;
+        margin-top: -2px;
+    }
+
+    #stop_run_time_utilization_form .t-label {
+        width: 100%;
+        font-weight: normal;
+        display: block;
+        margin-top: 5px;
+        text-align: left;
+        margin-bottom: 0px;
+    }
+
+    #stop_run_time_utilization_form .t-label-hidden {
+        visibility: hidden;
+    }
+
+    #stop_run_time_utilization_form .b-input {
+        padding: 2px 4px 3px;
+        width: 60px;
+        min-width: 30px;
+        margin-top: -2px;
+    }
+</style>
+
+<div class="row" id="dyeing_utility">
+    <div id="basic_info" class="col-md-12 ">
+        <div class="well well-sm" data-toggle="collapse" data-target="#basic_info_form" style="border:1px solid #286090;cursor:pointer;">Basic Information</div>
+        <div class="bs-example" style="padding-bottom: 10px !important;">
+            <div class="row collapse in" id="basic_info_form">
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_set_no"> Set No</label>
+                            <div class="col-md-4 col-xs-4" style="padding-right: 5px;">
+                                <input type="hidden" id="PID" value="" />
+                                <input id="bi_set_no" placeholder="Please select a set" style="width:100%;height: 22px;" />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input class="k-input k-textbox" style="width: 100%; height: 24px;" name="bi_id_no" id="bi_id_no" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_program_dye_date"> Prgram Date</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_program_dye_date" id="bi_program_dye_date" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_set_length_mtr"> Set Length Mtr</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_set_length_mtr" id="bi_set_length_mtr" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_set_length_kg"> Set Length Kg</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_set_length_kg" id="bi_set_length_kg" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_yarn_count"> Yarn Count</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_yarn_count" id="bi_yarn_count" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_warp_ratio"> Warp Ratio</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_warp_ratio" id="bi_warp_ratio" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_no_of_beam"> No Of Beam</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_no_of_beam" id="bi_no_of_beam" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_no_of_creel"> No Of Creel</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_no_of_creel" id="bi_no_of_creel" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_total_ends"> Total Ends</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_total_ends" id="bi_total_ends" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_yarn_supplier"> Yarn Supplier</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_yarn_supplier" id="bi_yarn_supplier" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_yarn_lot"> Yarn Lot</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_yarn_lot" id="bi_yarn_lot" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_buyer"> Buyer</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_buyer" id="bi_buyer" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_style_no"> Style No / Code</label>
+                            <div class="col-md-4 col-xs-4" style="padding-right: 5px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_style_no" id="bi_style_no" readonly />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_style_code" id="bi_style_code" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_weight"> Weight / Width</label>
+                            <div class="col-md-4 col-xs-4" style="padding-right: 5px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_weight" id="bi_weight" readonly />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_width" id="bi_width" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_weave"> Weave / Colour</label>
+                            <div class="col-md-4 col-xs-4" style="padding-right:5px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_weave" id="bi_weave" readonly />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_colour" id="bi_colour" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_construction"> Construction</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" name="bi_construction" id="bi_construction" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_shade_indigo"> Shade Indigo(%)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_shade_indigo" id="bi_shade_indigo" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_shade_black">  Shade Black(%)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_shade_black" id="bi_shade_black" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_shade_match_with"> Shade Match With</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_shade_match_with" id="bi_shade_match_with" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_mc_speed"> M/C Speed(m/min)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_mc_speed" id="bi_mc_speed" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_dye_set_length_mtr"> Dye Set Length Mtr</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_dye_set_length_mtr" id="bi_dye_set_length_mtr" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_dye_set_length_kg"> Dye Set Length Kg</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_dye_set_length_kg" id="bi_dye_set_length_kg" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_mc_start"> M/C Start / Stop</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: calc(50% - 2px); height: 24px;" name="bi_mc_start" id="bi_mc_start" readonly />
+                                <input type="text" style="width: calc(50% - 1px); height: 24px;" name="bi_mc_stop" id="bi_mc_stop" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_avg_count"> Avg. Count</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_avg_count" id="bi_avg_count" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_run_hh"> Run (HH) / (MM)</label>
+                            <div class="col-md-4 col-xs-4" style="padding-right:5px;">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_run_hh" id="bi_run_hh" />
+                            </div>
+                            <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_run_mm" id="bi_run_mm" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_bath"> Bath (gpl)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_bath" id="bi_bath" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_feeding"> Feeding (gpl)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_feeding" id="bi_feeding" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_refraction"> Refraction</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_refraction" id="bi_refraction" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_viscosity"> Viscosity (sec): </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_viscosity" id="bi_viscosity" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_indigo_redox"> IndigoRedox (mV)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_indigo_redox" id="bi_indigo_redox" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_indigo_ph"> Indigo PH</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_indigo_ph" id="bi_indigo_ph" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_indigo_dosing"> IndigoDosing(L/min)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_indigo_dosing" id="bi_indigo_dosing" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_sulpher_redox"> SulpherRedox(mV)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_sulpher_redox" id="bi_sulpher_redox" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_sulpher_ph"> Sulpher PH</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_sulpher_ph" id="bi_sulpher_ph" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_sulpher_dosing"> SulpherDos.(L/min)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_sulpher_dosing" id="bi_sulpher_dosing" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_sulpher_temperature"> Sulpher Temp.(C)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_sulpher_temperature" id="bi_sulpher_temperature" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_hydro_dosing"> HydroDos.(gm/min)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_hydro_dosing" id="bi_hydro_dosing" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_custic_dosing">CusticDos.(ml/min)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_custic_dosing" id="bi_custic_dosing" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_custic_concen">CusticConcen(gpl)</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 100%; height: 24px;" name="bi_custic_concen" id="bi_custic_concen" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="bi_remark"> Remark</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="k-input k-textbox" style="width: 100%; height: 24px;" name="bi_remark" id="bi_remark" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid_container">
+        <div id="dyeing_stop_run" class="col-md-12 displayNone">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_stop_run_info" style="border:1px solid #286090;">Dyeing Stop and Run</div>
+            <div class="bs-example">
+                <div style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td style="width:180px !important">
+                                <label class="t-label">Department Name</label>
+                                <input type="hidden" id="stop_run_id" />
+                                <input type="hidden" id="stop_run_dyeing_utility_id" />
+                                <input id="stop_run_department" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Slow From Time</label>
+                                <input id="stop_run_slow_from" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Slow To Time</label>
+                                <input id="stop_run_slow_to" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Stop From Time</label>
+                                <input id="stop_run_stop_from" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Stop To Time</label>
+                                <input id="stop_run_stop_to" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Duration(hh:mm)</label>
+                                <input id="stop_run_duration" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:180px !important">
+                                <label class="t-label">Reason</label>
+                                <input id="stop_run_reason" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Stop</label>
+                                <input id="stop_run_reson_type" class="k-input k-textbox" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Production Loss Meter</label>
+                                <input id="stop_run_production_loss" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">CGrade Yarn Meter</label>
+                                <input id="stop_run_cgrade_yarn_meter" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="stop_run_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="row" style="display:none;">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+                    <div class="row" style="display:none;">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse in" id="dyeing_stop_run_info">
+                    <div class="col-md-12">
+                        <div id="dyeing_stop_run_grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div_time_utilization" class="col-md-8 displayNone">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_stop_run_time_utilization" style="border:1px solid #286090;">Dyeing Time Utilization</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Time Utiliation</label>
+                                <input type="hidden" id="time_utilization_id" />
+                                <input type="hidden" id="time_utilization_dyeing_utility_id" />
+                                <input id="time_utilization_name" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">MC Run From</label>
+                                <input id="time_utilization_mc_run_from" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">MC Run To</label>
+                                <input id="time_utilization_mc_run_to" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Total Time</label>
+                                <input id="time_utilization_total_time" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Calculated RunTime</label>
+                                <input id="time_utilization_calculated_run_time" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="time_utilization_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_stop_run_time_utilization" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-4 displayNone" id="div_wastage_detail">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_stop_run_wastage_detail" style="border:1px solid #286090;">Dyeing Wastage Detail</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Set Wastage Type</label>
+                                <input type="hidden" id="wastage_detail_id" />
+                                <input type="hidden" id="wastage_detail_dyeing_utility_id" />
+                                <input id="wastage_detail_set_wastage_type" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Quantiy(kg)</label>
+                                <input id="wastage_detail_quantity_kg" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="wastage_detail_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_stop_run_wastage_detail" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-12 displayNone" id="div_drainage_detail">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_stop_run_drainage_detail" style="border:1px solid #286090;">Dyeing Drainage Detail</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Item Name</label>
+                                <input type="hidden" id="drainage_detail_id" />
+                                <input type="hidden" id="drainage_detail_dyeing_utility_id" />
+                                <input id="drainage_detail_item_name" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Rate</label>
+                                <input id="drainage_detail_rate" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Quantity(Liter)</label>
+                                <input id="drainage_detail_quantity_liter" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Concentration(gpl)</label>
+                                <input id="drainage_detail_concentration" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Quantity(Kg)</label>
+                                <input id="drainage_detail_quantity_kg" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Cost</label>
+                                <input id="drainage_detail_cost" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Shift</label>
+                                <input id="drainage_detail_shift" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">PO</label>
+                                <input id="drainage_detail_po" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Reason</label>
+                                <input id="drainage_detail_reason" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="drainage_detail_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_stop_run_drainage_detail" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-4 displayNone" id="div_creel_unit">
+            <div class="well well-sm" style="border:1px solid #286090;">Creel Unit</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">LoadCellTension(N)</label>
+                                <input type="hidden" id="creel_unit_id" />
+                                <input type="hidden" id="creel_unit_dyeing_utility_id" />
+                                <input id="creel_unit_load_cell_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">TakeOfForce(N)</label>
+                                <input id="creel_unit_takeof_force" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="creel_unit_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_creel_unit" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-8 displayNone" id="div_dyeing_parameter">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_dyeing" style="border:1px solid #286090;">Dyeing Parameter</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Bath No</label>
+                                <input type="hidden" id="dyeing_parameter_id" />
+                                <input type="hidden" id="dyeing_parameter_dyeing_utility_id" />
+                                <input id="dyeing_parameter_bath_no" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">BathInProcess</label>
+                                <input id="dyeing_parameter_bath_in_process" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Temperature(&#8451;)</label>
+                                <input id="dyeing_parameter_temperature" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Squeeze Pressure(KN)</label>
+                                <input id="dyeing_parameter_squeeze_pressure" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Tension(N)</label>
+                                <input id="dyeing_parameter_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Water Flow(m<sup>3</sup>/h)</label>
+                                <input id="dyeing_parameter_water_flow" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="dyeing_parameter_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_dyeing" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-7 displayNone" id="div_sizing_parameter">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_sizing" style="border:1px solid #286090;">Sizing Parameter</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">SowBoxTemperature(&#8451;)</label>
+                                <input type="hidden" id="sizing_parameter_id" />
+                                <input type="hidden" id="sizing_parameter_dyeing_utility_id" />
+                                <input id="sizing_parameter_sowbox_temperature" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">CookingTemperature(&#8451;)</label>
+                                <input id="sizing_parameter_cooking_temperature" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Squeeze Pressure1(KN)</label>
+                                <input id="sizing_parameter_squeeze_pressure1" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Squeeze Pressure1(KN)</label>
+                                <input id="sizing_parameter_squeeze_pressure2" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="sizing_parameter_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_sizing" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-5 displayNone" id="div_head_stock">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_head_stock" style="border:1px solid #286090;">HeadStock</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Div.TableTension(N)</label>
+                                <input type="hidden" id="head_stock_id" />
+                                <input type="hidden" id="head_stock_dyeing_utility_id" />
+                                <input id="head_stock_dividing_table_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">WindingTension(N)</label>
+                                <input id="head_stock_winding_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">PressingTension(N)</label>
+                                <input id="head_stock_pressing_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Moisture(%)</label>
+                                <input id="head_stock_moisture" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="head_stock_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_head_stock" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-3 displayNone" id="div_compensator">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_compensator" style="border:1px solid #286090;">Compensator</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Hyd. Pressure(Bar)</label>
+                                <input type="hidden" id="compensator_id" />
+                                <input type="hidden" id="stop_run_dyeing_utility_id" />
+                                <input id="compensator_hydrolic_pressure" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Tension(N)</label>
+                                <input id="compensator_tension" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="compensator_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_compensator" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-4 displayNone" id="div_recipe">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_recipe" style="border:1px solid #286090;">Recipe</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">Recipe Type</label>
+                                <input type="hidden" id="recipe_id" />
+                                <input id="recipe_type" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Item Name</label>
+                                <input id="recipe_item_name" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">Quantity</label>
+                                <input id="recipe_quantity" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="recipe_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_recipe" class="collapse in"></div>
+            </div>
+        </div>
+        <div class="col-md-5 displayNone" id="div_creel_loading">
+            <div class="well well-sm" data-toggle="collapse" data-target="#dyeing_parameter_creel_loading" style="border:1px solid #286090;">Creel Loading</div>
+            <div class="bs-example">
+                <div id="stop_run_time_utilization_form" style="padding-bottom:10px;">
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                <label class="t-label">UpperBeamNo</label>
+                                <input type="hidden" id="creel_load_id" />
+                                <input id="creel_load_upper_beam_no" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">UpperYarnCount</label>
+                                <input id="creel_load_upper_yarn_count" class="k-input k-textbox" />
+                            </td>
+                            <td>
+                                <label class="t-label">LowerBeamNo</label>
+                                <input id="creel_load_lower_beam_no" style="width:calc(100% - 5px)" />
+                            </td>
+                            <td>
+                                <label class="t-label">LowerYarnCount</label>
+                                <input id="creel_load_lower_yarn_count" class="k-input k-textbox" />
+                            </td>
+                            <td style="width:60px;">
+                                <label class="t-label t-label-hidden">Dxxx</label>
+                                <input id="creel_load_save" type="button" class="b-input" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dyeing_parameter_creel_loading" class="collapse in"></div>
+            </div>
+        </div>   
+        <div id="div_button_container" class="col-md-12 col-xs-12 text-center displayNone">
+            <button type="button" class="btn btn-sm btn-primary" name="asdf" id="utilitySave" style="min-width:80px;">Save</button>
+            <button type="button" class="btn btn-sm btn-primary" name="asdf" id="utilityClear" style="min-width:80px;">Clear</button>
+            <button type="button" class="btn btn-sm btn-primary" name="asdf" id="utilityExit" style="min-width:80px;">Exit</button>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+@Scripts.Render("~/Scripts/HDL/DyeingUtility/DyeingUtilityIndex.js")

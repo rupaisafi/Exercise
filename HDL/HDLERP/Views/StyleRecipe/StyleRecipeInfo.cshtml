@@ -1,0 +1,417 @@
+﻿
+@{
+    ViewBag.Title = "Style Recipe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .k-list-scroller {
+        position: relative;
+        overflow: auto;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .k-grid td {
+        line-height: 1em !important;
+        padding: 0.1em !important;
+    }
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        height: 46px;
+        border-color: #8d8dc5;
+    }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #007fcc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-color: #8d8dc5;
+    }
+     .k-header{
+        width: 148px !important;
+    }
+</style>
+
+<div class="col-md-12 col-xs-12" ng-app="myApp" ng-controller="StyleRecipeCtrl" id="mainController">
+    <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;" ng-show="finishingMaster">Coating,Pigment,OverDye And Bleaching Parameter </div>
+
+    <div class="bs-example" style="background-color: #99ccff;margin-bottom:5px !important;" ng-show="finishingMaster" id="finishingMaster">
+        @*<pre>{{pardata|json}}</pre>*@
+        <div class="row collapse in">
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmDate">Style No</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input id="StyNo" kendo-combo-box k-options="optStyleNo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-example" style="background-color: #4198ef59;margin-bottom:5px !important;" ng-show="finishingMaster1" >
+        @*<pre>{{masterObj|json}}</pre>*@
+        <div class="row collapse in">
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="StyleNo">Style No</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width:90px" id="StyleNo"readonly />
+                             <input type="text" style="width:54px" id="StyleCode" readonly/>
+                        </div>   
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="GConst">G Const</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  id="GConst" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="FConst">F Const</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="FConst" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Weight">Weight </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  id="Weight" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Color">Color</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="Color" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="Width">Width</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="Width" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="WarpShrinkage">Warp Shrinkage </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="WarpShrinkage" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="WeftShrinkage">Weft Shrinkage</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="WeftShrinkage" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-4 control-label" for="SID">SID</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" id="SID" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-example" style="height:auto; width: 100%; overflow: scroll;" ng-show="finishingDetail" id="finishingDetail">
+        <div class="tab">
+            <button class="tablinks active " style="font-size: 14px;font-family: cursive;" onclick="openTab(event, 'master')">Info</button>
+            <button class="tablinks" style="font-size: 14px;font-family: cursive;" onclick="openTab(event, 'Received')">Received</button>
+
+        </div>
+
+        <div id="master" class="tabcontent active" style="display: block;">
+            <div class="row collapse in">
+                <div class="col-md-3" style="margin-left: -13px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="FEDate">FE Date</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" style="width: 95%; height: 22px;" ng-model="pardata.FEDate1" ng-keypress="masterMoveDown($event,'StyleNoRef1','combo')" name="date" placeholder="DD/MM/YYYY" id="FEDate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="GConst">StyleNoRef</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="StyleNoRef1" kendo-combo-box k-options="optStyleNoList" ng-model="pardata.FStyleNoRef" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-left: -41px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="setRef">Set Ref </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="setRef" kendo-combo-box k-options="optSetNo" ng-model="pardata.FSetRef" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="Colorref">ColorRef</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input class="Colorref" kendo-combo-box k-options="optColor" ng-model="pardata.FColourRef" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-left: 14px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="Process">Process  </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text"  class="Process"ng-keypress="masterMoveDown($event,'Viscosity','text')" ng-model="pardata.FProcess"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="Viscosity">Viscosity </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="Viscosity" ng-keypress="masterMoveDown($event,'MCRPM1','text')" ng-model="pardata.FViscosity"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="margin-left: -18px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="MCRPM1">MCRPM1 </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text"class="MCRPM1" ng-keypress="masterMoveDown($event,'MCRPM2','text')" style="" ng-model="pardata.FMCRPM"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="MCRPM2">MCRPM2 </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="MCRPM2"ng-keypress="masterMoveDown($event,'PH','text')" ng-model="pardata.SRemarks"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-left: -37px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="PH">PH </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text"  class="PH"ng-keypress="masterMoveDown($event,'Volume','text')"  ng-model="pardata.FPH"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="Volume">Volume </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="Volume"ng-keypress="masterMoveDown($event,'Redox','text')"  ng-model="pardata.FVolume" id="volumn" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row collapse in">
+                <div class="col-md-6" style="border-style: groove; padding-left: 250px; margin-left: 106px;background: #3ede343d;height: 29px;  padding-top: 4px;width: 666px;">
+                    <span style="font-size: 14px; font-family: cursive;">Mercerized / OverDye</span>
+                </div>
+                <div class="col-md-3" style="border-style: groove; background: #3ede343d;height: 29px;  padding-top: 4px;margin-left: 28px; width: 382px;">
+                    <span style="font-size: 14px; font-family: cursive;">Stenter / Coating</span>
+                </div>
+            </div>
+            <div class="row collapse in" style="padding-top: 9px;">
+                <div class="col-md-3" style="margin-left: -13px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="Redox">Redox</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="Redox"ng-keypress="masterMoveDown($event,'DyeingBoxTemp','text')" ng-model="pardata.FRedox"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="DyeingBoxTemp">DyeingBoxTemp</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="DyeingBoxTemp"ng-keypress="masterMoveDown($event,'StemerTemp','text')" ng-model="pardata.FDyeingBoxTemp"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 col-xs-4 control-label" for="StemerTemp">Stemer Temp</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="StemerTemp"ng-keypress="masterMoveDown($event,'CWTTemp1','text')" ng-model="pardata.FStemerTemp" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-left: -41px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="CWTTemp1">CWTTemp 2-3</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="CWTTemp1"ng-keypress="masterMoveDown($event,'CWTTemp2','text')" ng-model="pardata.FCWTTemp2to3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="CWTTemp2">CWTTemp 4-7</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="CWTTemp2"ng-keypress="masterMoveDown($event,'FPHBoxTemp','text')" ng-model="pardata.FCWTTemp4to7" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-6 col-xs-6 control-label" for="FPHBoxTemp">FPHBox Temp</label>
+                            <div class="col-md-6 col-xs-6">
+                                <input type="text" class="FPHBoxTemp"ng-keypress="masterMoveDown($event,'DryTemp1','text')" ng-model="pardata.FPHBox" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2" style="margin-left: 50px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="DryTemp1">DryTemp1  </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="DryTemp1"ng-keypress="masterMoveDown($event,'DryTemp2','text')" ng-model="pardata.MDryTemp1"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="DryTemp2">DryTemp2 </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="DryTemp2"ng-keypress="masterMoveDown($event,'DryTemp3','text')" ng-model="pardata.MDryTemp2"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="DryTemp3">DryTemp3 </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="DryTemp3"ng-keypress="masterMoveDown($event,'DryTemp4','text')" ng-model="pardata.MDryTemp3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="DryTemp4">DryTemp4 </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="DryTemp4"ng-keypress="masterMoveDown($event,'DryTemp','text')"ng-model="pardata.MDryTemp4" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="margin-left: 44px;">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="DryTemp">Dry Temp </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text"class="DryTemp"ng-keypress="masterMoveDown($event,'CuringTemp','text')" ng-model="pardata.FDryTemp" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="CuringTemp">Curing Temp </label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="CuringTemp" ng-model="pardata.FCuringTemp" ng-keypress="saveMaster($event,pardata)"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="ID">ID</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="ID" id="ID" ng-model="pardata.SIID" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Received" class="tabcontent">
+            <form class="form-horizontal" novalidate>
+                @*<pre>{{data|json}}</pre>*@
+                <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th style="border:1px solid">Sl</th>
+                            <th style="border:1px solid">Name</th>
+                            <th style="border:1px solid">Percent</th>
+                            <th style="border:1px solid">GPL</th>
+                            <th style="border:1px solid">LTR</th>
+                            <th style="border:1px solid">Remarks</th>
+                            <th style="border:1px solid">ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border:1px solid" ng-repeat="value in data">
+                            <td style="border:1px solid">{{$index+1 }}</td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r1{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" kendo-combo-box k-options="optICode" ng-model="sub.ICode" /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r2{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index,'row')"type="number" ng-model="sub.IPercent" ng-change="calculateValue(sub,$parent.$index)" min="0"/></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r3{{$parent.$index}}" type="number" ng-model="sub.IGPL" min="0"readonly /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r4{{$parent.$index}}" type="number" ng-model="sub.ILtr" min="0"readonly /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r5{{$parent.$index}}" ng-keypress="recipeMoveandSave($event,$parent.$index,sub)"type="text" ng-model="sub.Remarks" /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r6{{$parent.$index}}"  type="text" ng-model="sub.SIID" disabled/></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </form>
+
+            <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRow()"><i class="fa fa-plus"></i> Add more</button>
+        </div>
+    </div>
+    <div class="row" ng-show="btnClose">
+        <div class="spacer5"></div>
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+
+                    <button id="btnClose" class="btn btn-danger" type="button" ng-click="close(pardata)"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+
+
+</div>
+<script>
+    function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+@Scripts.Render("~/Scripts/HDL/StyleRecipe/StyleRecipe.controller.js")

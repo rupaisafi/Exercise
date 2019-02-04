@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Production Quality";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/ProdQuality/ProdQualityInfo.js")
+
+<div class="row">
+    <div id="divProdQualityDetails" class="col-lg-6">
+        @Html.Partial("ProdQualityDetails")
+    </div>
+    <div id="divProdQualitySummary" class="col-lg-6">
+        @Html.Partial("ProdQualitySummary")
+    </div>
+</div>

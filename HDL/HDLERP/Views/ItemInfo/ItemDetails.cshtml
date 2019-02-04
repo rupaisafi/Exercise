@@ -1,0 +1,98 @@
+﻿
+
+@Scripts.Render("~/Scripts/HDL/ItemInfo/ItemDetails.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm">Item Details Information</div>
+        <div class="bs-example" id="divItemInfoDetails">
+
+            <div class="form-horizontal">
+                <input type="hidden" id="hdnItemId" value="0"/>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="cmbGroupName">Group Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" style="width: 100%; height: 28px;" name="cmbGroupName" id="cmbGroupName" required validationmessage="Required"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtItemCode">Item Code:</label>
+                    <div class="col-md-5 col-xs-5">
+                        <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtItemCode" id="txtItemCode" required validationmessage="Required"/>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <button type="button" class="btn btn-info" id="btnGenerateItemCode">Generate</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtItemName">Item Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtItemName" id="txtItemName" required validationmessage="Required"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtShortName">Short Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtShortName" id="txtShortName"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtUnit">Unit:</label>
+                    <div class="col-md-4 col-xs-4">
+                        <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtUnit" id="txtUnit"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtMinQnty">Min Quantity:</label>
+                    <div class="col-md-4 col-xs-4">
+                        <input type="text" style="width: 100%; height: 28px;" name="txtMinQnty" id="txtMinQnty"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtMaxQnty">Max Quantity:</label>
+                    <div class="col-md-4 col-xs-4">
+                        <input type="text" style="width: 100%; height: 28px;" name="txtMaxQnty" id="txtMaxQnty"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtOdQnty">Orderd Quantity:</label>
+                    <div class="col-md-4 col-xs-4">
+                        <input type="text" name="cmbCountry" style="width: 100%; height: 28px; position: relative;" id="txtOdQnty">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtStdRate">Std. Rate:</label>
+                    <div class="col-md-4 col-xs-4">
+                        <input type="text" name="txtStdRate" style="width: 100%; height: 28px; position: relative;" id="txtStdRate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="cmbItemType">Type Code:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="k-combobox" style="width: 100%; height: 28px;" name="cmbItemType" id="cmbItemType"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtRemarks">Remarks:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" name="txtRemarks" style="width: 100%; height: 28px;" id="txtRemarks" class="form-control">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

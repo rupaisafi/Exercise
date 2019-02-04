@@ -1,0 +1,277 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    #grid .k-input.k-textbox {
+        border-radius: 0px !important;
+        padding-left: 0px;
+    }
+
+    .k-grid tr {
+        height: 24px;
+    }
+
+    .k-grid td {
+        border-style: solid;
+        border-width: 0 0 0 1px;
+        padding: 0;
+        overflow: hidden;
+        line-height: 100%;
+        vertical-align: middle;
+        text-overflow: ellipsis;
+    }
+
+    .k-grid .k-edit-cell {
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .k-picker-wrap.k-state-default,
+    .k-numeric-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-default {
+        border-radius: 0;
+        margin-top: 0;
+    }
+
+    .grid_container .k-picker-wrap.k-state-default,
+    .grid_container .k-numeric-wrap.k-state-default,
+    .grid_container .k-dropdown-wrap.k-state-default {
+        height: 24px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+        .grid_container .k-picker-wrap.k-state-default input,
+        .grid_container .k-numeric-wrap.k-state-default input,
+        .grid_container .k-dropdown-wrap.k-state-default input {
+            height: 22px;
+        }
+
+    .k-button.k-button-icontext.k-grid-delete {
+        height: 24px;
+        /*width: 32px !important;*/
+        padding: 0;
+        text-align: center;
+        /*min-width: 32px;*/
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .k-dirty {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #f00 transparent transparent #f00;
+        margin: -4px -1px;
+        padding: 0;
+        overflow: hidden;
+        vertical-align: top;
+    }
+</style>
+<button id="addRow">add row</button>
+<div id="grid"></div>
+<br />
+<br />
+<script>
+    $(function () {
+        var option = {};
+        option.categoryEditor = function (container, options) {
+            $('<input class="k-input k-textbox" name="' + options.field + '"/>')
+                .focus(function () {
+                    $(this).select();
+                })
+                .keyup(function (e) {
+                    var grid = container.closest('.k-grid').data("kendoGrid");
+                    if (e.keyCode === 13) {
+                        if (container.next("td").length > 0) {
+                            container.next("td").click();
+                        } else if (container.closest("tr").next("tr").length > 0) {
+                            grid.select(container.closest("tr").next("tr"))
+                            container.closest("tr").next("tr").find("td").eq(0).click();
+                        } else {
+                            grid.dataSource.add({ Id: '', Name: "", Category: "", Category1: "", Category2: "", Category3: "", Category4: "", Category5: "", Category6: "", Category7: "", Category8: "", Category9: "", Category10: "", Status: '' });
+                            grid.select(grid.tbody.find("tr").last());
+                            grid.tbody.find("tr").last().find("td").eq(0).click();
+                        }
+                    }
+                    else if (e.keyCode === 37) {
+                        if (container.find("input")[0].selectionStart === 0 || isTextSelected(container.find("input")[0])) {
+                            container.prev("td").click();
+                        }
+
+                    } else if (e.keyCode == 39) {
+
+                        if ((container.find("input")[0].selectionEnd == container.find("input")[0].value.length) || isTextSelected(container.find("input")[0])) {
+                            container.next("td").click();
+                        }
+
+                    }
+                })
+                .appendTo(container);
+            function isTextSelected(input) {
+                if (typeof input.selectionStart == "number") {
+                    return input.selectionStart == 0 && input.selectionEnd == input.value.length;
+                } else if (typeof document.selection != "undefined") {
+                    input.focus();
+                    return document.selection.createRange().text == input.value;
+                }
+            }
+        }
+        option.category1Editor = function (container, options) {
+            var editor = $('<input name="' + options.field + '" style="height:24px;"/>')
+                .appendTo(container)
+                .kendoComboBox({
+                    autoBind: false,
+                    filter: "contains",
+                    dataTextField: "Name",
+                    dataValueField: "Id",
+                    dataSource: [
+                        { Id: 1, Name: "Category1" },
+                        { Id: 1, Name: "Category2" },
+                        { Id: 2, Name: "Category3" },
+                        { Id: 3, Name: "Category4" },
+                        { Id: 4, Name: "Category5" },
+                        { Id: 5, Name: "Category6" },
+                        { Id: 6, Name: "Category7" },
+                        { Id: 7, Name: "Category8" },
+                        { Id: 8, Name: "Category9" },
+                        { Id: 9, Name: "Category10" },
+                        { Id: 10, Name: "Category11" },
+                        { Id: 11, Name: "Category12" },
+                        { Id: 12, Name: "Category13" },
+                        { Id: 13, Name: "Category14" },
+                        { Id: 14, Name: "Category15" },
+                        { Id: 15, Name: "Category16" },
+                        { Id: 16, Name: "Category17" },
+                        { Id: 17, Name: "Category18" },
+                        { Id: 18, Name: "Category19" },
+                        { Id: 19, Name: "Category20" },
+                        { Id: 20, Name: "Category21" },
+                        { Id: 21, Name: "Category22" }],
+                })
+                .data("kendoComboBox");
+            editor
+                .bind("select", function () {
+                    if (this.selectedIndex === -1) {
+                        this.value("");
+                    } else {
+                        this.trigger("change");
+                    }
+                })
+                .bind("change", function () {
+                    console.log(this.selectedIndex)
+                    if (this.selectedIndex === -1) {
+                        this.value("");
+                        options.model[options.field]=""
+                    } else {
+                        options.model[options.field] = this.text();
+                        //container.next("td") && container.next("td").click();
+                    }
+                })
+                .open();
+            editor
+                .input
+                .focus(function () {
+                    $(this).select();
+                })
+                .keyup(function (e) {
+                    if (e.keyCode === 13) {
+                        if (editor.selectedIndex === -1) {
+                            editor.value("");
+                            options.model[options.field] = editor.value();
+                        }
+                        container.next("td").click();
+                    } else if (e.keyCode === 37) {
+                        if (container.find("input")[0].selectionStart === 0 || isTextSelected(container.find("input")[0])) {
+                            container.prev("td").click();
+                        }
+
+                    } else if (e.keyCode == 39) {
+
+                        if ((container.find("input")[0].selectionEnd == container.find("input")[0].value.length) || isTextSelected(container.find("input")[0])) {
+                            container.next("td").click();
+                        }
+
+                    }
+                });
+
+
+            function isTextSelected(input) {
+                if (typeof input.selectionStart == "number") {
+                    return input.selectionStart == 0 && input.selectionEnd == input.value.length;
+                } else if (typeof document.selection != "undefined") {
+                    input.focus();
+                    return document.selection.createRange().text == input.value;
+                }
+            }
+
+        };
+        option.getColumn = function () {
+            return [
+                { field: "Name", title: "Name", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Name # </div>" },
+                { field: "Category", title: "Category", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category # </div>" },
+                { field: "Category1", title: "Category1", editor: option.category1Editor, template: "<div style='padding:2px 5px;'>#:Category1 # </div>" },
+                { field: "Category2", title: "Category2", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category2 # </div>" },
+                { field: "Category3", title: "Category3", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category3 # </div>" },
+                { field: "Category4", title: "Category4", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category4 # </div>" },
+                { field: "Category5", title: "Category5", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category5 # </div>" },
+                { field: "Category6", title: "Category6", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category6 # </div>" },
+                { field: "Category7", title: "Category7", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category7 # </div>" },
+                { field: "Category8", title: "Category8", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category8 # </div>" },
+                { field: "Category9", title: "Category9", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category9 # </div>" },
+                { field: "Category10", title: "Category10", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Category10 # </div>" },
+                { field: "Status", title: "Status", editor: option.categoryEditor, template: "<div style='padding:2px 5px;'>#:Status # </div>" }
+            ]
+        };
+        option.getDataSource = function () {
+            return new kendo.data.DataSource({
+                data: [
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                    { Id: 1, Name: "Name1", Category: "Category1", Category1: "Category1", Category2: "Category2", Category3: "Category3", Category4: "Category4", Category5: "Category5", Category6: "Category6", Category7: "Category7", Category8: "Category8", Category9: "Category9", Category10: "Category10", Status: true },
+                ],
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Category1: { defaultValue: '' }
+                        }
+                    }
+                }
+
+            })
+        };
+
+        var grid = $("#grid").kendoGrid({
+
+            sortable: true,
+            autoSync: true,
+            editable: {
+                createAt: 'bottom'
+            },
+            resizable: true,
+            selectable: "row",
+            columns: option.getColumn(),
+            dataSource: option.getDataSource(),
+            edit: function (e) {
+                //console.log('edit');
+            },
+            save: function (e) {
+                //console.log('save');
+            },
+            change: function () {
+                //console.log('change');
+            }
+        }).data("kendoGrid");
+        var grid = grid.dataSource.add({ Id: '', Name: "", Category: "", Category1: "", Category2: "", Category3: "", Category4: "", Category5: "", Category6: "", Category7: "", Category8: "", Category9: "", Category10: "", Status: '' });
+    })
+</script>

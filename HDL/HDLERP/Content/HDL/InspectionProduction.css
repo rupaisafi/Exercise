@@ -1,0 +1,46 @@
+﻿.bs-example {
+    padding: 0px !important;
+}
+
+    .bs-example .well {
+        margin: 0px !important;
+    }
+
+    .bs-example .panel-body {
+        padding: 10px 5px 5px !important;
+        border-top: 1px solid #286893;
+    }
+
+
+.k-grid-header th.k-header {
+    padding: 8px 5px 6px;
+    border-right: 1PX SOLID #F0F0F0;
+}
+
+.k-grid-header th.k-header {
+    padding-left: 14px;
+}
+
+input:required{
+    box-shadow:none;
+}
+.k-grid td {
+    padding:0px !important;
+    height: 26px !important;
+    border-right:1px solid #f0f0f0;
+    border-bottom:1px solid #f0f0f0;
+}
+
+.btn-edit-summary {
+    cursor:pointer;
+    text-align:center;
+}
+.btn-edit-detail {
+    cursor:pointer;
+    text-align:center;
+}
+
+.k-grid .k-widget.k-combobox{
+    margin-top: -2px;
+}
+

@@ -1,0 +1,328 @@
+﻿
+@{
+    ViewBag.Title = "Fabric Rejection and Refinishing Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .k-list-scroller {
+        position: relative;
+        overflow: auto;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .k-grid td {
+        line-height: 1em !important;
+        padding: 0.1em !important;
+    }
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        background-color: #fff;
+        height: 46px;
+        border-color: #8d8dc5;
+    }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #007fcc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border-top: none;
+       
+    }
+</style>
+
+<div class="col-md-12 col-xs-12" ng-app="myApp" ng-controller="FabRejRefinCtrl" id="mainController">
+    <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;" ng-show="finishingMaster">Inspection Fabric Rejection and Refinish Entry Form </div>
+
+    <div class="bs-example" style="background-color: #99ccff;margin-bottom:5px !important;" ng-show="finishingMaster" id="finishingMaster">
+        @*<pre>{{masterObj|json}}</pre>*@
+        <div class="row collapse in">
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="ID">ID</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="ID" id="ID" style="width: 100%; height: 22px;" ng-model="masterObj.ID" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="wpmDate">Prod Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 22px;" ng-model="masterObj.SDate" ng-keypress="masterMoveDown($event,'InsUnit','')" name="date" placeholder="dd/mm/yyyy" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="InsUnit">Ins Unit</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input id="InsUnit" class="InsUnit" style="width: 100%; height: 22px;" validationmessage="Required" ng-model="masterObj.InsFloorCode" ng-keypress="masterMoveDown($event,'WVFloor','')" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="WVFloor">WV Floor </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input class="WVFloor" id="WVFloor" style="width: 100%; height: 22px;" ng-model="masterObj.UCode" ng-keypress="masterMoveDown($event,'TotalProd','')" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 col-xs-4 control-label" for="TotalProd">Total Prod </label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="number" class="TotalProd" id="TotalProd" style="width: 100%; height: 22px;" ng-model="masterObj.TotalProd" ng-keypress="saveMaster($event)"min="0" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="bs-example" style="height:auto; width: 100%; overflow: scroll;" ng-show="finishingDetail" id="finishingDetail">
+        <div class="tab">
+            <button class="tablinks active " style="font-size: 14px;font-family: cursive;" onclick="openTab(event, 'Rejection')">Rejection</button>
+            <button class="tablinks" style="font-size: 14px;font-family: cursive;" onclick="openTab(event, 'Refinish')">Refinish</button>
+
+        </div>
+
+        <div id="Rejection" class="tabcontent active" style="display: block;">
+            <form class="form-horizontal" novalidate>
+                @*<pre>{{dataRec|json}}</pre>*@
+                <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th style="border:1px solid">Sl</th>
+                            <th style="border:1px solid">SetNo</th>
+                            <th style="border:1px solid">SS No</th>
+                            <th style="border:1px solid">Beam</th>
+                            <th style="border:1px solid">Style No</th>
+                            <th style="border:1px solid">Loom</th>
+                            <th style="border:1px solid">FType</th>
+                            <th style="border:1px solid">B+</th>
+                            <th style="border:1px solid">B</th>
+                            <th style="border:1px solid">CutPiece</th>
+                            <th style="border:1px solid">Wastage</th>
+                            <th style="border:1px solid">DCode</th>
+                            <th style="border:1px solid">WeaveDate</th>
+                            <th style="border:1px solid">Shift</th>
+                            <th style="border:1px solid">FMName</th>
+                            <th style="border:1px solid">Remarks</th>
+                            <th style="border:1px solid">DID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border:1px solid" ng-repeat="value in dataRec"  ng-init="SSNoDataSource=getSSNoData(value)">
+                            <td style="border:1px solid">{{$index+1 }}</td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="rx{{$parent.$index}}" kendo-combo-box k-options="optSetNo" ng-model="sub.SetNo"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                               <input class="r2{{$parent.$index}}" kendo-combo-box="" k-options="optSSNo" k-data-source="SSNoDataSource"  ng-model="sub.SS"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                               <input class="r3{{$parent.$index}}" type="text" ng-model="sub.Beam" ng-keypress="recDetailMove($event,'combo',$parent.$index)" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                               <input class="r4{{$parent.$index}}" kendo-combo-box k-options="optStyleNo"   ng-model="sub.StyleCode"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                              <input class="r5{{$parent.$index}}" kendo-combo-box k-options="optLoomNo"   ng-model="sub.Loom"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                            <input class="r6{{$parent.$index}}"kendo-combo-box k-options="optFaultType"  ng-model="sub.FCode"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r7{{$parent.$index}}" type="number" ng-model="sub.ProdB "  ng-keypress="recDetailMove($event,'text',$parent.$index)" min="0"/></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r8{{$parent.$index}}" type="number" ng-model="sub.ProdC "  ng-keypress="recDetailMove($event,'text',$parent.$index)"min="0"/></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r9{{$parent.$index}}" type="number" ng-model="sub.CutPieece"  ng-keypress="recDetailMove($event,'text',$parent.$index)"min="0" /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r10{{$parent.$index}}" type="number" ng-model="sub.Wastage"   ng-keypress="recDetailMove($event,'combo',$parent.$index)"min="0"/></td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r11{{$parent.$index}}" kendo-combo-box k-options="optDyeInfo"  ng-model="sub.DCode"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input type="text" class="r12{{$parent.$index}}"ng-model="sub.WeavDate" ng-keypress="recDetailMove($event,'combo',$parent.$index,'rowrec')" name="date" placeholder="dd/mm/yyyy" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                            <input class="r13{{$parent.$index}}" kendo-combo-box k-options="optShift" ng-model="sub.ShiftCode"  />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r14{{$parent.$index}}" kendo-combo-box k-options="optTCode" ng-model="sub.FMCCode " />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r15{{$parent.$index}}" type="text" ng-keypress="moveAndSaveRej($event,$parent.$index,sub)" ng-model="sub.Remarks " /></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r16{{$parent.$index}}" type="text" ng-model="sub.DID"  /></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </form>
+
+            <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRowRec()"><i class="fa fa-plus"></i> Add more</button>
+        </div>
+
+        <div id="Refinish" class="tabcontent">
+            <form class="form-horizontal" novalidate>
+                @*<pre>{{dataDis|json}}</pre>*@
+                <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th style="border:1px solid">Sl</th>
+                            <th style="border:1px solid">Style No</th>
+                            <th style="border:1px solid">Set No</th>
+                            <th style="border:1px solid">SS</th>
+                            <th style="border:1px solid">Beam</th>
+                            <th style="border:1px solid">FType</th>
+                            <th style="border:1px solid">Prod</th>
+                            <th style="border:1px solid">Finish Date</th>
+                            <th style="border:1px solid">PO Name</th>
+                            <th style="border:1px solid">ChQ DCode</th>
+                            <th style="border:1px solid">DCode</th>
+                            <th style="border:1px solid">Remarks</th>
+                            <th style="border:1px solid">DIID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border:1px solid" ng-repeat="value in dataDis">
+                            <td style="border:1px solid">{{$index+1 }}</td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="rr{{$parent.$index}}" kendo-combo-box k-options="optStyleNo" ng-model="sub.StyleCode" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r2{{$parent.$index}}" kendo-combo-box k-options="optSetNo" ng-model="sub.SetNo" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                            <input  class="r3{{$parent.$index}}" ng-model="sub.SS" ng-keypress="recDetailMove($event,'text',$parent.$index)"/>
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r4{{$parent.$index}}" ng-model="sub.Beam" ng-keypress="recDetailMove($event,'combo',$parent.$index)"/>
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r5{{$parent.$index}}" kendo-combo-box k-options="optFTypeFinish" ng-model="sub.FCode" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r6{{$parent.$index}}" ng-model="sub.Prod" ng-keypress="recDetailMove($event,'text',$parent.$index)"/>
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input type="text" class="r7{{$parent.$index}}" ng-model="sub.FinishDate" ng-keypress="recDetailMove($event,'combo',$parent.$index,'rowdis')" name="date" placeholder="dd/mm/yyyy" id="Fdate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r8{{$parent.$index}}" kendo-combo-box k-options="optPOName" ng-model="sub.POCode" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r9{{$parent.$index}}" kendo-combo-box k-options="optChqDCode" ng-model="sub.ChqDCode" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value">
+                                <input class="r10{{$parent.$index}}" kendo-combo-box k-options="optDyeInfo" ng-model="sub.DCode" />
+                            </td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r11{{$parent.$index}}" type="text" ng-model="sub.Remarks " ng-keypress="moveAndSaveRefin($event,$parent.$index,sub)"/></td>
+                            <td style="border:1px solid" ng-repeat="sub in value"><input class="r12{{$parent.$index}}" type="text" ng-model="sub.DID" disabled/></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </form>
+
+            <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRowDis()"><i class="fa fa-plus"></i> Add more</button>
+        </div>
+    </div>
+    <div class="row" ng-show="btnClose">
+        <div class="spacer5"></div>
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+
+                    <button id="btnClose" class="btn btn-danger" type="button" ng-click="close()"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" ng-show="finishingGrid" id="finishingGrid">
+        <div class="col-md-12 col-xs-12">
+            <div class="bs-example">
+
+                <div class="well well-sm">
+                    Inspection Fabric Rejection and Refinish
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <button id="btnAddNew" class="btn btn-primary" type="button" ng-click="newData()">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                                Add New
+                            </button>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <label class="col-md-4  control-label" for="txtSearchDateFrom">From Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="From Date" name="txtSearchDateFrom" style="width: 100%; height: 28px;" id="txtSearchDateFrom">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label class="col-md-4  control-label" for="txtSearchDateTo">To Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="To Date" name="txtSearchDateTo" style="width: 100%; height: 28px;" id="txtSearchDateTo">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button id="btnSearchWarping" class="btn btn-sm btn-info"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer4"></div>
+
+                    <div id="grdInspRejRefinSummary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+@Scripts.Render("~/Scripts/HDL/FabRejRefin/FabRecRefin.controller.js")
+@Scripts.Render("~/Scripts/HDL/FabRejRefin/FabRecRefinInfo.js")

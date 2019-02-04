@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "LC Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/LcInfo/LcInfo.js")
+
+<div class="row">
+    <div id="divLcSummary" class="col-md-12">
+        @Html.Partial("LCSummary")
+    </div>
+    <div id="divLcInfoDetails" class="col-md-12 displayNone">
+        @Html.Partial("LCDetails")
+    </div>
+</div>
+
+<div id="divLcDetailsPopup" class="displayNone">
+    @Html.Partial("LCDetailsPopup")
+</div>

@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Warp Lapper";
+}
+
+<style>
+    body {
+        overflow-y: scroll;
+    }
+
+    .well-style {
+        cursor: pointer;
+        border: 1px solid #286090;
+    }
+
+    .kendo-combo {
+    }
+
+    .k-dropdown-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    .panel-style {
+        margin-bottom: 5px;
+        padding: 15px !important;
+    }
+
+    .panel-style-detail {
+        margin-bottom: 0px;
+        padding: 10px 10px 10px !important;
+    }
+
+    .k-input.k-textbox,
+    .k-input.k-textbox.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    .k-picker-wrap.k-state-default {
+        border-radius: 2px;
+    }
+
+    .control-label.text-left {
+        margin-bottom: 2px;        
+        text-align: left !important;
+    }
+
+    .detailTable {
+        margin-bottom: 10px;
+        border-collapse: separate;
+        border-spacing: 5px;
+    }
+
+    .button-container {
+        width: 60px;
+    }
+
+    .submit-button {
+        color: #fff;
+        margin-top: 2px;
+        padding: 2px 4px;
+        border: 1px solid #286090;
+        background-color: #286090;
+    }
+
+    .k-numeric-wrap.k-state-default,
+    .k-numeric-wrap.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    #wdGrid {
+        margin: 0 5px 5px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="well well-sm well-style">Warping Info.</div>
+        <div class="panel panel-body panel-default panel-style">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiSetNo">Set No</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiSetNo" style="width:100%;height: 22px;" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiIDNo"> ID No</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiIDNo" class="k-input k-textbox" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiPWarpDate">PWarpDate</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiPWarpDate" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiWarpLength">Warp Length</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiWarpLength" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiEndsPerBeam">EndsPerBeam</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiEndsPerBeam" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiTotalBeam">TotalBeam</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiTotalBeam" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiNoOfBeam">NoOfBeam</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiNoOfBeam" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="wiTotalEnds">TotalEnds</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input id="wiTotalEnds" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="well well-sm well-style">Warping Detail</div>
+        <div class="panel panel-default">
+            <div class="panel-body panel-style-detail">
+                <table class="detailTable">
+                    <tr>
+                        <td>
+                            <label class="control-label text-left" for="wdWarpDate">Warp Date</label>
+                            <input type="hidden" id="WDID" />
+                            <input id="wdWarpDate" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdIName">IName</label>
+                            <input id="wdIName" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdBeamNo">BeamNo</label>
+                            <input id="wdBeamNo" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdLapper">Lapper</label>
+                            <input id="wdLapper" style="width: 100%; height: 24px;" />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdBeamLength">Beam Length</label>
+                            <input id="wdBeamLength" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdOperator">Operator</label>
+                            <input id="wdOperator" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td>
+                            <label class="control-label text-left" for="wdCaptain">Captain</label>
+                            <input id="wdCaptain" style="width: 100%; height: 24px;" disabled />
+                        </td>
+                        <td style="width:70px;">
+                            <input type="button" class="submit-button" value="Save" id="wdSave" style="width: 70px; height: 26px;margin-top:20px;" readonly />
+                        </td>
+                        <td style="width:70px;">
+                            <input type="button" class="submit-button" value="Clear" id="wdClear" style="width: 70px; height: 26px;margin-top:20px;" readonly />
+                        </td>
+                    </tr>
+                </table>
+                <div id="wdGrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Scripts/HDL/WarpLapper/WarpLapper.js")

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Attendance Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@Scripts.Render("~/Scripts/HRM/AttendanceProcess/AttendanceProcessManager.js")
+
+<div class="col-md-8">
+    @Html.Partial("../HRMCommonView/_SearchEmployee")
+</div>
+<div class="col-md-4">
+    @Html.Partial("../HRM/AttendanceProcess/_AttendanceProcessManage")
+</div>

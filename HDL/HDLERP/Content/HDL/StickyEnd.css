@@ -1,0 +1,49 @@
+﻿input:invalid {
+    box-shadow: none;
+}
+
+.divSummaryWraper .bs-example {
+    padding: 0px !important;
+}
+
+.divSummaryWraper .panel-body {
+    padding: 5px !important;
+}
+
+.divDetailWraper .bs-example {
+    padding: 0px !important;
+}
+
+.divDetailWraper .panel-body {
+    padding: 5px !important;
+}
+
+.btn-edit-summary {
+    cursor:pointer;
+    text-align:center;
+}
+.btn-edit-detail {
+    cursor:pointer;
+    text-align:center;
+}
+.list-group {
+    margin-bottom: 0px;
+}
+
+    .list-group li {
+        border: 0px;
+    }
+
+.k-input.k-textbox {
+    border-radius: 0px !important;
+}
+
+.k-input.k-textbox {
+    border-radius: 0;
+}
+
+.k-picker-wrap.k-state-default,
+.k-numeric-wrap.k-state-default,
+.k-dropdown-wrap.k-state-default {
+    border-radius: 0px;
+}

@@ -1,0 +1,43 @@
+﻿@Scripts.Render("~/Scripts/HRM/Wing/WingDetails.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div  id="divWingDetails">
+            <div class="well well-sm">Wing Details</div>
+            <div class="form-horizontal">
+                <input type="hidden" id="hdnWingId" value="0" />
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtWingName">Wing Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="k-textbox" style="width: 100%; height: 28px;" placeholder="" name="txtWingName" id="txtWingName" required validationmessage="Required" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtWingNameBan">Wing Name Ban:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="k-textbox" style="width: 100%; height: 28px;" placeholder="" name="txtWingNameBan" id="txtWingNameBan" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtEmail">Activity:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input id="chkInActive" type="checkbox" value="InActive" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Planning Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/HDL/PlanningInfo/PlanningInfo.js")
+<style type="text/css">
+    .form-group {
+        margin-bottom: 3px !important;
+    }
+</style>
+
+<div class="">
+    <div id="divPlanDetails" class="displayNone">
+        @Html.Partial("PlanningDetails")
+    </div>
+    <div id="divPlanningSummary">
+        @Html.Partial("PlanningSummary")
+    </div>
+
+
+    <div class="displayNone" id="popupWarpingInfo">
+        @Html.Partial("WarpingInfo")
+    </div>
+    <div class="displayNone" id="popupDeyingInfo">
+        @Html.Partial("DeyingInfo")
+    </div>
+
+    <div class="displayNone" id="popupWeavingInfo">
+        @Html.Partial("WeavingInfo")
+    </div>
+</div>
+

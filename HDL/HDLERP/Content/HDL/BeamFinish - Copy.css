@@ -1,0 +1,180 @@
+﻿table {
+    width: 100%;
+    border: 0px solid;
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+.m-label {
+    border: 1px solid;
+    text-align: right;
+    padding: 0 5px;
+}
+
+.m-group-label {
+    width: 120px;
+}
+
+input {
+    width: 100%;
+}
+
+.h-cell {
+    border: 1px solid;
+    padding: 0 5px;
+}
+
+.k-combobox {
+    width: 100% !important;
+    height: 24px !important;
+    border-radius: 0px !important;
+    background: #fff !important;
+    border: 1px solid !important;
+}
+
+    .k-combobox .k-dropdown-wrap {
+        margin:1px;
+        height: 20px !important;
+        border-radius: 0px !important;
+        border: 0px solid !important;
+        background: #fff !important;
+    }
+
+        .k-combobox .k-dropdown-wrap .k-input {
+            height: 20px;
+            box-shadow:none;
+        }
+
+        .k-combobox .k-dropdown-wrap .k-select {
+            margin: 1px;
+            width: 18px;
+            height: 16px;
+            border: 1px solid !important;
+            border-radius: 0px !important;
+        }
+
+            .k-combobox .k-dropdown-wrap .k-select .k-icon {
+                width: 14px;
+                height: 14px;
+                vertical-align: middle;
+                margin-top: -10px;
+            }
+
+                .k-combobox .k-dropdown-wrap .k-select .k-icon.k-i-arrow-s {
+                    background-position: 0px -287px;
+                }
+
+
+/*----grid------*/
+.k-grid {
+    background: none;
+    border-color: #ccc;
+}
+
+    .k-grid .k-grid-header {
+        border-color: #ccc;
+        background-color: #f0f0f0;
+    }
+
+        .k-grid .k-grid-header .k-grid-header-wrap {
+            border-color: #ccc;
+        }
+
+            .k-grid .k-grid-header .k-grid-header-wrap table {
+                border-collapse: collapse;
+                border-spacing: 0px;
+            }
+
+.k-header {
+    background: none;
+    border-color: #ccc;
+    background-color: #f0f0f0;
+}
+
+.k-grid-content {
+    border: 0px solid #ccc;
+}
+
+    .k-grid-content table {
+        border-spacing: 0px;
+        border-collapse: collapse;
+    }
+
+        .k-grid-content table tbody {
+        }
+
+            .k-grid-content table tbody tr {
+            }
+
+                .k-grid-content table tbody tr td {
+                    border: 1px solid #ccc;
+                }
+
+                .k-grid-content table tbody tr:first-of-type td {
+                    border-top: 0px solid #ccc;
+                }
+
+                .k-grid-content table tbody tr:last-of-type td {
+                    border-bottom: 0px solid #ccc;
+                }
+
+                .k-grid-content table tbody tr.k-alt {
+                    background: none;
+                }
+
+                .k-grid-content table tbody tr:hover {
+                    background-color: #e6f2f8;
+                }
+
+
+.s-table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    border: 1px solid #d0d0d0;
+}
+
+
+    .s-table .s-thead th {
+        padding: 4px 5px;
+        border: 1px solid #d0d0d0;
+    }
+
+    .s-table .s-tbody tr {
+    }
+
+    .s-table .s-tbody td {
+        padding: 4px 5px;
+        border: 1px solid #d0d0d0;
+    }
+
+    .s-table .s-tbody tr td.s-indicator .k-icon {
+        visibility: hidden;
+    }
+
+    .s-table .s-tbody tr:last-of-type td.s-indicator .k-icon {
+        visibility: visible;
+    }
+
+    .s-table .s-tbody tr.row-state-edit td {
+        background-color: #e6f2f8;
+    }
+
+        .s-table .s-tbody tr.row-state-edit td.edit-cell {
+            padding: 0px;
+        }
+
+        .s-table .s-tbody tr.row-state-edit td input {
+            width: 100%;
+            padding: 3px 4px;
+            border: 1px solid transparent;
+            background-color: transparent;
+        }
+
+            .s-table .s-tbody tr.row-state-edit td input:focus {
+                border: 1px solid #e6f2f8;
+            }
+
+    .s-table .s-tbody tr.row-state-edit .s-indicator .k-icon {
+        visibility: visible;
+    }

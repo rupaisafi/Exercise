@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Separation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/HRM/EmployeeSeparetion/EmployeeSeparationManager.js")
+
+<div class="col-md-8">
+    @Html.Partial("../HRMCommonView/_SearchEmployee")
+</div>
+<div class="col-md-4">
+    @Html.Partial("../HRM/EmployeeSeparetion/_SeparationManage")
+</div>
+<div class="row">
+    <div id="divSeparationSummary" class="col-md-12 displayNone">
+        <div class="col-md-12 k-block">
+            <div class="k-header">Separation History</div>
+            @Html.Partial("../HRM/EmployeeSeparetion/_SeparationSummary")
+        </div>
+    </div>
+</div>

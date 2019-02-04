@@ -1,0 +1,176 @@
+﻿@Scripts.Render("~/Scripts/HDL/LcInfo/LcDetails.js")
+@Scripts.Render("~/Scripts/HDL/LcInfo/LcDetailsSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm">LC Information</div>
+        <div class="bs-example" id="divLcDetails">
+
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <input type="hidden" id="hdnLcId" value="0" />
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtLcDate">Lc Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtLcDate" id="txtLcDate" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtLcNo">Lc No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtLcNo" id="txtLcNo" required validationmessage="Required" />
+                        </div>
+                        @*<button id="btnGenerateLcNo" class="col-md-2 btn btn-sm btn-danger" style="width: auto !important" type="button">Get</button>*@
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbSupplier">Supplier Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="cmbSupplier" style="width: 100%; height: 28px;" id="cmbSupplier" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbBank">Bank Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="cmbBank" style="width: 100%; height: 28px;" id="cmbBank" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbBranch">Branch Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="cmbBranch" style="width: 100%; height: 28px;" id="cmbBranch" required validationmessage="Required">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtExpDate">Exp. Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtExpDate" style="width: 100%; height: 28px;" id="txtExpDate" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtShipDate">Ship Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtShipDate" style="width: 100%; height: 28px;" id="txtShipDate" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtSdExtDate">S.D.Ext:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtSdExtDate" style="width: 100%; height: 28px;" id="txtSdExtDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtPiNo">P.I.No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtPiNo" style="width: 100%; height: 28px;" id="txtPiNo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtPIDate">P.I.Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtPIDate" style="width: 100%; height: 28px;" id="txtPIDate">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtInvNo">Invoice No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtInvNo" style="width: 100%; height: 28px;" id="txtInvNo" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtInvDate">Invoice Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtInvDate" style="width: 100%; height: 28px;" id="txtInvDate" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtIpNo">I.P.No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtIpNo" style="width: 100%; height: 28px;" id="txtIpNo">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtIPDate">I.P.Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtIPDate" style="width: 100%; height: 28px;" id="txtIPDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtVassal">Vassal:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" name="txtVassal" style="width: 100%; height: 28px;" id="txtVassal" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtEtd">ETD:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  name="txtEtd" style="width: 100%; height: 28px;" id="txtEtd">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtEta">ETA:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtEta" style="width: 100%; height: 28px;" id="txtEta">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbImportType">Import Type:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="cmbImportType" style="width: 100%; height: 28px;" id="cmbImportType">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbLcStatus">Status:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  name="cmbLcStatus" style="width: 100%; height: 28px;" id="cmbLcStatus">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+         
+
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="panel-body">
+                        <button id="btnAddLcDetails" class="btn btn-primary" type="button">Add Details</button>
+                        <div id="grdLcDetailsSummary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            </div>
+        </div>
+
+
+
+

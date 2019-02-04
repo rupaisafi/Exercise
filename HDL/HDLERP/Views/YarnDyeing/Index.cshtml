@@ -1,0 +1,368 @@
+﻿
+@{
+    ViewBag.Title = "Yarn Dyeing";
+}
+
+<style>
+    body {
+        overflow-y: scroll;
+    }
+
+    .well-style {
+        cursor: pointer;
+        border: 1px solid #286090;
+    }
+
+    .kendo-combo {
+    }
+
+    .k-dropdown-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    .panel-style {
+        margin-bottom: 5px;
+        padding: 15px !important;
+    }
+
+    .panel-style-detail {
+        margin-bottom: 0px;
+        padding: 10px 10px 10px !important;
+    }
+
+    .k-input.k-textbox,
+    .k-input.k-textbox.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    .k-picker-wrap.k-state-default {
+        border-radius: 2px;
+    }
+
+    .control-label.text-left {
+        margin-bottom: 2px;
+        text-align: left !important;
+    }
+
+    .detailTable {
+        margin-bottom: 10px;
+        border-collapse: separate;
+        border-spacing: 5px;
+    }
+
+    .button-container {
+        width: 70px;
+    }
+
+    .submit-button {
+        color: #fff;
+        margin-top: 2px;
+        padding: 2px 4px;
+        border: 1px solid #286090;
+        background-color: #286090;
+    }
+
+    .k-numeric-wrap.k-state-default,
+    .k-numeric-wrap.k-state-disabled {
+        border-radius: 2px;
+    }
+
+    #wdGrid {
+        margin: 0 5px 5px;
+    }
+
+    .list-group-item.rightAlign {
+        border-style: solid;
+        padding-right: 0px !important;
+        border-width: 1px 0px 0px 0px !important;
+    }
+</style>
+<div id="divSummary">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="bs-example">
+                <div class="well well-sm">Yarn Dyeing</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <button id="ydsNew" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-plus-sign"></span> New</button>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <label class="col-md-4  control-label" for="txtSearchDateFrom">From Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="Warping Date" name="txtSearchDateFrom" style="width: 100%; height: 24px;" id="txtSearchDateFrom">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label class="col-md-4  control-label" for="txtSearchDateTo">To Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input type="text" placeholder="Warping Date" name="txtSearchDateTo" style="width: 100%; height: 24px;" id="txtSearchDateTo">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button id="btnSearchWarping" class="btn btn-sm btn-info" style="height: 26px;"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer4"></div>
+
+                    <div id="grdDyeingYarnSummary">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="divAddOrEdit" class="displayNone">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="well well-sm well-style">Basic Info.</div>
+            <div class="panel panel-body panel-default panel-style" style="margin-bottom:0;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label" for="yiProdDate">Prod. Date</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input id="DID" type="hidden" />
+                                    <input id="yiProdDate" style="width:100%;height: 22px;" />
+                                </div>
+                            </div>
+                            <div class="form-group displayNone">
+                                <label class="col-md-5 col-xs-5 control-label" for="yiIDNo">ID No</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input id="yiIDNo" class="k-input k-textbox" style="width: 100%; height: 24px;" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label" for="yiMCNo">MC No</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input id="yiMCNo" style="width: 100%; height: 24px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label" for="yiProdType">ProdType</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input id="yiProdType" type="text" style="width: 100%; height: 24px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-5 col-xs-5 control-label" for="yiRemark">Remark</label>
+                                <div class="col-md-7 col-xs-7">
+                                    <input id="yiRemark" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="well well-sm well-style">Detail Info.</div>
+            <div class="panel panel-default" style="margin-bottom:0px;">
+                <div class="panel-body panel-style-detail" id="divDetailInfoForm">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydSetNo">SetNo</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="DIID" type="hidden" />
+                                        <input id="UIID" type="hidden" />
+                                        <input id="ydSetNo" style="width:100%;height: 22px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydBeamNo">BeamNo</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydBeamNo" style="width: 100%; height: 24px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydYarnName">YarnName</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydYarnName" style="width: 100%; height: 24px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydYarnCount">YarnCount</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydYarnCount" class="k-input k-textbox" style="width: 100%; height: 24px;" readonly/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydBeamLength">BeamLength</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydBeamLength" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydEndsBeam">EndsBeam</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydEndsBeam" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydBeamWeight">BeamWeight</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydBeamWeight" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydWeight">Weight</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydWeight" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydProdCone">ProdCone</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydProdCone" style="width:100%;height: 22px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydShift">Shift</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydShift" style="width: 100%; height: 24px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydMPM">MPM</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydMPM" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydTension">Tension</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydTension" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydOperator">Operator</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydOperator" style="width: 100%; height: 24px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydPackager">Packager</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydPackager" style="width: 100%; height: 24px;" required validationmessage="Required"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydStartTime">StartTime</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydStartTime" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydFinishTime">FinishTime</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydFinishTime" style="width:100%;height: 22px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydTotalTime">TotalTime</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydTotalTime" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydBreakage">Breakage</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydBreakage" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydLooseEnds">LooseEnds</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydLooseEnds" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydCrossing">Crossing</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydCrossing" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydLapper">Lapper</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydLapper" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydKnotting">Knotting</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydKnotting" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 col-xs-5 control-label" for="ydRemark">Remark</label>
+                                    <div class="col-md-7 col-xs-7">
+                                        <input id="ydRemark" class="k-input k-textbox" type="text" style="width: 100%; height: 24px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="spacer5"></div>
+                        <div class="col-md-12 col-xs-12">
+                            <ul class="list-group">
+                                <li class="list-group-item rightAlign">
+                                    <button id="ydNew" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                                    <button id="ydSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="wdGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign" style="border-top:0!important;">
+                    <button id="ydInfoNew" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                    <button id="ydInfoSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                    <button id="ydInfoExit" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Scripts/HDL/YarnDyeing/YarnDyeing.js")
+

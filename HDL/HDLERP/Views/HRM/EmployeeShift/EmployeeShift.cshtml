@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Employee Shift";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/EmployeeShift/EmployeeShiftManager.js")
+
+<div class="col-md-8">
+    @Html.Partial("../HRMCommonView/_SearchEmployee")
+</div>
+<div class="col-md-4">
+    @Html.Partial("../HRM/EmployeeShift/_ShiftManage")
+    @Html.Partial("../HRM/EmployeeWeekOff/_WeekOffManage")
+</div>
+<div class="row">
+    <div id="divShiftSummary" class="col-md-12 displayNone">
+        <div class="col-md-6 k-block">
+            <div class="k-header">Shift History</div>
+            @Html.Partial("../HRM/EmployeeShift/_ShiftSummary")
+        </div>
+        <div class="col-md-6 k-block">
+            <div class="k-header">Week off History</div>
+            @Html.Partial("../HRM/EmployeeWeekOff/_WeekOffSummary")
+        </div>
+    </div>
+</div>
+
+
+

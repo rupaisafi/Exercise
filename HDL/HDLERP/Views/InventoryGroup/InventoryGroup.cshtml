@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Inventory Group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/InventoryGroup/InventoryGroupInfo.js")
+
+<div class="row">
+    <div id="divInventoryGroupDetails" class="col-lg-6">
+        @Html.Partial("InventoryGroupDetails")
+    </div>
+    <div id="divInventoryGroupSummary" class="col-lg-6">
+        @Html.Partial("InventoryGroupSummary")
+    </div>
+</div>

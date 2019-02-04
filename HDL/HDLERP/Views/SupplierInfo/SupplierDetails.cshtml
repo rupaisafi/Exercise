@@ -1,0 +1,112 @@
+﻿
+@Scripts.Render("~/Scripts/HDL/SupplierInfo/SupplierDetails.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example" id="divSupplierDetails">
+            <div class="well well-sm">Supplier Details</div>
+            <div class="form-horizontal">
+                <input type="hidden" id="hdnSupplierId" value="0"/>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtSupplierCode">Supplier Code:</label>
+                    <div class="col-md-5 col-xs-6">
+                        <input type="text" class="form-control" placeholder="" style="width: 60%; height: 28px;" name="txtSupplierCode" id="txtSupplierCode" required validationmessage="Required"/>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <button type="button" class="btn btn-info" id="btnGenerateSupCode">Generate</button>
+                    </div>
+                  
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtSupplierName">Supplier Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtSupplierName" id="txtSupplierName" required validationmessage="Required"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtShortName">Short Name:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtShortName" id="txtShortName"  />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtPhoneNoPer">Phone No (Personal):</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPhoneNoPer" id="txtPhoneNoPer"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtPhoneNoOffice">Phone No (Office):</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPhoneNoOffice" id="txtPhoneNoOffice"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtPhoneNoHome">Phone No (Home):</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPhoneNoHome" id="txtPhoneNoHome"/>
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtEmail">Email:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="email" placeholder="abc@example.com" name="inputEmail" style="width: 100%; height: 28px;" id="txtEmail" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtFaxNo">Fax No:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" name="txtFaxNo" style="width: 100%; height: 28px;" id="txtFaxNo" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtContPerson">Contact Person:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" name="txtContPerson" style="width: 100%; height: 28px;" id="txtContPerson" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtContPDesig">CP Designation:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" name="txtContPDesig" style="width: 100%; height: 28px;" id="txtContPDesig" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="txtAddress">Address:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <textarea name="txtAddress" class="form-control" style="width: 100%; resize: none;" id="txtAddress"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="cmbCountry">Country:</label>
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" name="cmbCountry" style="width: 100%; height: 28px;  position: relative;" id="cmbCountry">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label class="col-md-3 col-xs-3 control-label" for="chkIsActive">Is Active:</label>
+                    <div class="col-md-1 col-xs-1">
+                        <input type="checkbox" name="chkIsActive" style="width: 100%; height: 28px;" id="chkIsActive" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

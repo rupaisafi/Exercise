@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{531C5367-BC61-4554-9C9B-F4208F8B935A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HDL\BeamStock\BeamStockRepository.cs" />
+    <Compile Include="HDL\BeamStock\IBeamFinishRepository.cs" />
+    <Compile Include="HDL\BeamFinish\BeamFinishRepository.cs" />
+    <Compile Include="HDL\BeamFinish\IBeamFinishRepository.cs" />
+    <Compile Include="HDL\BuyerInfo\BuyerInfoService.cs" />
+    <Compile Include="HDL\BuyerInfo\IBuyerInfoRepository.cs" />
+    <Compile Include="HDL\CausticRecovery\CausticRecoveryRepository.cs" />
+    <Compile Include="HDL\CausticRecovery\ICausticRecoveryRepository.cs" />
+    <Compile Include="HDL\ColorInfo\ColorInfoService.cs" />
+    <Compile Include="HDL\ColorInfo\IColorInfoRepository.cs" />
+    <Compile Include="HDL\CommonInfo\CommonInfoService.cs" />
+    <Compile Include="HDL\CommonInfo\ICommonInfoRepository.cs" />
+    <Compile Include="HDL\DyeingConsumption\DyeingConsumptionRepository.cs" />
+    <Compile Include="HDL\DyeingConsumption\IDyeingConsumptionRepository.cs" />
+    <Compile Include="HDL\DyeingUtility\DyeingUtilityRepository.cs" />
+    <Compile Include="HDL\DyeingUtility\IDyeingUtilityRepository.cs" />
+    <Compile Include="HDL\FabRejRefin\FabRejRefinRepository.cs" />
+    <Compile Include="HDL\FabRejRefin\IFabRejRefinRepository.cs" />
+    <Compile Include="HDL\FabricType\IFabricTypeRepository.cs" />
+    <Compile Include="HDL\FabricType\FabricTypeService.cs" />
+    <Compile Include="HDL\FinishingFloorStock\FloorStockRepository.cs" />
+    <Compile Include="HDL\FinishingFloorStock\IFloorStockRepository.cs" />
+    <Compile Include="HDL\FinishingProduction\FinishingRepository.cs" />
+    <Compile Include="HDL\FinishingProduction\IFinishingRepository.cs" />
+    <Compile Include="HDL\FinishingRubberBelt\FinishingRubberBelt.cs" />
+    <Compile Include="HDL\FinishingRubberBelt\IFinishingRubberBelt.cs" />
+    <Compile Include="HDL\InspectionCheck\IInspectionCheckRepository.cs" />
+    <Compile Include="HDL\InspectionCheck\InspectionCheckRepository.cs" />
+    <Compile Include="HDL\InspectionFlaggin\IInspectionFlagginRepository.cs" />
+    <Compile Include="HDL\InspectionFlaggin\InspectionFlagginRepository.cs" />
+    <Compile Include="HDL\InspectionFloorStock\IInspectionFloorStockRepository.cs" />
+    <Compile Include="HDL\InspectionFloorStock\InspectionFloorStockRepository.cs" />
+    <Compile Include="HDL\InspectionNonDispatch\IInspectionNonDispatchRepository.cs" />
+    <Compile Include="HDL\InspectionNonDispatch\InspectionNonDispatchRepository.cs" />
+    <Compile Include="HDL\InventoryGroup\IInventoryGroupRepository.cs" />
+    <Compile Include="HDL\InventoryGroup\InventoryGroupService.cs" />
+    <Compile Include="HDL\ItemInfo\IItemInfoRepository.cs" />
+    <Compile Include="HDL\ItemInfo\ItemInfoService.cs" />
+    <Compile Include="HDL\LcInfo\ILcInfoRepository.cs" />
+    <Compile Include="HDL\LcInfo\LcInfoService.cs" />
+    <Compile Include="HDL\Knotting\IKnottingRepository.cs" />
+    <Compile Include="HDL\Knotting\KnottingRepository.cs" />
+    <Compile Include="HDL\InspectionProduction\IInspectionProductionRepository.cs" />
+    <Compile Include="HDL\InspectionProduction\InspectionProductionRepository.cs" />
+    <Compile Include="HDL\RejectionControl\IRejectionControlRepository.cs" />
+    <Compile Include="HDL\RejectionControl\RejectionControlRepository.cs" />
+    <Compile Include="HDL\StickyEnd\IStickyEndRepository.cs" />
+    <Compile Include="HDL\StickyEnd\StickyEndRepository.cs" />
+    <Compile Include="HDL\Machine\IMachineRepository.cs" />
+    <Compile Include="HDL\Machine\MachineService.cs" />
+    <Compile Include="HDL\MaterialConsumption\IMaterialConRepository.cs" />
+    <Compile Include="HDL\MaterialConsumption\MaterialConService.cs" />
+    <Compile Include="HDL\MIssue\IMIssueRepository.cs" />
+    <Compile Include="HDL\MIssue\MIssueService.cs" />
+    <Compile Include="HDL\MrrInfo\IMrrInfoRepository.cs" />
+    <Compile Include="HDL\MrrInfo\MrrInfoService.cs" />
+    <Compile Include="HDL\OrderInfo\IOrderInfoRepository.cs" />
+    <Compile Include="HDL\OrderInfo\OrderInfoService.cs" />
+    <Compile Include="HDL\PlanningInfo\IPlanningInfoRepository.cs" />
+    <Compile Include="HDL\PlanningInfo\PlanningInfoService.cs" />
+    <Compile Include="HDL\ProdQuality\IProdQualityRepository.cs" />
+    <Compile Include="HDL\ProdQuality\ProdQualityService.cs" />
+    <Compile Include="HDL\Report\IReportRepository.cs" />
+    <Compile Include="HDL\Report\ReportService.cs" />
+    <Compile Include="Core\Menu\IMenuRepository.cs" />
+    <Compile Include="Core\Menu\MenuService.cs" />
+    <Compile Include="Core\Module\IModuleRepository.cs" />
+    <Compile Include="Core\Module\ModuleService.cs" />
+    <Compile Include="Core\Notice\INoticeSettingRepository.cs" />
+    <Compile Include="Core\Notice\NoticeSettingService.cs" />
+    <Compile Include="Core\User\IUserRepository.cs" />
+    <Compile Include="Core\User\UserService.cs" />
+    <Compile Include="HDL\SetInfo\ISetInfoRepository.cs" />
+    <Compile Include="HDL\SetInfo\SetInfoService.cs" />
+    <Compile Include="HDL\Shift\ShiftService.cs" />
+    <Compile Include="HDL\Shift\IShiftRepository.cs" />
+    <Compile Include="HDL\StyleInfo\IStyleInfoRepository.cs" />
+    <Compile Include="HDL\StyleInfo\StyleInfoService.cs" />
+    <Compile Include="HDL\StyleRecipe\IStyleRecipeRepository.cs" />
+    <Compile Include="HDL\StyleRecipe\StyleRecipeRepository.cs" />
+    <Compile Include="HDL\SupplierInfo\ISupplierRepository.cs" />
+    <Compile Include="HDL\SupplierInfo\SupplierService.cs" />
+    <Compile Include="HDL\DyeingProduction\IDyeingProductionRepository.cs" />
+    <Compile Include="HDL\DyeingProduction\DyeingProductionService.cs" />
+    <Compile Include="HDL\WarpingProduction\IWarpingProductionRepository.cs" />
+    <Compile Include="HDL\WarpingProduction\WarpingProductionService.cs" />
+    <Compile Include="HDL\LoomDownTime\ILoomDownTimeRepository.cs" />
+    <Compile Include="HDL\LoomDownTime\LoomDownTimeRepository.cs" />
+    <Compile Include="HDL\WeavingProduction\IWeavingRepository.cs" />
+    <Compile Include="HDL\WeavingProduction\WeavingRepository.cs" />
+    <Compile Include="HDL\YarnDyeing\IYarnDyeingRepository.cs" />
+    <Compile Include="HDL\YarnDyeing\YarnDyeingRepository.cs" />
+    <Compile Include="HDL\WarpLapper\WarpLapperRepository.cs" />
+    <Compile Include="HDL\WarpLapper\IWarpLapperRepository.cs" />
+    <Compile Include="HDL\YarnInfo\IYarnInfoRepository.cs" />
+    <Compile Include="HDL\YarnInfo\YarnInfoService.cs" />
+    <Compile Include="HRM\AllowanceByDesGroup\AllowanceByDesGroupService.cs" />
+    <Compile Include="HRM\AllowanceByDesGroup\IAllowanceByDesGroupRepository.cs" />
+    <Compile Include="HRM\AttendanceProcess\AttendanceProcessService.cs" />
+    <Compile Include="HRM\AttendanceProcess\IAttendanceProcessRepository.cs" />
+    <Compile Include="HRM\BloodGroup\BloodGroupService.cs" />
+    <Compile Include="HRM\BloodGroup\IBloodGroupRepository.cs" />
+    <Compile Include="HRM\Company\CompanyService.cs" />
+    <Compile Include="HRM\Company\ICompanyRepository.cs" />
+    <Compile Include="HRM\Country\CountryService.cs" />
+    <Compile Include="HRM\Country\ICountryRepository.cs" />
+    <Compile Include="HRM\Department\DepartmentService.cs" />
+    <Compile Include="HRM\Department\IDepartmentRepository.cs" />
+    <Compile Include="HRM\DesignationGroup\DesignationGroupService.cs" />
+    <Compile Include="HRM\DesignationGroup\IDesignationGroupRepository.cs" />
+    <Compile Include="HRM\Designation\DesignationService.cs" />
+    <Compile Include="HRM\Designation\IDesignationRepository.cs" />
+    <Compile Include="HRM\Education\EducationService.cs" />
+    <Compile Include="HRM\Education\IEducationRepository.cs" />
+    <Compile Include="HRM\EmoloyeeSeparation\EmployeeSeparetionService.cs" />
+    <Compile Include="HRM\EmoloyeeSeparation\IEmployeeSeparetionRepository.cs" />
+    <Compile Include="HRM\EmployeeBasic\EmployeeBasicService.cs" />
+    <Compile Include="HRM\EmployeeBasic\IEmployeeBasicRepository.cs" />
+    <Compile Include="HRM\EmployeeShift\EmployeeShiftService.cs" />
+    <Compile Include="HRM\EmployeeShift\IEmployeeShiftRepository.cs" />
+    <Compile Include="HRM\EmployeeWeekOff\EmployeeWeekOffService.cs" />
+    <Compile Include="HRM\EmployeeWeekOff\IEmployeeWeekOffRepository.cs" />
+    <Compile Include="HRM\EmploymentCategory\EmploymentCategoryService.cs" />
+    <Compile Include="HRM\EmploymentCategory\IEmploymentCategoryRepository.cs" />
+    <Compile Include="HRM\EmploymentStatus\EmploymentStatusService.cs" />
+    <Compile Include="HRM\EmploymentStatus\IEmploymentStatusRepository.cs" />
+    <Compile Include="HRM\EmploymentType\EmploymentTypeService.cs" />
+    <Compile Include="HRM\EmploymentType\IEmploymentTypeRepository.cs" />
+    <Compile Include="HRM\Gender\GenderService.cs" />
+    <Compile Include="HRM\Gender\IGenderRepository.cs" />
+    <Compile Include="HRM\MaritalStatus\IMaritalStatusRepository.cs" />
+    <Compile Include="HRM\MaritalStatus\MaritalStatusService.cs" />
+    <Compile Include="HRM\Position\IPositionRepository.cs" />
+    <Compile Include="HRM\Position\PositionService.cs" />
+    <Compile Include="HRM\Religion\IReligionRepository.cs" />
+    <Compile Include="HRM\Religion\ReligionService.cs" />
+    <Compile Include="HRM\Section\ISectionRepository.cs" />
+    <Compile Include="HRM\Section\SectionService.cs" />
+    <Compile Include="HRM\Shift\ShiftService.cs" />
+    <Compile Include="HRM\Shift\IShiftRepository.cs" />
+    <Compile Include="HRM\Team\ITeamRepository.cs" />
+    <Compile Include="HRM\Team\TeamService.cs" />
+    <Compile Include="HRM\Unit\IUnitRepository.cs" />
+    <Compile Include="HRM\Unit\UnitService.cs" />
+    <Compile Include="HRM\Wing\IWingRepository.cs" />
+    <Compile Include="HRM\Wing\WingService.cs" />
+    <Compile Include="Login\ILoginRepository.cs" />
+    <Compile Include="Login\LoginService.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BLL.dll" />
+    <Content Include="bin\Debug\BLL.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{8e93b401-4322-4b01-a73d-3082c5e24c98}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBManager\DM.csproj">
+      <Project>{565A7AAC-F7DA-458C-9046-A7D7133E176A}</Project>
+      <Name>DM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{43EC51F4-69BA-4533-918C-6F39415B5D75}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\AUtilities.csproj">
+      <Project>{07242bcb-0768-4348-927d-1d8d6df41e84}</Project>
+      <Name>AUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,749 @@
+﻿
+@Scripts.Render("~/Scripts/HDL/StyleInfo/StyleInfoDetails.js")
+<style type="text/css">
+     .form-group {
+        margin-bottom: 3px !important;
+    }
+</style>
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="well well-sm">Style Entry Form</div>
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <input type="hidden" id="hdnSID" value="0" />
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbUnit">Development Unit:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbUnit" id="cmbUnit" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtDevolopmentDate">Devolopment Date:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtDevolopmentDate" id="txtDevolopmentDate" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtProdYear">Production Year:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtProdYear" id="txtProdYear" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbFabricType">Febric Type:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbFabricType" id="cmbFabricType" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtPDNo">Fabric Code:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="Fabric Code" style="width: 100%; height: 28px;" name="txtPDNo" id="txtPDNo" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group" style="border: 1px solid blue;background-color: lightblue">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtStyleNo">Style No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="Style No" style="width: 100%; height: 28px;" name="txtStyleNo" id="txtStyleNo" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group" style="border: 1px solid blue;background-color:lightblue">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtStyleCode">Style Code:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6" style="padding-right: 1px">
+                                    <input type="text" class="form-control" placeholder="Style Code" style="width: 100%; height: 28px;" name="txtStyleCode" id="txtStyleCode" required validationmessage="Required" readonly="readonly"/>
+                                </div>
+                                <div class="col-md-6 col-xs-6" style="padding-left: 1px">
+                                    <button id="btnGenerateStyleCode" class="btn btn-primary" type="button">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeight">Weight:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="txtWeight" id="txtWeight" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeave">Weave:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeave" id="txtWeave" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtShrinkage">PI Shrinkage:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtShrinkage" id="txtShrinkage" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtTotalWidth">Total Width":</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtTotalWidth" id="txtTotalWidth" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtCutableWidth">Cutable Width:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtCutableWidth" id="txtCutableWidth" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtGreyConstruction">Grey Construction:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtGreyConstruction" id="txtGreyConstruction"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtFConstruction">Fin Construction:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtFConstruction" id="txtFConstruction"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtYarnCode">Yarn Code:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtYarnCode" id="txtYarnCode"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtFabricDesc">Composition(Fab. Desc):</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtFabricDesc" id="txtFabricDesc"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbFinishRoute">Finish Route:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbFinishRoute" id="cmbFinishRoute"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbFinishType">Finish Type:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbFinishType" id="cmbFinishType"/>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtStdShrink">Shrink %(± 2):</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="txtStdShrink" id="txtStdShrink" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWarpRatio">Ratio Warp x Weft:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6" style="padding-right: 1px">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpRatio" id="txtWarpRatio" />
+                                </div>
+                                <div class="col-md-6 col-xs-6" style="padding-left: 1px">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeftRatio" id="txtWeftRatio" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtTEnds">Total Ends:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="txtTEnds" id="txtTEnds"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtSetStd">Set Std:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtSetStd" id="txtSetStd"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbColor">Color:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="cmbColor" id="cmbColor"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtShadeIndigo">Shade Indigo:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  style="width: 100%; height: 28px;" name="txtShadeIndigo" id="txtShadeIndigo"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtShadeBlack">ShadeBlack:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  style="width: 100%; height: 28px;" name="txtShadeBlack" id="txtShadeBlack"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWarpSupp">Warp Supp:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpSupp" id="txtWarpSupp"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWarpLot">Warp Lot:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpLot" id="txtWarpLot"/>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeftSupp">Weft Supp:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpLot" id="txtWeftSupp" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeftLot">Weft Lot:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeftLot" id="txtWeftLot" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtStdCrimp">Crimp(±2):</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtStdCrimp" id="txtStdCrimp"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtCSV">CSV:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtCSV" id="txtCSV"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtBuyerRef">Buyer Ref:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtBuyerRef" id="txtBuyerRef"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbGrade">Gread Name:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbGrade" id="cmbGrade"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbSpeciality">Speciality:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text"  style="width: 100%; height: 28px;" name="cmbSpeciality" id="cmbSpeciality"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtMeasuringUnit">Measuring Unit:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtMeasuringUnit" id="txtMeasuringUnit" required validationmessage="Required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbUpdateStatus">Update Status:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbUpdateStatus" id="cmbUpdateStatus"/>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtPDNo">PD No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPDNo" id="txtPDNo"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtRefPDNo">Ref PD No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtRefPDNo" id="txtRefPDNo"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtType">Type:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtType" id="txtType"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtStyleNo">Style No:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtStyleNo" id="txtStyleNo"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtPYear">PYear:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtPYear" id="txtPYear"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtHSCode">HSCode:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtHSCode" id="txtHSCode"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtSRate">SRate:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtSRate" id="txtSRate"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtRate1">Rate1:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtRate1" id="txtRate1"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtTrace">Trace:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtTrace" id="txtTrace"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtRemarks">Remarks:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtRemarks" id="txtRemarks"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtFG">FG:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtFG" id="txtFG"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtWarpCons">Warp Cons:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpCons" id="txtWarpCons"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtWeftCons">Weft Cons:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeftCons" id="txtWeftCons"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtCheCons">Che Cons:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtCheCons" id="txtCheCons"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtRPM">RPM:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtRPM" id="txtRPM"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 col-xs-5 control-label" for="txtEffi">Effi:</label>
+                            <div class="col-md-7 col-xs-7">
+                                <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtEffi" id="txtEffi"/>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row" id="tabStyle">
+                <ul>
+                    <li class="k-state-active">
+                        FINISH PARAMETER
+                    </li>
+                    <li>
+                        GREY PARAMETER
+                    </li>
+                    <li>
+                       FABRIC PARAMETER
+                    </li>
+
+                </ul>
+                <div class="row"> @*Finish Parameter*@
+                    <div class="col-md-4 col-xs-4">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWarpShrinkage">Warp Shrinkage(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpShrinkage" id="txtWarpShrinkage" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeftShrinkage">Weft Shrinkage(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeftShrinkage" id="txtWeftShrinkage" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtShrinkEnzyme">Shrink Enzyme:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtShrinkEnzyme" id="txtShrinkEnzyme" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtShrinkBleach">Shrink Bleach:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtShrinkBleach" id="txtShrinkBleach" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeightFinish">Weight Finish:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeightFinish" id="txtWeightFinish" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeightWash">Weight Wash:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeightWash" id="txtWeightWash" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtSkew">Skew(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtSkew" id="txtSkew" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtMovement">Movement(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtMovement" id="txtMovement" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtStretchAbility">Stretch Ability(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtStretchAbility" id="txtStretchAbility" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtGrowth">Growth(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtGrowth" id="txtGrowth" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtRecovery">Recovery(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtRecovery" id="txtRecovery" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtRemarksFin">Remarks:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtRemarksFin" id="txtRemarksFin" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtShrink">Shrink(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtShrink" id="txtShrink" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtShrinkMatchWash">Shrink Match Wash:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtShrinkMatchWash" id="txtShrinkMatchWash" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtRemarks">Remarks:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtRemarks" id="txtRemarks" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>*@
+                </div>
+                <div class="row"> @*Grey Parameter*@
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWarpShrinkageGrey">Warp Shrinkage(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWarpShrinkageGrey" id="txtWarpShrinkageGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeftShrinkageGrey">Weft Shrinkage(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtWeftShrinkageGrey" id="txtWeftShrinkageGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeightGrey">Weight Finish:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeightGrey" id="txtWeightGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWeightWashGrey">Weight Wash:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeightWashGrey" id="txtWeightWashGrey" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtSkewGrey">Skew(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtSkewGrey" id="txtSkewGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtStretchAbilityGrey">Stretch Ability(%):</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtStretchAbilityGrey" id="txtStretchAbilityGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtWidthGrey">Width:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWidthGrey" id="txtWidthGrey" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtGreyEpi">EPI x PPI:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6" style="padding-right: 1px">
+                                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtGreyEpi" id="txtGreyEpi" />
+                                        </div>
+                                        <div class="col-md-6 col-xs-6" style="padding-left: 1px">
+                                            <input type="text" class="form-control" placeholder="" style="width: 100%; height: 28px;" name="txtGreyPpi" id="txtGreyPpi" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtReedCount">Reed Count:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtReedCount" id="txtReedCount" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtEndsDent">Ends Dent:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtEndsDent" id="txtEndsDent" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtCostRpm">Cost RPM:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtCostRpm" id="txtCostRpm" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtCostEffi">Cost Effi.:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtCostEffi" id="txtCostEffi" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-6 col-xs-6 control-label" for="txtRemarksGrey">Remarks:</label>
+                                <div class="col-md-6 col-xs-6">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtRemarksGrey" id="txtRemarksGrey" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> @*Fabric Parameter*@
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtTensileStrgthWarp">Tensile Strength Warp:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtTensileStrgthWarp" id="txtTensileStrgthWarp" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtTensileStrgthWeft">Tensile Strength Weft:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtTensileStrgthWeft" id="txtTensileStrgthWeft" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtTearingStrgthWarp">Tearing Strength Warp:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtTearingStrgthWarp" id="txtTearingStrgthWarp" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtTearingStrgthWeft">Tearing Strength Weft:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtTearingStrgthWeft" id="txtTearingStrgthWeft" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtCrockingFastnessDry">Crocking Fastness Dry:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtCrockingFastnessDry" id="txtCrockingFastnessDry" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtCrockingFastnessWeft">Crocking Fastness Weft:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtCrockingFastnessWeft" id="txtCrockingFastnessWeft" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessWash">Colour Fastness Wash:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessWash" id="txtColourFastnessWash" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessAcetate">Colour Fastness Acetate:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessAcetate" id="txtColourFastnessAcetate" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessCotton">Colour Fastness Cotton:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessCotton" id="txtColourFastnessCotton" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessNylon">Colour Fastness Nylon:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessNylon" id="txtColourFastnessNylon" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessPolystar">Colour Fastness Polystar:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessPolystar" id="txtColourFastnessPolystar" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessAcrylic">Colour Fastness Acrylic:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessAcrylic" id="txtColourFastnessAcrylic" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtColourFastnessWool">Colour Fastness Wool:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtColourFastnessWool" id="txtColourFastnessWool" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtPh">p<sup>H</sup>:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtPh" id="txtPh" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtMoisture">Moisture:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtMoisture" id="txtMoisture" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtSteffness">Steffness:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtSteffness" id="txtSteffness"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtReedSpace">Reed Space":</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtReedSpace" id="txtReedSpace"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtRPM">RPM:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtRPM" id="txtRPM"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtEffi">Effi.:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtEffi" id="txtEffi"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 col-xs-7 control-label" for="txtValueLoss">Value Loss:</label>
+                                <div class="col-md-5 col-xs-5">
+                                    <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtValueLoss" id="txtValueLoss"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-eject"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

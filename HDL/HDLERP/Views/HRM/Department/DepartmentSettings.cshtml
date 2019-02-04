@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Department Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Department/DepartmentSettings.js")
+
+<div class="row">
+    <div id="divDepartmentSummary" class="col-md-6">
+        @Html.Partial("../HRM/Department/DepartmentInfo")
+    </div>
+    <div id="divDepartmentDetails" class="col-md-6">
+        @Html.Partial("../HRM/Department/DepartmentPermission")
+    </div>
+
+</div>
+
+

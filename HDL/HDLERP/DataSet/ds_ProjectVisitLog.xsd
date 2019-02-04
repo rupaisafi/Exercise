@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_ProjectVisitLog" targetNamespace="http://tempuri.org/ds_ProjectVisitLog.xsd" xmlns:mstns="http://tempuri.org/ds_ProjectVisitLog.xsd" xmlns="http://tempuri.org/ds_ProjectVisitLog.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_ProjectVisitLog" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtProjectVisitLog">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="usrname" type="xs:string" minOccurs="0" />
+              <xs:element name="usrdesig" type="xs:string" minOccurs="0" />
+              <xs:element name="vtype" type="xs:string" minOccurs="0" />
+              <xs:element name="outtime" type="xs:string" minOccurs="0" />
+              <xs:element name="intime" type="xs:string" minOccurs="0" />
+              <xs:element name="purpose" type="xs:string" minOccurs="0" />
+              <xs:element name="name" type="xs:string" minOccurs="0" />
+              <xs:element name="add1" type="xs:string" minOccurs="0" />
+              <xs:element name="cell" type="xs:string" minOccurs="0" />
+              <xs:element name="projectname" type="xs:string" minOccurs="0" />
+              <xs:element name="proaddress" type="xs:string" minOccurs="0" />
+              <xs:element name="rptname" type="xs:string" minOccurs="0" />
+              <xs:element name="frmdat" type="xs:string" minOccurs="0" />
+              <xs:element name="todat" type="xs:string" minOccurs="0" />
+              <xs:element name="empid" type="xs:string" minOccurs="0" />
+              <xs:element name="edate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtProjectVisitLogConst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="usrname" type="xs:string" minOccurs="0" />
+              <xs:element name="usrdesig" type="xs:string" minOccurs="0" />
+              <xs:element name="vtype" type="xs:string" minOccurs="0" />
+              <xs:element name="outtime" type="xs:string" minOccurs="0" />
+              <xs:element name="intime" type="xs:string" minOccurs="0" />
+              <xs:element name="purpose" type="xs:string" minOccurs="0" />
+              <xs:element name="findings" type="xs:string" minOccurs="0" />
+              <xs:element name="action" type="xs:string" minOccurs="0" />
+              <xs:element name="remarks" type="xs:string" minOccurs="0" />
+              <xs:element name="projectname" type="xs:string" minOccurs="0" />
+              <xs:element name="proaddress" type="xs:string" minOccurs="0" />
+              <xs:element name="rptname" type="xs:string" minOccurs="0" />
+              <xs:element name="frmdat" type="xs:string" minOccurs="0" />
+              <xs:element name="todat" type="xs:string" minOccurs="0" />
+              <xs:element name="empid" type="xs:string" minOccurs="0" />
+              <xs:element name="edate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

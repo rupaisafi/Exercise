@@ -1,0 +1,13 @@
+D:\SvnProjects\HDL\DAL\bin\Debug\DAL.dll.config
+D:\SvnProjects\HDL\DAL\bin\Debug\DAL.dll
+D:\SvnProjects\HDL\DAL\bin\Debug\DAL.pdb
+D:\SvnProjects\HDL\DAL\bin\Debug\AUtilities.dll
+D:\SvnProjects\HDL\DAL\bin\Debug\DBManager.dll
+D:\SvnProjects\HDL\DAL\bin\Debug\Entities.dll
+D:\SvnProjects\HDL\DAL\bin\Debug\Newtonsoft.Json.dll
+D:\SvnProjects\HDL\DAL\bin\Debug\DBManager.pdb
+D:\SvnProjects\HDL\DAL\bin\Debug\Entities.pdb
+D:\SvnProjects\HDL\DAL\bin\Debug\AUtilities.pdb
+D:\SvnProjects\HDL\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\SvnProjects\HDL\DAL\obj\Debug\DAL.dll
+D:\SvnProjects\HDL\DAL\obj\Debug\DAL.pdb

@@ -1,0 +1,112 @@
+﻿@Scripts.Render("~/Scripts/HDL/PlanningInfo/WeavingInfo.js")
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example" id="divWvDetails">
+            <div class="col-md-10">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="cmbINameWv">IName:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbINameWv" id="cmbINameWv" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="cmbYarnLotWv">Lot:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbYarnLotWv" id="cmbYarnLotWv" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="cmbSNameWv">SName:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbSNameWv" id="cmbSNameWv" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="cmbYarnWv">Yarn Name:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbYarnWv" id="cmbYarnWv" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtYarnCountWv">Yarn Count:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" name="txtYarnCountWv" style="width: 100%; height: 28px;" id="txtYarnCountWv" >
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtPickLngthWv">Pick Length:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" class="form-control" name="txtPickLngthWv" style="width: 100%; height: 28px;" id="txtPickLngthWv">
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtEpIWv">EPI:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" class="form-control" name="txtEpIWv" style="width: 100%; height: 28px;" id="txtEpIWv">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtPpiWv">PPI:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" class="form-control" name="txtPpiWv" style="width: 100%; height: 28px;" id="txtPpiWv" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtWeftRatioWv1">Weft Ratio:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" class="form-control" name="txtWeftRatioWv1" style="width: 100%; height: 28px;" id="txtWeftRatioWv1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtTotalRatioWv">Total Ratio:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" class="form-control" name="txtTotalRatioWv" style="width: 100%; height: 28px;" id="txtTotalRatioWv">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtQtyWv">Qty (Kg):</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" style="width: 100%; height: 28px;" name="txtQtyWv" id="txtQtyWv" required validationmessage="Required" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtRateWv">Rate:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" placeholder="" name="txtRateWv" style="width: 100%; height: 28px;" id="txtRateWv" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-3 control-label" for="txtValueWv">Value:</label>
+                        <div class="col-md-9 col-xs-9">
+                            <input type="text" class="form-control" name="txtValueWv" style="width: 100%; height: 28px;" id="txtValueWv" readonly="readonly">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnAddToListWv" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> AddToList</button>
+                            <button id="btnUpdateWv" class="btn btn-success" type="button"><span class="glyphicon glyphicon-download-alt"></span> Update List</button>
+                            <button id="btnClearWv" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnCloseWv" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-off"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HDLERPDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HDLERPDbContext" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="spGetKnotting" ReturnType="Collection(Int32)">
+      <Parameter Name="call_name" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UCode" Mode="In" Type="Int32" />
+      <Parameter Name="UName" Mode="In" Type="String" />
+      <Parameter Name="KDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="TCode" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="TrackDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="TblBeamFinishes" EntityType="HDLERPDBModel.TblBeamFinish" />
+    <EntitySet Name="TblBeamFinishDetails" EntityType="HDLERPDBModel.TblBeamFinishDetail" />
+    <EntitySet Name="TblTypes" EntityType="HDLERPDBModel.TblType" />
+    <EntitySet Name="TblStock11" EntityType="HDLERPDBModel.TblStock11" />
+    <EntitySet Name="TblStock21" EntityType="HDLERPDBModel.TblStock21" />
+    <EntitySet Name="TblStock22" EntityType="HDLERPDBModel.TblStock22" />
+  </EntityContainer>
+  <EntityType Name="TblBeamFinish">
+    <Key>
+      <PropertyRef Name="BID" />
+    </Key>
+    <Property Name="BID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BDate" Type="DateTime" Precision="3" />
+    <Property Name="UCode" Type="Int32" />
+    <Property Name="UName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblBeamFinishDetail">
+    <Key>
+      <PropertyRef Name="BIID" />
+    </Key>
+    <Property Name="BIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BID" Type="Int32" />
+    <Property Name="Loom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SetNo" Type="Int32" />
+    <Property Name="SS" Type="Int32" />
+    <Property Name="BeamNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblType">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TCode" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GCode" Type="Int32" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupCode" Type="Int32" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WvGCode" Type="Int32" />
+    <Property Name="WvGName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblStock11">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TracDate" Type="DateTime" Precision="0" />
+    <Property Name="SDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Ref" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DID" Type="Int32" />
+    <Property Name="DCode" Type="Int32" />
+    <Property Name="DName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UCode" Type="Int32" />
+    <Property Name="UName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalProd" Type="Int32" />
+    <Property Name="CProd" Type="Int32" />
+    <Property Name="Gramending" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDate" Type="DateTime" Precision="0" />
+    <Property Name="InsFloorCode" Type="Int32" />
+    <Property Name="InsFloorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TblStock21">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="StyleCode" Type="Int32" />
+    <Property Name="StyleNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Constraction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Width" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QCode" Type="Int32" />
+    <Property Name="FabQuality" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Prod" Type="Int32" />
+    <Property Name="FabReturn" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CCode" Type="Int32" />
+    <Property Name="CName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalRoll" Type="Int32" />
+    <Property Name="TotalPoint" Type="Int32" />
+    <Property Name="SetNo" Type="Int32" Nullable="false" />
+    <Property Name="SS" Type="Int32" />
+    <Property Name="Loom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Beam" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ProdB" Type="Int32" />
+    <Property Name="ProdC" Type="Int32" />
+    <Property Name="CutPieece" Type="Int32" />
+    <Property Name="Wastage" Type="Int32" />
+    <Property Name="ProdG" Type="Int32" />
+    <Property Name="TotalProd" Type="Int32" />
+    <Property Name="FCode" Type="Int32" />
+    <Property Name="FType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDate" Type="DateTime" Precision="0" />
+    <Property Name="PType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PCode" Type="Int32" />
+    <Property Name="UCode" Type="Int32" />
+    <Property Name="UName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinishMCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinishMCCode" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TblStock22">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="OCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="CapName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CapCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Desig" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AcProd" Type="Int32" />
+    <Property Name="ReFinish" Type="Int32" />
+    <Property Name="ReInspection" Type="Int32" />
+    <Property Name="Sample" Type="Int32" />
+    <Property Name="QCCheque" Type="Int32" />
+    <Property Name="Hold" Type="Int32" />
+    <Property Name="CP" Type="Int32" />
+    <Property Name="CutPeace" Type="Int32" />
+    <Property Name="GreyMending" Type="Int32" />
+    <Property Name="ShiftCode" Type="Int32" />
+    <Property Name="Shift" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="STimeHr" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EDate" Type="DateTime" Precision="0" />
+  </EntityType>
+</Schema>

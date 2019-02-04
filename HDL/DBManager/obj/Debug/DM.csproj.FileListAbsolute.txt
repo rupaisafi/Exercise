@@ -1,0 +1,8 @@
+D:\SvnProjects\HDL\DBManager\bin\Debug\DBManager.dll
+D:\SvnProjects\HDL\DBManager\bin\Debug\DBManager.pdb
+D:\SvnProjects\HDL\DBManager\bin\Debug\AUtilities.dll
+D:\SvnProjects\HDL\DBManager\bin\Debug\Newtonsoft.Json.dll
+D:\SvnProjects\HDL\DBManager\bin\Debug\AUtilities.pdb
+D:\SvnProjects\HDL\DBManager\obj\Debug\DM.csprojResolveAssemblyReference.cache
+D:\SvnProjects\HDL\DBManager\obj\Debug\DBManager.dll
+D:\SvnProjects\HDL\DBManager\obj\Debug\DBManager.pdb

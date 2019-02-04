@@ -1,0 +1,102 @@
+﻿@Scripts.Render("~/Scripts/HDL/MCon/MConDetails.js")
+@Scripts.Render("~/Scripts/HDL/MCon/MConDetailsSummary.js")
+
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="well well-sm">Material Consumption Entry</div>
+        <div class="bs-example" id="divMConDetails">
+
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <input type="hidden" id="hdnMConID" value="0"/>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbStyle">Style No:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="cmbStyle" style="width: 100%; height: 28px;" id="cmbStyle" required validationmessage="Required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtRemarks">Remarks:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" name="txtRemarks" class="form-control" style="width: 100%; height: 28px;" id="txtRemarks" required validationmessage="Required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeave">Weave:</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeave" id="txtWeave" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWidth">Width:</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWidth" id="txtWidth" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtConstruction">Construction:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtConstruction" id="txtConstruction" readonly="readonly" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWarpRatio">Warp Ratio:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWarpRatio" id="txtWarpRatio" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="txtWeftRatio">Weft Ratio:</label>
+                        <div class="col-md-7 col-xs-7">
+                            <input type="text" class="form-control" style="width: 100%; height: 28px;" name="txtWeftRatio" id="txtWeftRatio" readonly="readonly" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 col-xs-5 control-label" for="cmbColor">Color:</label>
+                        <div class="col-md-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="cmbColor" id="cmbColor" readonly="readonly" disabled="disabled"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-5 control-label" for="txtTEnd">T End:</label>
+                        <div class="col-md-7">
+                            <input type="text" style="width: 100%; height: 28px;" name="txtTEnd" id="txtTEnd" readonly="readonly" disabled="disabled" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="panel-body">
+                        <button id="btnAddMConDetails" class="btn btn-primary" type="button">Add Details</button>
+                        <div id="grdMConDetailsSummary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="spacer5"></div>
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button id="btnSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                            <button id="btnClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                            <button id="btnClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+

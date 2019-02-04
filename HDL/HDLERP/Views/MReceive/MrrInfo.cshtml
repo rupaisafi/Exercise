@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Material Receive";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/MrrInfo/MrrInfo.js")
+
+<div class="row">
+    <div id="divMrrSummary" class="col-md-12">
+        @Html.Partial("MrrSummary")
+    </div>
+    <div id="divMrrInfoDetails" class="col-md-12 displayNone">
+        @Html.Partial("MrrDetails")
+    </div>
+</div>
+
+<div id="divMrrDetailsPopup" class="displayNone">
+    @Html.Partial("MrrDetailsPopup")
+</div>

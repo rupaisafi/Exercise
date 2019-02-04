@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "Rejection Control";
+    Layout = "~/Views/Shared/_LayoutCustom.cshtml";
+}
+@Styles.Render("~/Content/HDL/RejectionControl.css")
+<div class="wrapper">
+    <div id="inpSummary" class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="bs-example">
+                <div class="well well-sm">
+                    Inspection Rejection Control Summary
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <button id="ipsNew" class="btn btn-sm btn-primary" type="button"><span class="glyphicon glyphicon-plus" style="font-size:12px;"></span> Add New </button>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="col-md-4">
+                                <label class="col-md-4  control-label" for="fromDate" style="padding:5px 15px;">From Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input id="fromDate" style="width: 100%; height: 24px;">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label class="col-md-4  control-label" for="toDate" style="padding:5px 15px;">To Date:</label>
+                                <div class="col-md-8 input-group">
+                                    <input id="toDate" style="width: 100%; height: 24px;">
+                                </div>
+                            </div>
+                            <div class="col-md-4 ">
+                                <button id="btnSearchWeaving" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spacer5"></div>
+                    <div id="summaryGrid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="detail" class="row displayNone">
+        <div class="col-md-12">
+            <div class="bs-example" style="margin-bottom:0px;">
+                <div class="well well-sm">Inspection Rejection Control Form</div>
+                <div class="panel-body" style="background-color: #99ccff">
+                    <div class="spacer5"></div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-4 col-xs-4 control-label" for="ipmSDate">RejDate</label>
+                                    <div class="col-md-5 col-xs-5" style="padding-right:3px;">
+                                        <input id="ipmSDate" style="width: 100%; height: 24px;border-color:#67afe9;" validationmessage="Required" required />
+                                    </div>
+                                    <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                        <input id="ipmID" class="k-input k-textbox" style="width: 100%; height: 24px;border-color:#67afe9;" disabled="disabled" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-xs-4 control-label" for="ipmUName">Ins Unit</label>
+                                    <div class="col-md-5 col-xs-5" style="padding-right:3px;">
+                                        <input id="ipmUName" style="width: 100%; height: 22px;" />
+                                    </div>
+                                    <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                        <input id="ipmUCode" class="k-input k-textbox" style="width: 100%; height: 24px;" disabled="disabled" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-4 col-xs-4 control-label" for="ipmInsFloorName">Wv Floor</label>
+                                    <div class="col-md-5 col-xs-5" style="padding-right:3px;">
+                                        <input id="ipmInsFloorName" style="width: 100%; height: 22px;" />
+                                    </div>
+                                    <div class="col-md-3 col-xs-3" style="padding-left:0px;">
+                                        <input id="ipmInsFloorCode" class="k-input k-textbox" style="width: 100%; height: 24px;border-color:#67afe9;" disabled="disabled" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 col-xs-4 control-label" for="ipmTotalProd">TotalProd</label>
+                                    <div class="col-md-8 col-xs-8">
+                                        <input id="ipmTotalProd" class="k-input k-textbox" style="width: 100%; height: 24px;border-color:#67afe9;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid" style="padding:5px 0px 5px;">
+                        <div id="tabstrip">
+                            <ul>
+                                <li class="k-state-active" style="font-weight:bold;">
+                                    Warping
+                                </li>
+                                <li style="font-weight:bold;">
+                                    Dyeing
+                                </li>
+                                <li style="font-weight:bold;">
+                                    Weaving
+                                </li>
+                                <li style="font-weight:bold;">
+                                    Finishing
+                                </li>
+                                <li style="font-weight:bold;">
+                                    DyeStop(Rope)
+                                </li>
+                            </ul>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="panel-body">
+                                            <div class="spacer5"></div>
+                                            <div id="ircdWarpingGrid"></div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="panel-body">
+                                            <div class="spacer5"></div>
+                                            <div id="ircdDyeingGrid"></div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="panel-body">
+                                            <div class="spacer5"></div>
+                                            <div id="ircdWeavingGrid"></div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="panel-body">
+                                            <div class="spacer5"></div>
+                                            <div id="ircdFinishingGrid"></div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="panel-body">
+                                            <div class="spacer5"></div>
+                                            <div id="ircdDyeStopRopeGrid"></div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <ul class="list-group ">
+                        <li class="list-group-item centerAlign">
+                            <button class="btn btn-info btn-data-entry-clear" type="button"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                            <button class="btn btn-danger btn-data-entry-close" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/Scripts/HDL/RejectionControl/Index.js")
+}

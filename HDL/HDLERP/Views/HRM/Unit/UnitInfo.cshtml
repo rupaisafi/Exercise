@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Unit Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Unit/UnitInfo.js")
+
+<div class="row">
+    <div id="divUnitDetails" class="col-md-6">
+        @Html.Partial("../HRM/Unit/UnitDetails")
+    </div>
+    <div id="divUnitSummary" class="col-md-6">
+        @Html.Partial("../HRM/Unit/UnitSummary")
+    </div>
+</div>

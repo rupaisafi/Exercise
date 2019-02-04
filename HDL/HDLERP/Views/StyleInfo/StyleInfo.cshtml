@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Style Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/StyleInfo/StyleInfo.js")
+
+<div class="row">
+    <div id="divStyleSummary" class="col-lg-12 ">
+        @Html.Partial("StyleInfoSummary")
+    </div>
+    <div id="divStyleInfoDetails" class="col-lg-12 displayNone">
+        @Html.Partial("StyleInfoDetails")
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Material Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/MIssueInfo/MIssueInfo.js")
+
+<div class="row">
+    <div id="divMIssueSummary" class="col-md-12">
+        @Html.Partial("MIsuueSummary")
+    </div>
+    <div id="divMIssueInfoDetails" class="col-md-12 displayNone">
+        @Html.Partial("MIssueDetails")
+    </div>
+</div>
+
+<div id="divMIssueDetailsPopup" class="displayNone">
+    @Html.Partial("MIssueDetailsPopup")
+</div>

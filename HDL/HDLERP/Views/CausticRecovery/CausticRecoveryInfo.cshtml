@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Caustic Recovery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style type="text/css">
+  
+</style>
+
+<div class="col-md-12 col-xs-12" ng-app="myApp" ng-controller="causticRecoveryCtrl" id="mainController">
+    <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;" ng-show="finishingDetail">Caustic Recovery</div>
+
+    <div class="bs-example" style="height:auto; width: 100%; overflow: scroll;" ng-show="finishingDetail" id="finishingDetail">
+        <form class="form-horizontal" novalidate>
+            @*<pre>{{data|json}}</pre>*@
+            <table class="newDiscounts dynaRows table table-hover table-condensed" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th style="border:1px solid">Sl</th>
+                        <th style="border:1px solid">Prod Date</th>
+                        <th style="border:1px solid">WeaklyCausticInM3</th>
+                        <th style="border:1px solid">WeaklyCausticBoom</th>
+                        <th style="border:1px solid">RecoveryCausticM3</th>
+                        <th style="border:1px solid">RecoveryCausticBoom</th>
+                        <th style="border:1px solid">Remarks</th>
+                        <th style="border:1px solid">ID</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border:1px solid" ng-repeat="value in data" >
+                        <td style="border:1px solid">{{$index+1 }}</td>
+                        <td style="border:1px solid" ng-repeat="sub in value">
+                            <input class="r1{{$parent.$index}}"ng-keypress="recDetailMove($event,'text',$parent.$index)" type="text" style="width: 100%; height: 22px;" ng-model="sub.CDate" name="date" placeholder="DD/MM/YYYY" id="CDate" onkeyup="var v=this.value; if (v.match(/^\d{2}$/) !== null) { this.value = v + '/';  } else if (v.match(/^\d{2}\/\d{2}$/) !== null) { this.value = v + '/'; }" maxlength="10" />
+                        </td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="number" class="r2{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" ng-model="sub.WeaklyCusticInM3" min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="number" class="r3{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" ng-model="sub.WeaklyCusticBoom " min="0" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="number" class="r4{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index)" ng-model="sub.RecoveryCausticM3"  min="0"/></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="number" class="r5{{$parent.$index}}" ng-keypress="recDetailMove($event,'text',$parent.$index,'rowdis')" ng-model="sub.RecoveryCausticBoom" min="0"/></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r6{{$parent.$index}}" ng-keypress="recDetailMoveAndSave($event,$parent.$index,sub)" ng-model="sub.Remarks" /></td>
+                        <td style="border:1px solid" ng-repeat="sub in value"><input type="text" class="r7{{$parent.$index}}"  ng-model="sub.CID" disabled/></td>
+                       
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </form>
+
+        <button type="button" class="btn btn-sm btn-primary" ng-click="addNewRow()"><i class="fa fa-plus"></i> Add more</button>
+
+    </div>
+    <div class="row" ng-show="btnClose">
+        <div class="spacer5"></div>
+        <div class="col-md-12 col-xs-12">
+            <ul class="list-group ">
+                <li class="list-group-item centerAlign">
+
+                    <button id="btnClose" class="btn btn-danger" type="button" ng-click="close()"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+</script>
+
+@Scripts.Render("~/Scripts/HDL/CausticRecovery/CausticRecovery.controller.js")
+@*@Scripts.Render("~/Scripts/HDL/FinishingProduction/FinishingProductionInfo.js")*@

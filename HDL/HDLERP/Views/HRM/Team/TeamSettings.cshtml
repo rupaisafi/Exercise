@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Team Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HRM/Team/TeamSettings.js")
+
+<div class="row">
+    <div id="divTeamSummary" class="col-md-6">
+        @Html.Partial("../HRM/Team/TeamInfo")
+    </div>
+    <div id="divTeamDetails" class="col-md-6">
+        @Html.Partial("../HRM/Team/TeamPermission")
+    </div>
+
+</div>
+
+

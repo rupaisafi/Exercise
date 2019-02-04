@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Material Consumption";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/MCon/MConInfo.js")
+
+<div class="row">
+    <div id="divMConSummary" class="col-md-12">
+        @Html.Partial("MConSummary")
+    </div>
+    <div id="divMConDetails" class="col-md-12 displayNone">
+        @Html.Partial("MConDetails")
+    </div>
+</div>
+
+<div id="divMConDetailsPopup" class="displayNone">
+    @Html.Partial("MConDetailsPopup")
+</div>

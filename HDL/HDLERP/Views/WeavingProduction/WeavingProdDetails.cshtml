@@ -1,0 +1,520 @@
+﻿@{
+    ViewBag.Title = "Weaving Production";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+    .k-list {
+        white-space: nowrap !important;
+    }
+
+    .k-grid th {
+        font-weight: bold !important;
+    }
+
+    .k-grid td,
+    .k-grid th {
+        height: 24px !important;
+    }
+
+        .k-grid td:nth-of-type(2),
+        .k-grid th:nth-of-type(2) {
+            border-left: 0px !important;
+        }
+
+    .k-widget.k-datepicker,
+    .k-widget.k-combobox,
+    .k-widget.k-numerictextbox {
+        height: 24px !important;
+    }
+
+    .k-input.k-textbox {
+        border-radius: 0px;
+    }
+
+    .k-picker-wrap.k-state-default,
+    .k-numeric-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-default,
+    .k-dropdown-wrap.k-state-disabled {
+        border-radius: 0;
+    }
+
+    .grid_container .k-picker-wrap.k-state-default,
+    .grid_container .k-numeric-wrap.k-state-default,
+    .grid_container .k-dropdown-wrap.k-state-default {
+        height: 24px;
+        border-radius: 0;
+        width: 100%;
+    }
+
+        .grid_container .k-picker-wrap.k-state-default input,
+        .grid_container .k-numeric-wrap.k-state-default input,
+        .grid_container .k-dropdown-wrap.k-state-default input {
+            height: 22px;
+        }
+
+    input:invalid {
+        border: 1px solid #67afe9;
+        box-shadow: none;
+    }
+
+    .k-widget.k-tooltip.k-tooltip-validation.k-invalid-msg {
+        margin-left: 26px !important;
+        margin-top: 6px !important;
+    }
+
+    .ws-grid-edit-button {
+        text-align: center;
+        cursor: pointer;
+        height: 24px;
+        padding: 5px;
+        font-size: 12px;
+    }
+</style>
+
+<div class="row" id="wProductionContainer">
+    <div id="wProductionSummary" class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="bs-example">
+                    <div class="well well-sm" style="margin-bottom:5px !important;">
+                        Weaving Production
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 ">
+                                <button id="wsNew" class="btn btn-sm btn-primary" type="button">Add New</button>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="col-md-4">
+                                    <label class="col-md-4  control-label" for="wsFromDate" style="padding:5px 15px;">From Date:</label>
+                                    <div class="col-md-8 input-group">
+                                        <input id="wsFromDate" style="width: 100%; height: 24px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <label class="col-md-4  control-label" for="wsToDate" style="padding:5px 15px;">To Date:</label>
+                                    <div class="col-md-8 input-group">
+                                        <input id="wsToDate" style="width: 100%; height: 24px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <button id="btnSearchWeaving" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer5"></div>
+                        <div id="wsGrid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wProductionDetails" class="col-md-12 displayNone">
+        <style type="text/css">
+            .form-group {
+                margin-bottom: 2px !important;
+            }
+
+            #cmbItem-list {
+                width: 300px !important;
+            }
+
+            #cmbShift-list {
+                width: 300px !important;
+            }
+
+            #cmbOperator-list {
+                width: 300px !important;
+            }
+
+            #cmbCaptain-list {
+                width: 300px !important;
+            }
+
+            #cmbSupplier-list {
+                width: 300px !important;
+            }
+
+            #cmbYarn-list {
+                width: 300px !important;
+            }
+
+            .k-grid td {
+                line-height: 1em !important;
+                padding: 0.1em !important;
+            }
+
+            #wpdProductionForm .control-label {
+                /*font-size:11px !important;*/
+            }
+        </style>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="bs-example">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="well well-sm" data-toggle="collapse" data-target="#wProductionMaster" style="cursor:pointer;border-color:#286090;">Daily Weaving Production Entry Form</div>
+                            <div class="bs-example" style="background-color: #99ccff;margin-bottom:5px !important;">
+                                <div class="row collapse in" id="wProductionMaster">
+                                    <div class="col-md-3">
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmDate">Date:</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wMasterID" type="hidden" />
+                                                    <input id="wpmDate" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmFloor">Floor</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmFloor" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmUnit">Unit</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmUnit" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmShift">Shift</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmShift" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmCaptain">Captain</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmCaptain" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmPO">PO</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmPO" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmFitterCaptain">Fitter Cap</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmFitterCaptain" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 col-xs-5 control-label" for="wpmIDNo">ID No</label>
+                                                <div class="col-md-7 col-xs-7">
+                                                    <input id="wpmIDNo" style="width: 100%; height: 22px;" class="k-input k-textbox" readonly="readonly" validationmessage="Required" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div id="tabstrip">
+                                <ul>
+                                    <li class="k-state-active">
+                                        Production
+                                    </li>
+                                    <li>
+                                        Fitter
+                                    </li>
+                                    <li>
+                                        Lineman
+                                    </li>
+                                </ul>
+                                <div>
+                                    <span>&nbsp;</span>
+                                    <div id="wpdProductionForm" class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfLoomName">Loom Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wProductionID" type="hidden" />
+                                                        <input id="wpdpfLoomName" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOperatorName">Operator</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfOperatorName" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfLinemanName">Lineman</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfLinemanName" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfSetNo">Set No</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfSetNo" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfSSNo">SS No</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfSSNo" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfBeamNo">Beam No</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfBeamNo" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfStyleNo">Style No</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfStyleNo" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfWarpStop">Warp Stop</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfWarpStop" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfWarpCmpx">Warp Cmpx</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfWarpCmpx" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfWeftStop">Weft Stop</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfWeftStop" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfWeftCmpx">Weft Cmpx</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfWeftCmpx" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOtherStop">Other Stop</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfOtherStop" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfRPM">RPM</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfRPM" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfRunTime">Run Time</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfRunTime" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfTotalProduction">Total Prod.(Yds)</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfTotalProduction" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfTotalPicks">Total Picks</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfTotalPicks" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfActualPicks">Actual Picks</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfActualPicks" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfPicksDiff">Picks Diff.</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfPicksDiff" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfMCEfficiency">M/C Eff.</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfMCEfficiency" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfGaraYarn">Gara Yarn</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfGaraYarn" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfFitterName">Fitter Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfFitterName" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfRuntimeMM">Runtime(mm)</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfRuntimeMM" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfUnitName">Unit Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfUnitName" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfRemarks">Remarks</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpdpfRemarks" class="k-input k-textbox" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <ul class="list-group" style="margin-bottom:0;margin-top: 5px;">
+                                                <li class="list-group-item rightAlign" style="border:none;padding-right:0px!important;">
+                                                    <button style="width:79px;" id="wpdpfSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                                                    <button style="width:79px;" id="wpdpfClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> Clear</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="panel-body">
+                                                <div class="spacer5"></div>
+                                                <div id="wpdProductionGrid">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>&nbsp;</span>
+                                    <div id="divWeavingProdDetailsPartial" class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOperator">Loom Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wFitterID" type="hidden" />
+                                                        <input id="wpfLoom" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOperator">Fitter Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpfLoom" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-3">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="panel-body">
+                                                <div class="spacer5"></div>
+                                                <div id="grdWeavingProdDetailsSummary">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span>&nbsp;</span>
+                                    <div id="divWeavingProdDetailsPartial" class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOperator">Loom Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wLinemanID" type="hidden" />
+                                                        <input id="wpfLoom" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-5 col-xs-5 control-label" for="wpdpfOperator">Lineman Name</label>
+                                                    <div class="col-md-7 col-xs-7">
+                                                        <input id="wpfLoom" style="width: 100%; height: 22px;" validationmessage="Required" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="panel-body">
+                                                <div class="spacer5"></div>
+                                                <div id="grdWeavingProdDetailsSummary">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xs-12">
+                            <div class="row">
+                                <div class="spacer5"></div>
+                                <div class="spacer5"></div>
+                                <div class="col-md-12 col-xs-12">
+                                    <ul class="list-group" style="margin-bottom:0;">
+                                        <li class="list-group-item centerAlign" style="border:none;">
+                                            <button id="wdSave" class="btn btn-success" type="button"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                                            <button id="wdClear" class="btn btn-info" type="button"><span class="glyphicon glyphicon-repeat"></span> New</button>
+                                            <button id="wdClose" class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove"></span> Close</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/HDL/WeavingProduction/WeavingProduction.js")

@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HDLERPDBModelStoreContainer" CdmEntityContainer="HDLERPDbContext">
+    <FunctionImportMapping FunctionImportName="spGetKnotting" FunctionName="HDLERPDBModel.Store.spGetKnotting" />
+    <EntitySetMapping Name="TblBeamFinishes">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblBeamFinish">
+        <MappingFragment StoreEntitySet="TblBeamFinish">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UCode" ColumnName="UCode" />
+          <ScalarProperty Name="BDate" ColumnName="BDate" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblBeamFinishDetails">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblBeamFinishDetail">
+        <MappingFragment StoreEntitySet="TblBeamFinishDetails">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="BeamNo" ColumnName="BeamNo" />
+          <ScalarProperty Name="SS" ColumnName="SS" />
+          <ScalarProperty Name="SetNo" ColumnName="SetNo" />
+          <ScalarProperty Name="Loom" ColumnName="Loom" />
+          <ScalarProperty Name="BID" ColumnName="BID" />
+          <ScalarProperty Name="BIID" ColumnName="BIID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblTypes">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblType">
+        <MappingFragment StoreEntitySet="TblType">
+          <ScalarProperty Name="WvGName" ColumnName="WvGName" />
+          <ScalarProperty Name="WvGCode" ColumnName="WvGCode" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="GCode" ColumnName="GCode" />
+          <ScalarProperty Name="Dept" ColumnName="Dept" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TCode" ColumnName="TCode" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblStock11">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblStock11">
+        <MappingFragment StoreEntitySet="TblStock11">
+          <ScalarProperty Name="InsFloorName" ColumnName="InsFloorName" />
+          <ScalarProperty Name="InsFloorCode" ColumnName="InsFloorCode" />
+          <ScalarProperty Name="EDate" ColumnName="EDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Gramending" ColumnName="Gramending" />
+          <ScalarProperty Name="CProd" ColumnName="CProd" />
+          <ScalarProperty Name="TotalProd" ColumnName="TotalProd" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UCode" ColumnName="UCode" />
+          <ScalarProperty Name="DName" ColumnName="DName" />
+          <ScalarProperty Name="DCode" ColumnName="DCode" />
+          <ScalarProperty Name="DID" ColumnName="DID" />
+          <ScalarProperty Name="Ref" ColumnName="Ref" />
+          <ScalarProperty Name="SDate" ColumnName="SDate" />
+          <ScalarProperty Name="TracDate" ColumnName="TracDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblStock21">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblStock21">
+        <MappingFragment StoreEntitySet="TblStock21">
+          <ScalarProperty Name="FinishMCCode" ColumnName="FinishMCCode" />
+          <ScalarProperty Name="FinishMCName" ColumnName="FinishMCName" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UCode" ColumnName="UCode" />
+          <ScalarProperty Name="PCode" ColumnName="PCode" />
+          <ScalarProperty Name="PType" ColumnName="PType" />
+          <ScalarProperty Name="EDate" ColumnName="EDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FType" ColumnName="FType" />
+          <ScalarProperty Name="FCode" ColumnName="FCode" />
+          <ScalarProperty Name="TotalProd" ColumnName="TotalProd" />
+          <ScalarProperty Name="ProdG" ColumnName="ProdG" />
+          <ScalarProperty Name="Wastage" ColumnName="Wastage" />
+          <ScalarProperty Name="CutPieece" ColumnName="CutPieece" />
+          <ScalarProperty Name="ProdC" ColumnName="ProdC" />
+          <ScalarProperty Name="ProdB" ColumnName="ProdB" />
+          <ScalarProperty Name="Beam" ColumnName="Beam" />
+          <ScalarProperty Name="Loom" ColumnName="Loom" />
+          <ScalarProperty Name="SS" ColumnName="SS" />
+          <ScalarProperty Name="SetNo" ColumnName="SetNo" />
+          <ScalarProperty Name="TotalPoint" ColumnName="TotalPoint" />
+          <ScalarProperty Name="TotalRoll" ColumnName="TotalRoll" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="CCode" ColumnName="CCode" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FabReturn" ColumnName="FabReturn" />
+          <ScalarProperty Name="Prod" ColumnName="Prod" />
+          <ScalarProperty Name="FabQuality" ColumnName="FabQuality" />
+          <ScalarProperty Name="QCode" ColumnName="QCode" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Colour" ColumnName="Colour" />
+          <ScalarProperty Name="Weave" ColumnName="Weave" />
+          <ScalarProperty Name="Constraction" ColumnName="Constraction" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="StyleNo" ColumnName="StyleNo" />
+          <ScalarProperty Name="StyleCode" ColumnName="StyleCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DID" ColumnName="DID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblStock22">
+      <EntityTypeMapping TypeName="HDLERPDBModel.TblStock22">
+        <MappingFragment StoreEntitySet="TblStock22">
+          <ScalarProperty Name="EDate" ColumnName="EDate" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="STimeHr" ColumnName="STimeHr" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="ShiftCode" ColumnName="ShiftCode" />
+          <ScalarProperty Name="GreyMending" ColumnName="GreyMending" />
+          <ScalarProperty Name="CutPeace" ColumnName="CutPeace" />
+          <ScalarProperty Name="CP" ColumnName="CP" />
+          <ScalarProperty Name="Hold" ColumnName="Hold" />
+          <ScalarProperty Name="QCCheque" ColumnName="QCCheque" />
+          <ScalarProperty Name="Sample" ColumnName="Sample" />
+          <ScalarProperty Name="ReInspection" ColumnName="ReInspection" />
+          <ScalarProperty Name="ReFinish" ColumnName="ReFinish" />
+          <ScalarProperty Name="AcProd" ColumnName="AcProd" />
+          <ScalarProperty Name="Desig" ColumnName="Desig" />
+          <ScalarProperty Name="CapCode" ColumnName="CapCode" />
+          <ScalarProperty Name="CapName" ColumnName="CapName" />
+          <ScalarProperty Name="OName" ColumnName="OName" />
+          <ScalarProperty Name="OCode" ColumnName="OCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DID" ColumnName="DID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

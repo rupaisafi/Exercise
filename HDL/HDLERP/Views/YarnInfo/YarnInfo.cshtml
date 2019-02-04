@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Yarn Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/Scripts/HDL/YarnInfo/YarnInfo.js")
+
+<div class="row">
+    <div id="divYarnInfoDetails" class="col-lg-6">
+        @Html.Partial("YarnInfoDetails")
+    </div>
+    <div id="divYarnSummary" class="col-lg-6">
+        @Html.Partial("YarnInfoSummary")
+    </div>
+</div>
